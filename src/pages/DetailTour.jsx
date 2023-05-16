@@ -1,5 +1,11 @@
+import DetailTourDescription from '../components/DetailPage/DetailTourDescription';
+
 function DetailTour() {
-  return <div>DetailTour</div>;
+  return (
+    <div>
+      <DetailTourDescription />
+    </div>
+  );
 }
 
 export default DetailTour;
