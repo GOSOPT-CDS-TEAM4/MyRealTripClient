@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+@font-face {
+	font-family: "SF Pro";
+	src: url("/assets/font/SF-Pro.ttf");
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,7 +22,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: "SF Pro";
 	vertical-align: baseline;
     cursor: pointer;
 }
@@ -45,46 +49,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-@font-face {
-	font-family: "San Francisco";
-	font-weight: 100;
-	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
-  }
-  
-  /** Thin */
-  @font-face {
-	font-family: "San Francisco";
-	font-weight: 200;
-	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
-  }
-  
-  /** Regular */
-  @font-face {
-	font-family: "San Francisco";
-	font-weight: 400;
-	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-  }
-  
-  /** Medium */
-  @font-face {
-	font-family: "San Francisco";
-	font-weight: 500;
-	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
-  }
-  
-  /** Semi Bold */
-  @font-face {
-	font-family: "San Francisco";
-	font-weight: 600;
-	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
-  }
-  
-  /** Bold */ 
-  @font-face {
-	font-family: "San Francisco";
-	font-weight: 700;
-	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
-  }
 
 `;
 
