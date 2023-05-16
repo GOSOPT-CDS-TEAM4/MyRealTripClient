@@ -9,6 +9,5 @@ export default Text;
 const St = {
   Text: styled.span`
     position: absolute;
-    font-family: 'SF Pro';
   `,
 };
