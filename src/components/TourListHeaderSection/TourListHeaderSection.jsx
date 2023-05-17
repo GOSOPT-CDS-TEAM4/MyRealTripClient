@@ -35,13 +35,14 @@ const St = {
     margin: 14px 15px;
   `,
   FilterBtn: styled.button`
-    border-color: #dee2e6; //이거 테마 바꿔달라고 하고
-    border-width: 1px;
-    ${({ theme }) => theme.Color.white};
-    ${({ theme }) => theme.Text.Body.body_medium_14};
-    padding: 10px 18px;
     margin: 0px 6px;
-    border-radius: 20px;
     outline: 0px;
+    border-width: 1px;
+    border-radius: 20px;
+
+    border-color: #dee2e6; //이거 테마 바꿔달라고 하고
+    ${({ theme }) => theme.Color.white}
+    padding: 10px 18px;
+    ${({ theme }) => theme.Text.Body.body_medium_14};
   `,
 };
