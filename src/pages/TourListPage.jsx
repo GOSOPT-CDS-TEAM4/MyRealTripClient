@@ -18,7 +18,6 @@ export default TourListPage;
 
 const St = {
   PageWrapper: styled.section`
-    width: 385px;
     height: 100%;
     margin: 0 auto;
     padding: 15px 15px;
