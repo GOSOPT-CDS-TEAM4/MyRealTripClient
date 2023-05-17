@@ -2,12 +2,16 @@ import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';
 
-const Text = ({ type, innerText }) => <St.Text style={theme.Text[type]}>{innerText}</St.Text>;
+const Text = ({ type, innerText, style }) => (
+  <St.TextWrapper type={theme.Text[type]} style={style}>
+    {innerText}
+  </St.TextWrapper>
+);
 
 export default Text;
 
 const St = {
-  Text: styled.span`
-    position: absolute;
+  TextWrapper: styled.span`
+    ${({ type }) => type}
   `,
 };
