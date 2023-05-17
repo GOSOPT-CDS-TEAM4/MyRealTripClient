@@ -32,9 +32,11 @@ const St = {
   `,
   Title: styled.h1`
     ${({ theme }) => theme.Text.title_bold_24};
-    margin: 17px 0px;
+    margin: 14px 17px;
   `,
   BtnFilterWrapper: styled.div`
+    margin: 0px 15px;
+    display: flex;
     width: 100%;
     display: flex;
   `,
