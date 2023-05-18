@@ -1,16 +1,20 @@
 import { styled } from 'styled-components';
 
-import TourListHeaderSection from '../components/TourListHeaderSection/TourListHeaderSection';
-import TourListItemSection from '../components/TourListItemSection';
-import TourListSortNav from '../components/TourListSortNav';
+import BottomSheet from '../components/TourList/BottomSheet/BottomSheet';
+import TourListHeaderSection from '../components/TourList/TourListHeaderSection/TourListHeaderSection';
+import TourListItemSection from '../components/TourList/TourListItemSection/TourListItemSection';
+import TourListSortNav from '../components/TourList/TourListSortNav/TourListSortNav';
 
 function TourListPage() {
   return (
-    <St.PageWrapper>
-      <TourListHeaderSection />
-      <TourListSortNav />
-      <TourListItemSection />
-    </St.PageWrapper>
+    <>
+      <St.PageWrapper>
+        <TourListHeaderSection />
+        <TourListSortNav />
+        <TourListItemSection />
+      </St.PageWrapper>
+      <BottomSheet />
+    </>
   );
 }
 
