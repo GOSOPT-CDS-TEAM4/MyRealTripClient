@@ -1,10 +1,10 @@
 //이용 후기
 import { styled } from 'styled-components';
 
+import Button from '../../common/Button';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
-import Button from '../../layout/molecule/button';
 
 function DetailTourReview() {
   return (
