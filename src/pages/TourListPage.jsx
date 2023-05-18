@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-// import BottomSheet from '../components/BottomSheet/BottomSheet';
-import TourListHeaderSection from '../components/TourListHeaderSection/TourListHeaderSection';
-import TourListItemSection from '../components/TourListItemSection';
-import TourListSortNav from '../components/TourListSortNav';
+import BottomSheet from '../components/TourList/BottomSheet/BottomSheet';
+import TourListHeaderSection from '../components/TourList/TourListHeaderSection/TourListHeaderSection';
+import TourListItemSection from '../components/TourList/TourListItemSection/TourListItemSection';
+import TourListSortNav from '../components/TourList/TourListSortNav/TourListSortNav';
 
 function TourListPage() {
   return (
@@ -21,7 +21,7 @@ function TourListPage() {
 export default TourListPage;
 
 const St = {
-  PageWrapper: styled.section`
+  PageWrapper: styled.section`~
     height: 100%;
     margin: 0 auto;
     padding: 15px 15px;

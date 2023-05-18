@@ -4,9 +4,6 @@ import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
-// eslint-disable-next-line import/order
-import BsPrice from './BsPrice';
-import BsSelectCalendar from './BsSelectCalendar';
 
 function BottomSheet() {
   return (
@@ -37,7 +34,7 @@ function BottomSheet() {
           />
         </Flex>
         {/* 내용자리 */}
-        <BsSelectCalendar />
+        {/* <BsSelectCalendar /> */}
         <St.BottomSheetFooter>
           <button className="refresh">
             <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
