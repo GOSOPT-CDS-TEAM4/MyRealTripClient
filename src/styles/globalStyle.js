@@ -24,7 +24,6 @@ time, mark, audio, video {
 	font-size: 100%;
 	font-family: "SF Pro";
 	vertical-align: baseline;
-    cursor: pointer;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -48,6 +47,15 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+button {
+    cursor: pointer;
+	all: unset;
+}
+
+select {
+	appearance: none;
 }
 
 `;
