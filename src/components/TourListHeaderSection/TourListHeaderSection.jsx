@@ -37,8 +37,8 @@ const St = {
   BtnFilterWrapper: styled.div`
     margin: 0px 15px;
     display: flex;
+    justify-content: start;
     width: 100%;
-    display: flex;
   `,
   FilterBtn: styled.button`
     all: unset;
