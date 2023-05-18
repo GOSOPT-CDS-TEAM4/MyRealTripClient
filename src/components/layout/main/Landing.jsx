@@ -15,14 +15,14 @@ function Landing() {
       </St.InputWrapper>
       <St.TrendPlaceWrapper>
         <Text type="title_medium_20" innerText="요즘 인기 있는 여행지" />
-        <Flex alignItems="center" justifyContent="space-evenly" style={{ marginTop: '27px', gap: '15px' }}>
+        <Flex alignitems="center" justifycontent="space-evenly" style={{ marginTop: '27px', gap: '15px' }}>
           <Img type="landing_paris" />
           <Img type="landing_jeju" />
           <Img type="landing_bangkok" />
         </Flex>
       </St.TrendPlaceWrapper>
       <St.MainButtonWrapper>
-        <Flex style={{ gap: '20px' }} justifyContent="center">
+        <Flex style={{ gap: '20px' }} justifycontent="center">
           <article>
             <Icon type="img_ticket" />
             <Text type="detail_medium_12" innerText="항공권" />
@@ -39,7 +39,7 @@ function Landing() {
       </St.MainButtonWrapper>
       <St.MainSectionWrapper>
         <St.MainSectionIconWrapper>
-          <Flex justifyContent="flex-start" alignItems="center" style={{ gap: '15px' }}>
+          <Flex justifycontent="flex-start" alignitems="center" style={{ gap: '15px' }}>
             <Icon type="hotel" />
             <Icon type="insurance" />
             <Icon type="kids" />
@@ -53,7 +53,7 @@ function Landing() {
           <Img type="img_bangkokhotel" />
           <Text type="detail_regular_12" innerText="환상적인 인피니티 풀과 스파 즐기기" />
           <Text type="body_bold_16" innerText="방콕 럭셔리 호텔 최대 50% 할인" />
-          <Flex justifyContent="center" style={{ gap: '6px', marginTop: '15px' }}>
+          <Flex justifycontent="center" style={{ gap: '6px', marginTop: '15px' }}>
             <St.GrayEllipse />
             <St.GrayEllipse />
             <St.GrayEllipse />
@@ -65,16 +65,16 @@ function Landing() {
           </Flex>
         </St.MainCarouselWrapper>
         <St.GoodsSectionWrapper>
-          <Flex justifyContent="space-between" alignItems="center">
+          <Flex justifycontent="space-between" alignitems="center">
             <Text type="title_bold_18" innerText="실시간 베스트 상품" />
-            <Flex alignItems="center" style={{ width: 'auto' }}>
+            <Flex alignitems="center" style={{ width: 'auto' }}>
               <Text type="body_bold_14" innerText="더보기" style={{ color: theme.Color.blue1 }} />
               <Icon type="arrow_right_blue" />
             </Flex>
           </Flex>
           <Flex style={{ gap: '10px' }}>
             <St.IndivGoodsWrapper>
-              <Flex column alignItems="start">
+              <Flex column alignitems="start">
                 <Img type="img_sono" />
                 <Icon type="heart_fill" />
                 <Text
@@ -83,7 +83,7 @@ function Landing() {
                   style={{ marginTop: '9px', color: theme.Color.gray4 }}
                 />
                 <Text type="body_bold_14" innerText="소노 델피노 숙박권" />
-                <Flex alignItems="center" style={{ marginTop: '14.5px' }}>
+                <Flex alignitems="center" style={{ marginTop: '14.5px' }}>
                   <Text type="body_bold_14" innerText="224,000원" />
                   <Text
                     type="detail_regular_12"
@@ -94,7 +94,7 @@ function Landing() {
               </Flex>
             </St.IndivGoodsWrapper>
             <St.IndivGoodsWrapper>
-              <Flex column alignItems="start">
+              <Flex column alignitems="start">
                 <Img type="img_sono" />
                 <Icon type="heart_fill" />
                 <Text
@@ -103,7 +103,7 @@ function Landing() {
                   style={{ marginTop: '9px', color: theme.Color.gray4 }}
                 />
                 <Text type="body_bold_14" innerText="소노 델피노 숙박권" />
-                <Flex alignItems="center" style={{ marginTop: '14.5px' }}>
+                <Flex alignitems="center" style={{ marginTop: '14.5px' }}>
                   <Text type="body_bold_14" innerText="224,000원" />
                   <Text
                     type="detail_regular_12"
@@ -114,7 +114,7 @@ function Landing() {
               </Flex>
             </St.IndivGoodsWrapper>
             <St.IndivGoodsWrapper>
-              <Flex column alignItems="start">
+              <Flex column alignitems="start">
                 <Img type="img_sono" />
                 <Icon type="heart_fill" />
                 <Text
@@ -123,7 +123,7 @@ function Landing() {
                   style={{ marginTop: '9px', color: theme.Color.gray4 }}
                 />
                 <Text type="body_bold_14" innerText="소노 델피노 숙박권" />
-                <Flex alignItems="center" style={{ marginTop: '14.5px' }}>
+                <Flex alignitems="center" style={{ marginTop: '14.5px' }}>
                   <Text type="body_bold_14" innerText="224,000원" />
                   <Text
                     type="detail_regular_12"
@@ -136,16 +136,16 @@ function Landing() {
           </Flex>
         </St.GoodsSectionWrapper>
         <St.GoodsSectionWrapper>
-          <Flex justifyContent="space-between" alignItems="center">
+          <Flex justifycontent="space-between" alignitems="center">
             <Text type="title_bold_18" innerText="파리 관심 급상승 상품" />
-            <Flex alignItems="center" style={{ width: 'auto' }}>
+            <Flex alignitems="center" style={{ width: 'auto' }}>
               <Text type="body_bold_14" innerText="더보기" style={{ color: theme.Color.blue1 }} />
               <Icon type="arrow_right_blue" />
             </Flex>
           </Flex>
           <Flex style={{ gap: '10px' }}>
             <St.IndivGoodsWrapper>
-              <Flex column alignItems="start">
+              <Flex column alignitems="start">
                 <Img type="img_sono" />
                 <Icon type="heart_fill" />
                 <Text
@@ -154,7 +154,7 @@ function Landing() {
                   style={{ marginTop: '9px', color: theme.Color.gray4 }}
                 />
                 <Text type="body_bold_14" innerText="소노 델피노 숙박권" />
-                <Flex alignItems="center" style={{ marginTop: '14.5px' }}>
+                <Flex alignitems="center" style={{ marginTop: '14.5px' }}>
                   <Text type="body_bold_14" innerText="224,000원" />
                   <Text
                     type="detail_regular_12"
@@ -165,7 +165,7 @@ function Landing() {
               </Flex>
             </St.IndivGoodsWrapper>
             <St.IndivGoodsWrapper>
-              <Flex column alignItems="start">
+              <Flex column alignitems="start">
                 <Img type="img_sono" />
                 <Icon type="heart_fill" />
                 <Text
@@ -174,7 +174,7 @@ function Landing() {
                   style={{ marginTop: '9px', color: theme.Color.gray4 }}
                 />
                 <Text type="body_bold_14" innerText="소노 델피노 숙박권" />
-                <Flex alignItems="center" style={{ marginTop: '14.5px' }}>
+                <Flex alignitems="center" style={{ marginTop: '14.5px' }}>
                   <Text type="body_bold_14" innerText="224,000원" />
                   <Text
                     type="detail_regular_12"
@@ -185,7 +185,7 @@ function Landing() {
               </Flex>
             </St.IndivGoodsWrapper>
             <St.IndivGoodsWrapper>
-              <Flex column alignItems="start">
+              <Flex column alignitems="start">
                 <Img type="img_sono" />
                 <Icon type="heart_fill" />
                 <Text
@@ -194,7 +194,7 @@ function Landing() {
                   style={{ marginTop: '9px', color: theme.Color.gray4 }}
                 />
                 <Text type="body_bold_14" innerText="소노 델피노 숙박권" />
-                <Flex alignItems="center" style={{ marginTop: '14.5px' }}>
+                <Flex alignitems="center" style={{ marginTop: '14.5px' }}>
                   <Text type="body_bold_14" innerText="224,000원" />
                   <Text
                     type="detail_regular_12"

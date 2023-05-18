@@ -6,7 +6,7 @@ import Icon from '../atom/Icon';
 function Header({ headerType }) {
   return (
     <St.HeaderWrapper>
-      <Flex alignItems="center" justifyContent="space-between" style={{ padding: '15px' }}>
+      <Flex alignitems="center" justifycontent="space-between" style={{ padding: '15px' }}>
         {headerType === 'white' ? (
           <>
             <Icon type="menu_white" />
