@@ -23,7 +23,7 @@ function DetailTourTripInfo() {
       <St.InfoDetailTitle>불포함 사항</St.InfoDetailTitle>
       <St.InfoDetail>- 박물관 입장권</St.InfoDetail>
 
-      <DivideLine margin="30px 0" />
+      <DivideLine margintop="30px" marginbottom="30px" />
     </Flex>
   );
 }

@@ -1,13 +1,13 @@
 //Notice 밑의 Q&A
 import { styled } from 'styled-components';
 
+import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
-import Icon from '../../layout/atom/Icon';
 import Button from '../../layout/molecule/button';
 
 function DetailTourDescription() {
   return (
-    <Flex column>
+    <Flex column style={{ marginLeft: '15px' }}>
       <St.DescriptionTitle>
         경력 10년 이상의 베테랑 프랑스 정부 공인 가이드가 명작의 세계로 여러분을 안내해 드립니다. {'<'}후기 2377개 전체
         평점 4.9점{'>'} 루브르 투어는 쇼콜라트래블에서!
@@ -28,7 +28,7 @@ function DetailTourDescription() {
         Q. 예약했습니다. 아직 확정 대기 중으로 뜨는데 투어는 언제 확
       </St.DescriptionWrapper>
       <Button>상품 설명 더보기</Button>
-      <Icon style={{ marginTop: '13px' }} type="line" />
+      <DivideLine margintop="24px" />
     </Flex>
   );
 }
@@ -48,7 +48,14 @@ const St = {
     width: 345px;
     height: 375px;
 
+    margin-bottom: 10px;
+
     ${({ theme }) => theme.Text.body_regular_14};
+
+    background: linear-gradient(180deg, black, rgba(0, 0, 0, 0.8) 26.79%, rgba(0, 0, 0, 0) 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
   `,
 
   Division: styled.div`
