@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import Flex from '../../atom/Flex';
-import Img from '../../atom/Img';
-import Text from '../../atom/Text';
+import Flex from '../layout/atom/Flex';
+import Img from '../layout/atom/Img';
+import Text from '../layout/atom/Text';
 
 function Carousel() {
   return (

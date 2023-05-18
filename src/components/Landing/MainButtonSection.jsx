@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import Flex from '../../atom/Flex';
-import Icon from '../../atom/Icon';
-import Text from '../../atom/Text';
+import Flex from '../layout/atom/Flex';
+import Icon from '../layout/atom/Icon';
+import Text from '../layout/atom/Text';
 
 function MainButtonSection() {
   return (
