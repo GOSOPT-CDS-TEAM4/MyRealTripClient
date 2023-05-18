@@ -34,6 +34,7 @@ const St = {
     margin: 36px 8px;
   `,
   ItemImgWrapper: styled.div`
+    position: relative;
     > span {
       position: absolute;
       margin: 8px;
@@ -49,6 +50,8 @@ const St = {
     }
     .heartBtn {
       position: absolute;
+      right: 9px;
+      top: 11px;
     }
   `,
   ItemRating: styled.div`
