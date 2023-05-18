@@ -19,11 +19,12 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
-	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font-family: "SF Pro";
+	padding: 0;
 	vertical-align: baseline;
+	/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+	font-family: "SF Pro";
+	font-size: 100%;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -50,8 +51,8 @@ table {
 }
 
 button {
-    cursor: pointer;
 	all: unset;
+    cursor: pointer;
 }
 
 select {
