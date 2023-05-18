@@ -45,6 +45,7 @@ const St = {
     }
     .CardImg {
       width: 170px;
+      height: 170px;
       object-fit: cover;
       border-radius: 10px;
     }
