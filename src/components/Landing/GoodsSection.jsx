@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
-import { theme } from '../../../../styles/theme';
-import Flex from '../../atom/Flex';
-import Icon from '../../atom/Icon';
-import Img from '../../atom/Img';
-import Text from '../../atom/Text';
+import { theme } from '../../styles/theme';
+import Flex from '../layout/atom/Flex';
+import Icon from '../layout/atom/Icon';
+import Img from '../layout/atom/Img';
+import Text from '../layout/atom/Text';
 
 function GoodsSection() {
   return (
