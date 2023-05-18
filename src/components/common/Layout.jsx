@@ -19,9 +19,9 @@ const St = {
     top: 0;
     left: 50%;
     transform: translate(-50%);
-    background: ${({ theme }) => theme.Color.blue2};
+    /* background: ${({ theme }) => theme.Color.blue2}; */
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
 
     overflow-y: scroll;
   `,
