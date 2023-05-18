@@ -9,7 +9,7 @@ import Text from '../layout/atom/Text';
 function TourListCardSquare() {
   return (
     <>
-      <Flex column style={{ margin: '36px 8px' }}>
+      <Flex column="column" style={{ margin: '36px 8px' }}>
         <St.ItemImgWrapper>
           <Text
             type="detail_medium_12"
