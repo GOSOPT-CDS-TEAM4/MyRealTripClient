@@ -13,7 +13,7 @@ function TourListPage() {
         <TourListSortNav />
         <TourListItemSection />
       </St.PageWrapper>
-      {/* <BottomSheet /> */}
+      <BottomSheet />
     </>
   );
 }

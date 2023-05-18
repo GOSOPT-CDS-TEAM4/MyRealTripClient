@@ -23,13 +23,17 @@ function TourListHeaderSection() {
             width: '100%',
           }}>
           <St.FilterBtn>
-            {' '}
-            <Text type="body_bold_14" innerText="일정" style={{ color: `$theme.Color.black` }} />
-            일정{' '}
+            <Text type="body_bold_14" innerText="일정" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
-          <St.FilterBtn> 가격 </St.FilterBtn>
-          <St.FilterBtn> 투어 형태 </St.FilterBtn>
-          <St.FilterBtn> 여행지 </St.FilterBtn>
+          <St.FilterBtn>
+            <Text type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
+          </St.FilterBtn>
+          <St.FilterBtn>
+            <Text type="body_bold_14" innerText="투어 형태" style={{ color: theme.Color.black }} />
+          </St.FilterBtn>
+          <St.FilterBtn>
+            <Text type="body_bold_14" innerText="여행지" style={{ color: theme.Color.black }} />
+          </St.FilterBtn>
           <St.FilterBtn>
             <Icon type="tune" />
           </St.FilterBtn>
