@@ -1,16 +1,20 @@
 import { styled } from 'styled-components';
 
+// import BottomSheet from '../components/BottomSheet/BottomSheet';
 import TourListHeaderSection from '../components/TourListHeaderSection/TourListHeaderSection';
 import TourListItemSection from '../components/TourListItemSection';
 import TourListSortNav from '../components/TourListSortNav';
 
 function TourListPage() {
   return (
-    <St.PageWrapper>
-      <TourListHeaderSection />
-      <TourListSortNav />
-      <TourListItemSection />
-    </St.PageWrapper>
+    <>
+      <St.PageWrapper>
+        <TourListHeaderSection />
+        <TourListSortNav />
+        <TourListItemSection />
+      </St.PageWrapper>
+      {/* <BottomSheet /> */}
+    </>
   );
 }
 

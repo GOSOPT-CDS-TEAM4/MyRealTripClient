@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-function Flex({ children, column, justifycontent, alignitems, style }) {
+function Flex({ children, column, justify_content, align_items, style }) {
   return (
-    <St.FlexWrapper column={column} justifycontent={justifycontent} alignitems={alignitems} style={style}>
+    <St.FlexWrapper column={column} justify_content={justify_content} align_items={align_items} style={style}>
       {children}
     </St.FlexWrapper>
   );
@@ -14,8 +14,7 @@ const St = {
   FlexWrapper: styled.div`
     display: flex;
     flex-direction: ${({ column }) => (column ? 'column' : 'row')};
-    align-items: ${({ alignitems }) => alignitems || 'flex-start'};
-    justify-content: ${({ justifycontent }) => justifycontent || 'flex-start'};
-    width: 100%;
+    justify-content: ${({ justify_content }) => justify_content || 'flex-start'};
+    align-items: ${({ align_items }) => align_items || 'flex-start'};
   `,
 };
