@@ -1,9 +1,9 @@
 //Notice 밑의 Q&A
 import { styled } from 'styled-components';
 
+import Button from '../../common/Button';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
-import Button from '../../layout/molecule/button';
 
 function DetailTourDescription() {
   return (

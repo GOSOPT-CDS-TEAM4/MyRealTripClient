@@ -1,8 +1,8 @@
 //코스 소개 밑의 이용 안내
 import { styled } from 'styled-components';
 
+import Button from '../../common/Button';
 import Flex from '../../layout/atom/Flex';
-import Button from '../../layout/molecule/button';
 
 function DetailTourGuide() {
   return (
