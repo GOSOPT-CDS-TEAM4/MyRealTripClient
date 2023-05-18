@@ -21,7 +21,7 @@ function TourListPage() {
 export default TourListPage;
 
 const St = {
-  PageWrapper: styled.section`~
+  PageWrapper: styled.section`
     height: 100%;
     margin: 0 auto;
     padding: 15px 15px;
