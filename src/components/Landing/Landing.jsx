@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
-import Icon from '../atom/Icon';
-import Carousel from '../molecule/Landing/Carousel';
-import GoodsSection from '../molecule/Landing/GoodsSection';
-import MainButtonSection from '../molecule/Landing/MainButtonSection';
-import IconSection from '../molecule/Landing/MainIconSection';
-import TrendPlaceSection from '../molecule/Landing/TrendPlaceSection';
+import Carousel from '../Landing/Carousel';
+import GoodsSection from '../Landing/GoodsSection';
+import MainButtonSection from '../Landing/MainButtonSection';
+import IconSection from '../Landing/MainIconSection';
+import TrendPlaceSection from '../Landing/TrendPlaceSection';
+import Icon from '../layout/atom/Icon';
 
 function Landing() {
   return (
