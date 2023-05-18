@@ -14,7 +14,7 @@ const St = {
   FlexWrapper: styled.div`
     display: flex;
     flex-direction: ${({ column }) => (column ? 'column' : 'row')};
-    justify-content: ${({ justify_content }) => justify_content || 'flex-start'};
     align-items: ${({ align_items }) => align_items || 'flex-start'};
+    justify-content: ${({ justify_content }) => justify_content || 'flex-start'};
   `,
 };
