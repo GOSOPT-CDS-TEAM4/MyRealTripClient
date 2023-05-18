@@ -1,29 +1,35 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
+import Flex from '../../layout/atom/Flex';
+import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
 
 function TourListItemSection() {
   return (
     <>
-      <St.ItemWrapper>
+      <Flex
+        justify_content="center"
+        style={{
+          flexWrap: 'wrap',
+        }}>
         <TourListCardSquare />
         <TourListCardSquare />
         <TourListCardSquare />
         <TourListCardSquare />
         <TourListCardSquare />
         <TourListCardSquare />
-      </St.ItemWrapper>
+      </Flex>
 
-      <St.PaginationWrapper>
-        <img src="assets/icon/arrow_left_gray.png" alt="" />
+      <Flex justify_content="space-around" align_items="center" style={{ marginBottom: '80px' }}>
+        <Icon type="arrow_left_gray" />
         <St.PaginationBtn>1</St.PaginationBtn>
         <St.PaginationBtn>2</St.PaginationBtn>
         <St.PaginationBtn>3</St.PaginationBtn>
         <St.PaginationBtn>4</St.PaginationBtn>
         <St.PaginationBtn>5</St.PaginationBtn>
-        <img src="assets/icon/arrow_right_blue.png" alt="" />
-      </St.PaginationWrapper>
+        <Icon type="arrow_right_blue" />
+      </Flex>
       <St.HorizonLine />
     </>
   );
@@ -32,23 +38,7 @@ function TourListItemSection() {
 export default TourListItemSection;
 
 const St = {
-  ItemWrapper: styled.div`
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  `,
-  PaginationWrapper: styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 80px;
-    > img {
-      width: 5px;
-      height: 10px;
-    }
-  `,
   PaginationBtn: styled.button`
-    /* padding-bottom: 40px; */
     padding-right: 40px;
     all: unset;
     ${({ theme }) => theme.Text.body_medium_14};

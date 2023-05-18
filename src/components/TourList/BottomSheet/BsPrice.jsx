@@ -15,6 +15,8 @@ function BsPrice() {
       {/* <input type="range" min="1" max="100" value="50"></input> */}
       <div className="slider_box">
         <Slider
+          min={1000}
+          max={388215000}
           getAriaLabel={() => 'Temperature range'}
           value={value}
           onChange={handleChange}

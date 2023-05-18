@@ -1,22 +1,40 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
+import { theme } from '../../../styles/theme';
+import Flex from '../../layout/atom/Flex';
+import Icon from '../../layout/atom/Icon';
+import Text from '../../layout/atom/Text';
+
 function TourListHeaderSection() {
   return (
     <>
-      <St.HeaderWrapper>
-        <St.Title> 파리의 투어 </St.Title>
-        <St.BtnFilterWrapper>
-          <St.FilterBtn> 일정 </St.FilterBtn>
+      <Flex
+        style={{
+          width: '100%',
+          flexDirection: 'column',
+        }}>
+        <Text type="title_bold_24" innerText="파리의 투어" style={{ margin: '14px 17px' }} />
+
+        <Flex
+          justify_content="start"
+          style={{
+            margin: '0px 15px',
+            width: '100%',
+          }}>
+          <St.FilterBtn>
+            {' '}
+            <Text type="body_bold_14" innerText="일정" style={{ color: `$theme.Color.black` }} />
+            일정{' '}
+          </St.FilterBtn>
           <St.FilterBtn> 가격 </St.FilterBtn>
           <St.FilterBtn> 투어 형태 </St.FilterBtn>
           <St.FilterBtn> 여행지 </St.FilterBtn>
           <St.FilterBtn>
-            <img src="assets/icon/tune.png" alt="tuneIcon" />
+            <Icon type="tune" />
           </St.FilterBtn>
-        </St.BtnFilterWrapper>
-      </St.HeaderWrapper>
-      {/* horizonLine 양쪽 마진 지우기 */}
+        </Flex>
+      </Flex>
       <St.HorizonLine />
     </>
   );
@@ -25,21 +43,6 @@ function TourListHeaderSection() {
 export default TourListHeaderSection;
 
 const St = {
-  HeaderWrapper: styled.header`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  `,
-  Title: styled.h1`
-    ${({ theme }) => theme.Text.title_bold_24};
-    margin: 14px 17px;
-  `,
-  BtnFilterWrapper: styled.div`
-    margin: 0px 15px;
-    display: flex;
-    justify-content: start;
-    width: 100%;
-  `,
   FilterBtn: styled.button`
     all: unset;
     margin-right: 6px;

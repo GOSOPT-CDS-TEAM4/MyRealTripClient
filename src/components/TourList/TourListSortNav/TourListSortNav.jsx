@@ -1,29 +1,28 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
+import Flex from '../../layout/atom/Flex';
+import Text from '../../layout/atom/Text';
+
 function TourListSortNav() {
   return (
-    <St.SortNavWrapper>
-      <St.TotalNum> 총 453개 </St.TotalNum>
+    <Flex
+      justify_content="space-between"
+      style={{
+        margin: '18px 22px',
+      }}>
+      <Text type="body_bold_16" innerText="총 468개" />
       <St.SortSelect>
         <option value="추천순">추천순</option>
         <option value="별점순">별점순</option>
       </St.SortSelect>
-    </St.SortNavWrapper>
+    </Flex>
   );
 }
 
 export default TourListSortNav;
 
 const St = {
-  SortNavWrapper: styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 18px 22px;
-  `,
-  TotalNum: styled.span`
-    ${({ theme }) => theme.Text.body_bold_16};
-  `,
   SortSelect: styled.select`
     appearance: none;
     text-align: center;
