@@ -1,6 +1,13 @@
 import { styled } from 'styled-components';
-function DivideLine({ margin }) {
-  return <St.Line margin={margin} />;
+
+import Icon from './Icon';
+
+function DivideLine({ margintop, marginbottom }) {
+  return (
+    <St.Line margintop={margintop} marginbottom={marginbottom}>
+      <Icon type="line" />
+    </St.Line>
+  );
 }
 
 export default DivideLine;
@@ -8,9 +15,9 @@ export default DivideLine;
 const St = {
   Line: styled.div`
     display: flex;
-    width: 345px;
+    justify-content: center;
 
-    border: 1px solid ${({ theme }) => theme.Color.gray8};
-    margin: ${({ margin }) => margin};
+    margin-top: ${({ margintop }) => margintop};
+    margin-bottom: ${({ marginbottom }) => marginbottom};
   `,
 };

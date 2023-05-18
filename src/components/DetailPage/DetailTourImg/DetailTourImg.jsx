@@ -5,7 +5,7 @@ import Flex from '../../layout/atom/Flex';
 function DetailTourImg() {
   return (
     <Flex>
-      <img src="https://t1.daumcdn.net/cfile/tistory/2157723656165D1D15" width="60%" height="60%" />
+      <img src="https://t1.daumcdn.net/cfile/tistory/2157723656165D1D15" width="375px" height="305px" />
     </Flex>
   );
 }

@@ -1,8 +1,8 @@
 //코스 소개 밑의 이용 안내
 import { styled } from 'styled-components';
 
+import Button from '../../common/Button';
 import Flex from '../../layout/atom/Flex';
-import Button from '../../layout/molecule/button';
 
 function DetailTourGuide() {
   return (
@@ -10,7 +10,7 @@ function DetailTourGuide() {
       <St.GuideTitle>이용 안내</St.GuideTitle>
       <St.GuideDetailTitle>만나는 시간</St.GuideDetailTitle>
       <St.GuideDetail>9시</St.GuideDetail>
-      <St.GuideDetailTitle>만나는 장수</St.GuideDetailTitle>
+      <St.GuideDetailTitle>만나는 장소</St.GuideDetailTitle>
       <St.GuideDetail>루브르 박물관 유리 피라미드 앞 루이 14세 청동 기마상 아래</St.GuideDetail>
       <Button>이용 안내 더 보기</Button>
     </Flex>

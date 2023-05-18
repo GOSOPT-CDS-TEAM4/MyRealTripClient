@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { theme } from '../../../../styles/theme';
-import Flex from '../../atom/Flex';
-import Text from '../../atom/Text';
+import { theme } from '../../styles/theme';
+import Flex from '../layout/atom/Flex';
+import Text from '../layout/atom/Text';
 // eslint-disable-next-line import/order
 import TrendPlace from './TrendPlace';
 

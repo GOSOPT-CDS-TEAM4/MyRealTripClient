@@ -14,8 +14,7 @@ const St = {
   FlexWrapper: styled.div`
     display: flex;
     flex-direction: ${({ column }) => (column ? 'column' : 'row')};
-    align-items: ${({ alignitems }) => alignitems || 'flex-start'};
     justify-content: ${({ justifycontent }) => justifycontent || 'flex-start'};
-    width: 100%;
+    align-items: ${({ alignitems }) => alignitems || 'flex-start'};
   `,
 };

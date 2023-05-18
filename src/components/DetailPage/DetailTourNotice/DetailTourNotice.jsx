@@ -6,7 +6,7 @@ import Icon from '../../layout/atom/Icon';
 //About 밑의 원스톱 서비스 관련 안내
 function DetailTourNotice() {
   return (
-    <Flex column justifyContent="center">
+    <Flex column justifycontent="center">
       <St.NoticeBox>
         <St.NoticeWrapper>
           <St.NoticeTitle>

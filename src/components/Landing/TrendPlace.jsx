@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { theme } from '../../../../styles/theme';
-import Img from '../../atom/Img';
-import Text from '../../atom/Text';
+import { theme } from '../../styles/theme';
+import Img from '../layout/atom/Img';
+import Text from '../layout/atom/Text';
 
 function TrendPlace({ type }) {
   const imgType = () => {

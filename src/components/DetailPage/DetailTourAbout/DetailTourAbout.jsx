@@ -1,19 +1,20 @@
 import { styled } from 'styled-components';
 
+import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 
 //디테일 투어 title 밑의 무료취소~한국어 까지
 function DetailTourAbout() {
   return (
-    <Flex column justifyContent="space-evenly">
-      <Icon type="line" />
+    <Flex column justifycontent="center" style={{ marginTop: '20px', marginLeft: '15px' }}>
       <St.FreeCancelWrapper>
         <Icon type="cancel_blue" />
         <St.FreeCancel>무료 취소</St.FreeCancel>
         <St.FreeCancelAbout>상품 이용일 하루 전 오전 9시까지</St.FreeCancelAbout>
       </St.FreeCancelWrapper>
-      <Icon type="line" />
+      <DivideLine margintop="15px" />
+
       <St.AboutWrapper>
         <Icon type="meta_clock" />
         <St.RecentlyReservation>최근에 예약이 발생했어요.</St.RecentlyReservation>
@@ -38,7 +39,7 @@ function DetailTourAbout() {
         <Icon type="meta_language" />
         <St.AboutTour>한국어</St.AboutTour>
       </St.AboutWrapper>
-      <Icon style={{ marginTop: '13px' }} type="line" />
+      <DivideLine margintop="15px" />
     </Flex>
   );
 }
@@ -48,10 +49,9 @@ export default DetailTourAbout;
 const St = {
   FreeCancelWrapper: styled.article`
     display: flex;
-    margin: 15px 0;
   `,
 
-  FreeCancel: styled.span`
+  FreeCancel: styled.h1`
     ${({ theme }) => theme.Text.body_bold_16};
     ${({ theme }) => theme.Color.gray2};
     margin-left: 6px;

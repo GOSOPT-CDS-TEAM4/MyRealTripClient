@@ -1,5 +1,5 @@
-import Landing from '../../components/layout/main/Landing';
-import Layout from '../../components/layout/molecule/Layout';
+import Layout from '../../components/common/Layout';
+import Landing from '../../components/Landing/Landing';
 
 function LandingPage() {
   return (
