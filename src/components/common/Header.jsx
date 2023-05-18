@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import Flex from '../atom/Flex';
-import Icon from '../atom/Icon';
+import Flex from '../layout/atom/Flex';
+import Icon from '../layout/atom/Icon';
 
 function Header({ headerType }) {
   return (
