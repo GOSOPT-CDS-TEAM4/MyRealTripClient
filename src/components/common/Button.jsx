@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import Icon from '../../layout/atom/Icon';
+import Icon from '../layout/atom/Icon';
 
 function Button({ children }) {
   return (
