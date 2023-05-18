@@ -9,7 +9,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Flex column justifyContent="space-evenly" alignItems="center">
+      <Flex column justifycontent="space-evenly" alignitems="center">
         <DetailTour />
       </Flex>
       <LandingPage />
