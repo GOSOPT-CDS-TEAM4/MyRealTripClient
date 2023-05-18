@@ -7,28 +7,28 @@ import Img from '../../layout/atom/Img';
 
 function DetailTourMore() {
   return (
-    <Flex column alignItems="start">
+    <Flex column alignitems="start" style={{ marginTop: '50px' }}>
       <img
         src="/assets/img/pocketWifi.png"
         alt="pocketWifi"
-        style={{ width: '375px', height: '75px', marginTop: '50px', marginBottom: '42px' }}
+        style={{ width: '375px', height: '75px', margintop: '50px', marginbottom: '42px' }}
       />
       <St.SimilarTitle>비슷한 상품과 비교해보세요</St.SimilarTitle>
       <St.GoodWrapper>
         <St.SimilarGoodsWrapper>
-          <Flex column alignItems="start">
+          <Flex column alignitems="start">
             <Img type="img_tour_detail" width="149px" height="103px" />
             <Icon type="heart_fill" />
             <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
             <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
-            <Flex alignItems="center" style={{ marginTop: '13px' }}>
+            <Flex alignitems="center" style={{ margintop: '13px' }}>
               <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
             </Flex>
           </Flex>
         </St.SimilarGoodsWrapper>
 
         <St.SimilarGoodsWrapper>
-          <Flex column alignItems="start">
+          <Flex column alignitems="start">
             <Img type="img_tour_detail" width="149px" height="103px" />
             <Icon type="heart_fill" />
             <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
@@ -38,7 +38,7 @@ function DetailTourMore() {
         </St.SimilarGoodsWrapper>
 
         <St.SimilarGoodsWrapper>
-          <Flex column alignItems="start">
+          <Flex column alignitems="start">
             <Img type="img_tour_detail" width="149px" height="103px" />
             <Icon type="heart_fill" />
             <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
@@ -57,9 +57,13 @@ const St = {
   GoodWrapper: styled.section`
     display: flex;
     width: 100%;
+    position: relative;
+
+    overflow-x: scroll;
   `,
 
   SimilarGoodsWrapper: styled.article`
+    margin-right: 10px;
     width: fit-content;
     position: relative;
 
@@ -74,8 +78,9 @@ const St = {
     }
   `,
 
-  SimilarTitle: styled.header`
-    ${({ theme }) => theme.Text.title_medium_20};
+  SimilarTitle: styled.h1`
+    ${({ theme }) => theme.Text.title_bold_18};
+    margin-top: 20px;
     margin-bottom: 15px;
   `,
 
@@ -86,8 +91,14 @@ const St = {
     margin-bottom: 2px;
   `,
 
-  SimilarTourGuideTitle: styled.h1`
-    ${({ theme }) => theme.Color.gray1};
+  SimilarTourGuideTitle: styled.div`
+    color: ${({ theme }) => theme.Color.gray1};
     ${({ theme }) => theme.Text.body_bold_14};
+    display: flex;
+    width: 148px;
+
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
   `,
 };
