@@ -93,9 +93,9 @@ export default Footer;
 
 const St = {
   FooterLine: styled.div`
-    width: 374px;
-    border: 3px solid ${({ theme }) => theme.Color.gray9};
     margin-bottom: 32px;
+    border: 3px solid ${({ theme }) => theme.Color.gray9};
+    width: 374px;
   `,
 
   CustomerSupport: styled.article`
@@ -153,8 +153,8 @@ const St = {
 
   SnsWrapper: styled.article`
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
 
     width: 140px;
   `,
