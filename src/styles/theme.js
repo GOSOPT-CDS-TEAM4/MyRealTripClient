@@ -28,6 +28,7 @@ export const theme = {
     gray7: '#CED4DA',
     gray8: '#DEE2E6',
     gray9: '#F5F6F8',
+    bg_modal: 'rgba(20, 23, 25, 0.4)',
   },
   Effect: {
     shadow1: 'background: #D9D9D9; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15)',
