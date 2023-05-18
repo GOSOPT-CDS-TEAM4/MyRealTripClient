@@ -60,10 +60,10 @@ const St = {
   ItemImgWrapper: styled.div`
     position: relative;
     .CardImg {
+      border-radius: 10px;
       width: 170px;
       height: 170px;
       object-fit: cover;
-      border-radius: 10px;
     }
   `,
 };
