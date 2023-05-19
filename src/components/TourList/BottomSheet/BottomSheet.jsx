@@ -5,11 +5,27 @@ import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 import BsPrice from './BsPrice';
+import BsSelectCalendar from './BsSelectCalendar';
+import BsTourType from './BsTourType';
 
-function BottomSheet({ setModal }) {
+function BottomSheet({ setModal, clickedValue }) {
   const CloseModal = () => {
     setModal(false);
   };
+  // switch (clickedValue) {
+  //   case 'date':
+  //     ClickedModal = <BsPrice />;
+  //     break;
+  //   case 'price':
+  //     ClickedModal = <BsSelectCalendar />;
+  //     break;
+  //   case 'tourType':
+  //     ClickedModal = <BsTourType />;
+  //     break;
+  //   default:
+  //     ClickedModal = null;
+  // }
+
   return (
     <>
       <St.ModalBackground />
@@ -29,7 +45,7 @@ function BottomSheet({ setModal }) {
           </button>
           <Text
             type="body_bold_16"
-            innerText="날짜 선택"
+            innerText="투어형태"
             style={{
               flexGrow: '1',
               marginTop: '15px',
@@ -38,7 +54,8 @@ function BottomSheet({ setModal }) {
           />
         </Flex>
         {/* 내용자리 */}
-        <BsPrice />
+        {/* {ClickedModal} */}
+        <BsTourType />
         <St.BottomSheetFooter>
           <button className="refresh">
             <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
