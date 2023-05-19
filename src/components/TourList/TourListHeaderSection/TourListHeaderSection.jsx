@@ -9,12 +9,16 @@ import Text from '../../layout/atom/Text';
 import BottomSheet from '../BottomSheet';
 
 function TourListHeaderSection() {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
+  const [clickedValue, setClickedValue] = useState('');
+
   useEffect(() => {
     console.log(modal);
-  }, [modal]);
-  const showModal = () => {
+  }, [modal, clickedValue]);
+
+  const showModal = (e) => {
     setModal(true);
+    setClickedValue(e.target.value);
   };
   return (
     <>
@@ -32,16 +36,16 @@ function TourListHeaderSection() {
             margin: '0px 15px',
             width: '100%',
           }}>
-          <St.FilterBtn onClick={() => showModal()}>
+          <St.FilterBtn value="date" onClick={(e) => showModal(e)}>
             <Text type="body_bold_14" innerText="일정" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
-          <St.FilterBtn onClick={() => showModal()}>
+          <St.FilterBtn value="price" onClick={(e) => showModal(e)}>
             <Text type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
-          <St.FilterBtn onClick={() => showModal()}>
+          <St.FilterBtn value="tourType" onClick={(e) => showModal(e)}>
             <Text type="body_bold_14" innerText="투어 형태" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
-          <St.FilterBtn onClick={() => showModal()}>
+          <St.FilterBtn>
             <Text type="body_bold_14" innerText="여행지" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
           <St.FilterBtn>
@@ -50,7 +54,7 @@ function TourListHeaderSection() {
         </Flex>
       </Flex>
       <St.HorizonLine />
-      {modal && <BottomSheet setModal={setModal} />}
+      {modal && <BottomSheet setModal={setModal} clickedValue={clickedValue} />}
     </>
   );
 }
