@@ -4,7 +4,6 @@ import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
-import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BsPrice() {
