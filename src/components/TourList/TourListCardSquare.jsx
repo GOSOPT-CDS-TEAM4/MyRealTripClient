@@ -39,8 +39,7 @@ function TourListCardSquare() {
 
         <Text
           type="body_medium_14"
-          innerText="(루브르) 10일 오후 가능, 루
-브르 박물관 전문 공인 가이..."
+          innerText="(루브르) 10일 오후 가능, 루브르 박물관 전문 공인 가이..."
           style={{ width: '165px', color: `$theme.Color.black` }}
         />
         <Flex alignitems="start">
