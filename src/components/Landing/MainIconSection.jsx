@@ -6,7 +6,7 @@ import Icon from '../layout/atom/Icon';
 function IconSection() {
   return (
     <St.MainSectionIconWrapper>
-      <Flex justifycontent="center" alignitems="center" style={{ gap: '15px' }}>
+      <Flex justifycontent="flex-start" alignitems="center" style={{ gap: '15px' }}>
         <Icon type="hotel" />
         <Icon type="insurance" />
         <Icon type="kids" />
