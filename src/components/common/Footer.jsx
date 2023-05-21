@@ -7,7 +7,7 @@ import Text from '../layout/atom/Text';
 
 function Footer() {
   return (
-    <Flex column style={{ width: '374px', height: '869px' }}>
+    <Flex column style={{ width: 'calc(100% - 30px)', height: 'auto', marginLeft: '15px', marginRight: '15px' }}>
       <St.FooterLine />
       <Text type="title_bold_18" innerText="고객지원실 운영안내" />
       <St.CustomerSupport>

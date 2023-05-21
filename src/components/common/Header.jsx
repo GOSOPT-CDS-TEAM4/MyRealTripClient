@@ -29,6 +29,9 @@ export default Header;
 
 const St = {
   HeaderWrapper: styled.header`
-    width: calc(100% - 30px);
+    position: absolute;
+    top: 0;
+    background: none;
+    width: calc(100%);
   `,
 };
