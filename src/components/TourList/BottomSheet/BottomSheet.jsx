@@ -10,7 +10,7 @@ function BottomSheet() {
     <>
       <St.ModalBackground />
       <Flex
-        justify_content="space-between"
+        justifycontent="space-between"
         column="true"
         style={{
           backgroundColor: theme.Color.white,
@@ -20,7 +20,7 @@ function BottomSheet() {
           width: '100%',
           zIndex: '10',
         }}>
-        <Flex justify_content="center">
+        <Flex justifycontent="center">
           <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} />
           <Text
             type="body_bold_16"

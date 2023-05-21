@@ -1,12 +1,12 @@
 import Layout from '../../components/common/Layout';
-import Landing from '../../components/Landing';
+import Tour from '../../components/Tour/Tour';
 
-function LandingPage() {
+function TourPage() {
   return (
     <Layout headerType="white">
-      <Landing />
+      <Tour />
     </Layout>
   );
 }
 
-export default LandingPage;
+export default TourPage;
