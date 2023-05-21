@@ -30,6 +30,7 @@ function BottomSheet({ setModal, clickedValue }) {
     <>
       <St.ModalBackground />
       <Flex
+        justifycontent="space-between"
         column="true"
         style={{
           backgroundColor: theme.Color.white,
@@ -39,10 +40,8 @@ function BottomSheet({ setModal, clickedValue }) {
           width: '100%',
           zIndex: '10',
         }}>
-        <Flex justify_content="center">
-          <button onClick={() => CloseModal()}>
-            <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} />
-          </button>
+        <Flex justifycontent="center">
+          <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} />
           <Text
             type="body_bold_16"
             innerText="투어형태"
