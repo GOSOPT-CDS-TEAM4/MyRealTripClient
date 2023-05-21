@@ -4,13 +4,32 @@ import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
+import BsPrice from './BsPrice';
+import BsSelectCalendar from './BsSelectCalendar';
+import BsTourType from './BsTourType';
 
-function BottomSheet() {
+function BottomSheet({ setModal, clickedValue }) {
+  const CloseModal = () => {
+    setModal(false);
+  };
+  // switch (clickedValue) {
+  //   case 'date':
+  //     ClickedModal = <BsPrice />;
+  //     break;
+  //   case 'price':
+  //     ClickedModal = <BsSelectCalendar />;
+  //     break;
+  //   case 'tourType':
+  //     ClickedModal = <BsTourType />;
+  //     break;
+  //   default:
+  //     ClickedModal = null;
+  // }
+
   return (
     <>
       <St.ModalBackground />
       <Flex
-        justify_content="space-between"
         column="true"
         style={{
           backgroundColor: theme.Color.white,
@@ -21,12 +40,13 @@ function BottomSheet() {
           zIndex: '10',
         }}>
         <Flex justify_content="center">
-          <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} />
+          <button onClick={() => CloseModal()}>
+            <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} />
+          </button>
           <Text
             type="body_bold_16"
-            innerText="날짜 선택"
+            innerText="투어형태"
             style={{
-              textAlign: 'center',
               flexGrow: '1',
               marginTop: '15px',
               color: `$theme.Color.gray1`,
@@ -34,7 +54,8 @@ function BottomSheet() {
           />
         </Flex>
         {/* 내용자리 */}
-        {/* <BsSelectCalendar /> */}
+        {/* {ClickedModal} */}
+        <BsTourType />
         <St.BottomSheetFooter>
           <button className="refresh">
             <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
@@ -58,7 +79,7 @@ const St = {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(20, 23, 25, 0.4); // 임시 컬러
+    background-color: ${({ theme }) => theme.Color.bg_modal};
     z-index: 1;
   `,
 

@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import BottomSheet from '../components/TourList/BottomSheet/BottomSheet';
 import TourListHeaderSection from '../components/TourList/TourListHeaderSection/TourListHeaderSection';
 import TourListItemSection from '../components/TourList/TourListItemSection/TourListItemSection';
 import TourListSortNav from '../components/TourList/TourListSortNav/TourListSortNav';
@@ -8,12 +7,11 @@ import TourListSortNav from '../components/TourList/TourListSortNav/TourListSort
 function TourListPage() {
   return (
     <>
+      <TourListHeaderSection />
       <St.PageWrapper>
-        <TourListHeaderSection />
         <TourListSortNav />
         <TourListItemSection />
       </St.PageWrapper>
-      <BottomSheet />
     </>
   );
 }
@@ -24,7 +22,7 @@ const St = {
   PageWrapper: styled.section`
     height: 100%;
     margin: 0 auto;
-    padding: 15px 15px;
+    padding: 15px;
     ${({ theme }) => theme.Text.title_bold_24};
   `,
   NavWrapper: styled.nav`

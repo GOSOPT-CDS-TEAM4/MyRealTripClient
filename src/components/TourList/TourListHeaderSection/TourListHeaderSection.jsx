@@ -1,18 +1,32 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
+import BottomSheet from '../BottomSheet';
 
 function TourListHeaderSection() {
+  const [modal, setModal] = useState(false);
+  const [clickedValue, setClickedValue] = useState('');
+
+  useEffect(() => {
+    console.log(modal);
+  }, [modal, clickedValue]);
+
+  const showModal = (e) => {
+    setModal(true);
+    setClickedValue(e.target.value);
+  };
   return (
     <>
       <Flex
         style={{
           width: '100%',
           flexDirection: 'column',
+          padding: '15px',
         }}>
         <Text type="title_bold_24" innerText="파리의 투어" style={{ margin: '14px 17px' }} />
 
@@ -22,13 +36,13 @@ function TourListHeaderSection() {
             margin: '0px 15px',
             width: '100%',
           }}>
-          <St.FilterBtn>
+          <St.FilterBtn value="date" onClick={(e) => showModal(e)}>
             <Text type="body_bold_14" innerText="일정" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
-          <St.FilterBtn>
+          <St.FilterBtn value="price" onClick={(e) => showModal(e)}>
             <Text type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
-          <St.FilterBtn>
+          <St.FilterBtn value="tourType" onClick={(e) => showModal(e)}>
             <Text type="body_bold_14" innerText="투어 형태" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
           <St.FilterBtn>
@@ -40,6 +54,7 @@ function TourListHeaderSection() {
         </Flex>
       </Flex>
       <St.HorizonLine />
+      {modal && <BottomSheet setModal={setModal} clickedValue={clickedValue} />}
     </>
   );
 }
