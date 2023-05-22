@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';
@@ -12,19 +13,15 @@ function BottomSheet({ setModal, clickedValue }) {
   const CloseModal = () => {
     setModal(false);
   };
-  // switch (clickedValue) {
-  //   case 'date':
-  //     ClickedModal = <BsPrice />;
-  //     break;
-  //   case 'price':
-  //     ClickedModal = <BsSelectCalendar />;
-  //     break;
-  //   case 'tourType':
-  //     ClickedModal = <BsTourType />;
-  //     break;
-  //   default:
-  //     ClickedModal = null;
-  // }
+
+  switch (content) {
+    case '일정':
+      return <BsSelectCalendar />;
+    case '가격':
+      return <BsPrice />;
+    case '투어 형태':
+      return <BsTourType />;
+  }
 
   return (
     <>
