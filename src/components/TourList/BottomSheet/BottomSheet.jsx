@@ -1,27 +1,24 @@
-import { useRef } from 'react';
 import { styled } from 'styled-components';
 
+import BsTourType from './BsTourType';
 import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
-import BsPrice from './BsPrice';
-import BsSelectCalendar from './BsSelectCalendar';
-import BsTourType from './BsTourType';
 
 function BottomSheet({ setModal, clickedValue }) {
   const CloseModal = () => {
     setModal(false);
   };
 
-  switch (content) {
-    case '일정':
-      return <BsSelectCalendar />;
-    case '가격':
-      return <BsPrice />;
-    case '투어 형태':
-      return <BsTourType />;
-  }
+  // switch (content) {
+  //   case '일정':
+  //     return <BsSelectCalendar />;
+  //   case '가격':
+  //     return <BsPrice />;
+  //   case '투어 형태':
+  //     return <BsTourType />;
+  // }
 
   return (
     <>
