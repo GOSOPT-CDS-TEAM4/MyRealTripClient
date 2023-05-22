@@ -30,6 +30,7 @@ function BottomSheet({ setModal, clickedValue }) {
     <>
       <St.ModalBackground />
       <Flex
+        justifycontent="space-between"
         column="true"
         style={{
           backgroundColor: theme.Color.white,

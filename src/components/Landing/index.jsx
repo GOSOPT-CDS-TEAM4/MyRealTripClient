@@ -1,11 +1,12 @@
 import { styled } from 'styled-components';
 
-import Carousel from '../Landing/Carousel';
-import GoodsSection from '../Landing/GoodsSection';
-import MainButtonSection from '../Landing/MainButtonSection';
-import IconSection from '../Landing/MainIconSection';
-import TrendPlaceSection from '../Landing/TrendPlaceSection';
+// eslint-disable-next-line import/order
 import Icon from '../layout/atom/Icon';
+import Carousel from './Carousel';
+import GoodsSection from './GoodsSection';
+import MainButtonSection from './MainButtonSection';
+import IconSection from './MainIconSection';
+import TrendPlaceSection from './TrendPlaceSection';
 
 function Landing() {
   return (
@@ -31,6 +32,8 @@ export default Landing;
 
 const St = {
   LandingWrapper: styled.main`
+    background-color: ${({ theme }) => theme.Color.blue2};
+    padding-top: 58px;
     padding-right: 15px;
     padding-left: 15px;
   `,
@@ -52,18 +55,24 @@ const St = {
     }
   `,
   MainSectionWrapper: styled.section`
-    transform: translateY(-41px);
     margin-left: calc(-50vw + 50%);
     border-radius: 15px 15px 0 0;
     background-color: ${({ theme }) => theme.Color.white};
     padding-right: 15px;
+    padding-bottom: 41px;
     padding-left: 15px;
     width: calc(100vw - 30px);
+    height: calc(100% + 41px);
   `,
   Line: styled.div`
     margin-top: 33px;
     border: 1px solid ${({ theme }) => theme.Color.gray8};
     width: 100%;
     height: 0px;
+  `,
+  MarginBox: styled.div`
+    background-color: ${({ theme }) => theme.Color.white};
+    width: 100%;
+    height: max-content;
   `,
 };

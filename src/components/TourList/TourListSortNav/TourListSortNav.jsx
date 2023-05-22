@@ -7,7 +7,7 @@ import Text from '../../layout/atom/Text';
 function TourListSortNav() {
   return (
     <Flex
-      justify_content="space-between"
+      justifycontent="space-between"
       style={{
         margin: '18px 22px',
       }}>

@@ -42,9 +42,9 @@ const St = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 15px;
 
     width: 375px;
-    padding: 0 15px;
   `,
 
   StDetailTourImg: styled(DetailTourImg)`
@@ -53,17 +53,17 @@ const St = {
 
   DetailPageWrapper: styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     position: relative;
 
     top: -20px;
-
-    width: 375px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 15px;
 
     border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
     background-color: ${({ theme }) => theme.Color.white};
+
+    width: 375px;
   `,
 };

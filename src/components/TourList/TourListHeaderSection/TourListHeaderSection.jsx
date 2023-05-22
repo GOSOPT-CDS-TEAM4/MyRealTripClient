@@ -31,7 +31,7 @@ function TourListHeaderSection() {
         <Text type="title_bold_24" innerText="파리의 투어" style={{ margin: '14px 17px' }} />
 
         <Flex
-          justify_content="start"
+          justifycontent="start"
           style={{
             margin: '0px 15px',
             width: '100%',

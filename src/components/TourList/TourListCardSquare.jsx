@@ -42,7 +42,7 @@ function TourListCardSquare() {
           innerText="(루브르) 10일 오후 가능, 루브르 박물관 전문 공인 가이..."
           style={{ width: '165px', color: `$theme.Color.black` }}
         />
-        <Flex row align_items="start">
+        <Flex alignitems="start">
           <Icon type="star" />
           <Text type="body_bold_14" innerText="4.9" />
           <Text type="body_medium_14" innerText="(2407)" />
@@ -60,10 +60,10 @@ const St = {
   ItemImgWrapper: styled.div`
     position: relative;
     .CardImg {
+      border-radius: 10px;
       width: 170px;
       height: 170px;
       object-fit: cover;
-      border-radius: 10px;
     }
   `,
 };

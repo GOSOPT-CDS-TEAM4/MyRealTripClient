@@ -9,7 +9,7 @@ function TourListItemSection() {
   return (
     <>
       <Flex
-        justify_content="center"
+        justifycontent="center"
         style={{
           flexWrap: 'wrap',
         }}>
@@ -21,7 +21,7 @@ function TourListItemSection() {
         <TourListCardSquare />
       </Flex>
 
-      <Flex justify_content="space-around" align_items="center" style={{ marginBottom: '80px' }}>
+      <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
         <Icon type="arrow_left_gray" />
         <St.PaginationBtn>1</St.PaginationBtn>
         <St.PaginationBtn>2</St.PaginationBtn>
@@ -49,8 +49,8 @@ const St = {
     }
   `,
   HorizonLine: styled.div`
-    width: 100%;
     margin: 18px 0px;
     border: 2px solid ${({ theme }) => theme.Color.gray9};
+    width: 100%;
   `,
 };

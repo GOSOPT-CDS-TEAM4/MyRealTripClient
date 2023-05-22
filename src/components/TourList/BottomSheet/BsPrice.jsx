@@ -34,7 +34,7 @@ function BsPrice() {
           getAriaValueText={valuetext}
         />
       </div>
-      <Flex justify_content="space-between" style={{ marginTop: '0px' }}>
+      <Flex justifycontent="space-between" style={{ marginTop: '0px' }}>
         <Flex column={true}>
           <Text type="detail_regular_12" innerText="최저 요금" style={{ color: theme.Color.gray3 }} />
           <Text type="body_bold_16" innerText="1,000원" style={{ color: theme.Color.black }} />
@@ -53,29 +53,29 @@ export default BsPrice;
 const St = {
   BsPriceContent: styled.div`
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
-    width: 90%;
+    justify-content: space-evenly;
     margin: 27px;
+    width: 90%;
 
     /* slider */
     .slider_box {
       margin: 16px;
     }
     .MuiSlider-track {
-      color: ${({ theme }) => theme.Color.blue1};
       width: 5px;
+      color: ${({ theme }) => theme.Color.blue1};
     }
     .MuiSlider-rail {
       color: ${({ theme }) => theme.Color.gray8};
     }
 
     .MuiSlider-thumb {
-      width: 26px;
-      height: 26px;
-      background-color: ${({ theme }) => theme.Color.blue1};
       border: 7px solid white;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      background-color: ${({ theme }) => theme.Color.blue1};
+      width: 26px;
+      height: 26px;
       &:hover {
       }
     }
