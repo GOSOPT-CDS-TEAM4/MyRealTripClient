@@ -7,10 +7,44 @@
 </aside>
 
 ## GO WEB
-| 리드 | ✨ | ✨ | 
-| ------ | ------ | ------ | 
-| 사진   | 사진   | 사진   | 
-| 오형근   | 권혜인   | 권은빈   | 
+<table>
+    <tr align="center">
+        <td style="min-width: 150px;">
+            <a href="https://github.com/Geun-Oh">
+              <img src="https://github.com/Geun-Oh.png" width="100">
+              <br />
+              <b>오형근</b>
+            </a> 
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/eunbeann">
+              <img src="https://github.com/eunbeann.png" width="100">
+              <br />
+              <b>권은빈</b>
+            </a>
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/hae2ni">
+              <img src="https://github.com/hae2ni.png" width="100">
+              <br />
+              <b>권혜인</b>
+            </a> 
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            👑 Web FE
+        </td>
+        <td>
+            Web FE
+        </td>
+        <td>
+            Web FE
+        </td>
+    </tr>
+</table>
+
+<br/>
 
 ## 커밋 컨벤션
 
