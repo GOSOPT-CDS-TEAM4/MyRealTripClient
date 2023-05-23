@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
+import BestReviewTourSection from './BestReviewTourSection';
+import axiosInstance from '../../api/axios';
 import { theme } from '../../styles/theme';
 import Flex from '../layout/atom/Flex';
 import Icon from '../layout/atom/Icon';
@@ -7,6 +10,22 @@ import Img from '../layout/atom/Img';
 import Text from '../layout/atom/Text';
 
 function Tour() {
+  const [bestReviewData, setBestReviewData] = useState([]);
+
+  const getBestReviewData = async () => {
+    try {
+      const res = await axiosInstance.get('/api/tour/best');
+      setBestReviewData(res.data.data);
+      console.log(res.data.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    getBestReviewData();
+  }, []);
+
   return (
     <>
       <St.TopImgSectionWrapper>
@@ -75,7 +94,7 @@ function Tour() {
             <Text type="title_bold_18" innerText="마이리얼 매거진" />
             <Text type="body_medium_14" innerText="여행 전 필독! 꿀 정보 대방출" style={{ color: theme.Color.gray5 }} />
           </Flex>
-          <Flex style={{ gap: '10px', marginTop: '15px', overflowX: 'scroll' }}>
+          <St.MagazineCarouselWrapper>
             <St.IndivMagazineWrapper>
               <Img width="248px" height="146px" url="" />
               <Text type="body_bold_14" innerText="세상에 이런 여행이!" style={{ color: theme.Color.white }} />
@@ -87,12 +106,8 @@ function Tour() {
             </St.IndivMagazineWrapper>
             <St.IndivMagazineWrapper>
               <Img width="248px" height="146px" url="" />
-              <Text type="body_bold_14" innerText="세상에 이런 여행이!" style={{ color: theme.Color.white }} />
-              <Text
-                type="detail_regular_12"
-                innerText="전세계의 특색 있는 여행을 소개해요."
-                style={{ color: theme.Color.white }}
-              />
+              <Text type="body_bold_14" innerText="파리에 이런 것도 있다고?" style={{ color: theme.Color.white }} />
+              <Text type="detail_regular_12" innerText="색다른 여행이 궁금해요." style={{ color: theme.Color.white }} />
             </St.IndivMagazineWrapper>
             <St.IndivMagazineWrapper>
               <Img width="248px" height="146px" url="" />
@@ -103,8 +118,24 @@ function Tour() {
                 style={{ color: theme.Color.white }}
               />
             </St.IndivMagazineWrapper>
-          </Flex>
+          </St.MagazineCarouselWrapper>
         </St.MyRealMagazineWrapper>
+        <Flex justifycontent="space-between" alignitems="center" style={{ marginTop: '41px' }}>
+          <Text type="title_bold_18" innerText="Best 리뷰 인기 투어 상품" />
+          <Flex alignitems="center" style={{ width: 'auto' }}>
+            <Text type="body_bold_14" innerText="더보기" style={{ color: theme.Color.blue1 }} />
+            <Icon type="arrow_right_blue" />
+          </Flex>
+        </Flex>
+        <Text
+          innerText="만족도 높은 베스트 셀러 상품만 모아봤어요!"
+          type="body_medium_14"
+          style={{ color: theme.Color.gray5, marginTop: '6px' }}
+        />
+        {bestReviewData[0] &&
+          bestReviewData.map((indivBestReview, idx) => (
+            <BestReviewTourSection bestReviewData={indivBestReview} key={idx} />
+          ))}
       </St.MainSectionWrapper>
     </>
   );
@@ -169,6 +200,15 @@ const St = {
         right: 10px;
         z-index: 999;
       }
+    }
+  `,
+  MagazineCarouselWrapper: styled.article`
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
     }
   `,
   IndivMagazineWrapper: styled.article`
