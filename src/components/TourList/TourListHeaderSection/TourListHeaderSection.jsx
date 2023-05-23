@@ -92,6 +92,7 @@ export default TourListHeaderSection;
 
 const St = {
   FilterBtn: styled.button`
+    all: unset;
     margin-right: 6px;
     outline: 0px;
     border: 1px solid;

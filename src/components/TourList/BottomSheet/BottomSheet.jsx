@@ -1,15 +1,12 @@
-import { useEffect } from 'react';
 import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';
-import Button from '../../common/Button';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BottomSheet({ setModal, clickedModal, title, setTitle }) {
   const CloseModal = () => {
-    console.log('Modal exit clicked');
     setModal(false);
     titleNaming();
   };
