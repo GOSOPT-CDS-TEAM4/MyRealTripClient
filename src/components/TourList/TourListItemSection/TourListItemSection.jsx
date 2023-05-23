@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import Flex from '../../layout/atom/Flex';
@@ -6,29 +7,50 @@ import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
 
 function TourListItemSection() {
+  const [tourList, setTourList] = useState();
+
+  useEffect(() => {
+    getTourList();
+  }, []);
+
+  async function getTourList() {
+    try {
+      const response = await axios.get(
+        `http://15.165.135.183:8080/api/tour/filter?city=%ED%8C%8C%EB%A6%AC&order=%EC%B6%94%EC%B2%9C%EC%88%9C&minimumPrice=100&maximumPrice=100000000000&tourType=all&page=1`,
+      );
+      const data = response.data.data;
+      setTourList(data.tourList);
+      console.log(tourList);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <>
       <Flex
         justifycontent="center"
+        alignitems="alignitems"
         style={{
-          flexWrap: 'wrap',
+          padding: '13px',
+          flexDirection: 'column',
         }}>
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-      </Flex>
+        <Flex
+          justifycontent="start"
+          style={{
+            flexWrap: 'wrap',
+          }}>
+          {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)}
+        </Flex>
 
-      <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
-        <Icon type="arrow_left_gray" />
-        <St.PaginationBtn>1</St.PaginationBtn>
-        <St.PaginationBtn>2</St.PaginationBtn>
-        <St.PaginationBtn>3</St.PaginationBtn>
-        <St.PaginationBtn>4</St.PaginationBtn>
-        <St.PaginationBtn>5</St.PaginationBtn>
-        <Icon type="arrow_right_blue" />
+        <Flex justifycontent="space-around" style={{ marginBottom: '80px' }}>
+          <Icon type="arrow_left_gray" />
+          <St.PaginationBtn>1</St.PaginationBtn>
+          <St.PaginationBtn>2</St.PaginationBtn>
+          <St.PaginationBtn>3</St.PaginationBtn>
+          <St.PaginationBtn>4</St.PaginationBtn>
+          <St.PaginationBtn>5</St.PaginationBtn>
+          <Icon type="arrow_right_blue" />
+        </Flex>
       </Flex>
       <St.HorizonLine />
     </>
