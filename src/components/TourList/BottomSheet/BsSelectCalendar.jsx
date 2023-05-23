@@ -44,6 +44,8 @@ function BsSelectCalendar() {
         style={{
           width: '100%',
           alignItems: 'center',
+          height: '80vh',
+          overflowY: 'auto',
         }}>
         <ST.CalendarWrapper>
           <ST.HorizonLine />

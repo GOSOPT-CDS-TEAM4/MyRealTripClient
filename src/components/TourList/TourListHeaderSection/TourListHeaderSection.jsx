@@ -18,31 +18,31 @@ function TourListHeaderSection() {
   const [title, setTitle] = useState('');
 
   const showModal = (e) => {
+    document.body.style.overflowY = 'hidden';
     setModal(true);
     setClickedValue(e.target.value);
-    switchContent();
-    setTitle(e.target);
-    console.log(e.target.value);
-    console.log(clickedModal);
+    setTitle(e.target.innerText);
   };
+  useEffect(() => {
+    let modalComponent;
 
-  const switchContent = () => {
     switch (clickedValue) {
       case 'date':
-        setClickedModal(<BsSelectCalendar />);
+        modalComponent = <BsSelectCalendar />;
         break;
       case 'price':
-        setClickedModal(<BsPrice />);
+        modalComponent = <BsPrice />;
         break;
       case 'tourType':
-        setClickedModal(<BsTourType />);
+        modalComponent = <BsTourType />;
+        break;
+      default:
+        modalComponent = 'notselected';
         break;
     }
-  };
 
-  useState(() => {
-    switchContent();
-  }, []);
+    setClickedModal(modalComponent);
+  }, [clickedValue]);
 
   return (
     <>
@@ -83,7 +83,7 @@ function TourListHeaderSection() {
       </Flex>
       <St.HorizonLine />
 
-      {modal && <BottomSheet setModal={setModal} clickedModal={clickedModal} />}
+      {modal && <BottomSheet setModal={setModal} clickedModal={clickedModal} title={title} setTitle={setTitle} />}
     </>
   );
 }
@@ -92,7 +92,6 @@ export default TourListHeaderSection;
 
 const St = {
   FilterBtn: styled.button`
-    all: unset;
     margin-right: 6px;
     outline: 0px;
     border: 1px solid;

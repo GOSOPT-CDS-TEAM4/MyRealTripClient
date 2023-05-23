@@ -1,18 +1,36 @@
+import { useEffect } from 'react';
 import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';
+import Button from '../../common/Button';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
-function BottomSheet({ setModal, clickedModal }) {
+function BottomSheet({ setModal, clickedModal, title, setTitle }) {
   const CloseModal = () => {
+    console.log('Modal exit clicked');
     setModal(false);
+    titleNaming();
   };
 
+  const titleNaming = () => {
+    switch (title) {
+      case 'date':
+        setTitle('날짜 선택');
+        break;
+      case 'price':
+        setTitle('가격');
+        break;
+      case 'tourType':
+        setTitle('투어형태');
+        break;
+    }
+  };
   return (
     <>
       <St.ModalBackground />
+
       <Flex
         justifycontent="space-between"
         column="true"
@@ -25,11 +43,13 @@ function BottomSheet({ setModal, clickedModal }) {
           zIndex: '10',
         }}>
         <Flex justifycontent="center">
-          {/* <Icon type="ic_cancel" onClick={CloseModal} style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} /> */}
-          <button onClick={CloseModal}> X </button>
+          <St.ButtonWrapper onClick={CloseModal}>
+            <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px', hover: 'cursor' }} />
+          </St.ButtonWrapper>
+          {/* <button onClick={CloseModal}> X </button> */}
           <Text
             type="body_bold_16"
-            innerText="투어형태"
+            innerText={`${title}`}
             style={{
               flexGrow: '1',
               marginTop: '15px',
@@ -96,4 +116,5 @@ const St = {
       text-align: center;
     }
   `,
+  ButtonWrapper: styled.button``,
 };
