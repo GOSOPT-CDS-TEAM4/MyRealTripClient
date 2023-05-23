@@ -4,27 +4,11 @@ import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
-import BsPrice from './BsPrice';
-import BsSelectCalendar from './BsSelectCalendar';
-import BsTourType from './BsTourType';
 
-function BottomSheet({ setModal, clickedValue }) {
+function BottomSheet({ setModal, clickedModal }) {
   const CloseModal = () => {
     setModal(false);
   };
-  // switch (clickedValue) {
-  //   case 'date':
-  //     ClickedModal = <BsPrice />;
-  //     break;
-  //   case 'price':
-  //     ClickedModal = <BsSelectCalendar />;
-  //     break;
-  //   case 'tourType':
-  //     ClickedModal = <BsTourType />;
-  //     break;
-  //   default:
-  //     ClickedModal = null;
-  // }
 
   return (
     <>
@@ -41,7 +25,8 @@ function BottomSheet({ setModal, clickedValue }) {
           zIndex: '10',
         }}>
         <Flex justifycontent="center">
-          <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} />
+          {/* <Icon type="ic_cancel" onClick={CloseModal} style={{ flexShrink: '0', margin: '18px 24px', width: '18px' }} /> */}
+          <button onClick={CloseModal}> X </button>
           <Text
             type="body_bold_16"
             innerText="투어형태"
@@ -49,12 +34,11 @@ function BottomSheet({ setModal, clickedValue }) {
               flexGrow: '1',
               marginTop: '15px',
               color: `$theme.Color.gray1`,
+              textAlign: 'center',
             }}
           />
         </Flex>
-        {/* 내용자리 */}
-        {/* {ClickedModal} */}
-        <BsTourType />
+        {clickedModal}
         <St.BottomSheetFooter>
           <button className="refresh">
             <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
@@ -80,6 +64,11 @@ const St = {
     height: 100%;
     background-color: ${({ theme }) => theme.Color.bg_modal};
     z-index: 1;
+    .exitBtn {
+      flex-shrink: 0;
+      margin: 18px 24px;
+      width: 18px;
+    }
   `,
 
   BottomSheetFooter: styled.div`

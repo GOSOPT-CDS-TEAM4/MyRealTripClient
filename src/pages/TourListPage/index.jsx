@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import TourListHeaderSection from '../components/TourList/TourListHeaderSection/TourListHeaderSection';
-import TourListItemSection from '../components/TourList/TourListItemSection/TourListItemSection';
-import TourListSortNav from '../components/TourList/TourListSortNav/TourListSortNav';
+import TourListHeaderSection from '../../components/TourList/TourListHeaderSection';
+import TourListItemSection from '../../components/TourList/TourListItemSection';
+import TourListSortNav from '../../components/TourList/TourListSortNav';
 
 function TourListPage() {
   return (

@@ -7,19 +7,43 @@ import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 import BottomSheet from '../BottomSheet';
+import BsPrice from '../BottomSheet/BsPrice';
+import BsSelectCalendar from '../BottomSheet/BsSelectCalendar';
+import BsTourType from '../BottomSheet/BsTourType';
 
 function TourListHeaderSection() {
   const [modal, setModal] = useState(false);
   const [clickedValue, setClickedValue] = useState('');
-
-  useEffect(() => {
-    console.log(modal);
-  }, [modal, clickedValue]);
+  const [clickedModal, setClickedModal] = useState();
+  const [title, setTitle] = useState('');
 
   const showModal = (e) => {
     setModal(true);
     setClickedValue(e.target.value);
+    switchContent();
+    setTitle(e.target);
+    console.log(e.target.value);
+    console.log(clickedModal);
   };
+
+  const switchContent = () => {
+    switch (clickedValue) {
+      case 'date':
+        setClickedModal(<BsSelectCalendar />);
+        break;
+      case 'price':
+        setClickedModal(<BsPrice />);
+        break;
+      case 'tourType':
+        setClickedModal(<BsTourType />);
+        break;
+    }
+  };
+
+  useState(() => {
+    switchContent();
+  }, []);
+
   return (
     <>
       <Flex
@@ -37,24 +61,29 @@ function TourListHeaderSection() {
             width: '100%',
           }}>
           <St.FilterBtn value="date" onClick={(e) => showModal(e)}>
-            <Text type="body_bold_14" innerText="일정" style={{ color: theme.Color.black }} />
+            <Text value="date" type="body_bold_14" innerText="일정" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
+
           <St.FilterBtn value="price" onClick={(e) => showModal(e)}>
-            <Text type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
+            <Text value="price" type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
+
           <St.FilterBtn value="tourType" onClick={(e) => showModal(e)}>
-            <Text type="body_bold_14" innerText="투어 형태" style={{ color: theme.Color.black }} />
+            <Text value="tourType" type="body_bold_14" innerText="투어 형태" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
+
           <St.FilterBtn>
             <Text type="body_bold_14" innerText="여행지" style={{ color: theme.Color.black }} />
           </St.FilterBtn>
+
           <St.FilterBtn>
             <Icon type="tune" />
           </St.FilterBtn>
         </Flex>
       </Flex>
       <St.HorizonLine />
-      {modal && <BottomSheet setModal={setModal} clickedValue={clickedValue} />}
+
+      {modal && <BottomSheet setModal={setModal} clickedModal={clickedModal} />}
     </>
   );
 }
