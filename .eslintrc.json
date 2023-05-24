@@ -35,7 +35,7 @@
     "react-hooks/exhaustive-deps": "off", // Checks effect dependencies
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "simple-import-sort/imports": "error", // import 정렬
+    // "simple-import-sort/imports": "error", // import 정렬
     "simple-import-sort/exports": "error", // export 정렬
     "import/no-unresolved": "off",
     "arrow-body-style": ["error", "as-needed"], // 한 줄일 때는 {} 없이, 두 줄 이상이면 {} 포함
