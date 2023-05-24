@@ -18,7 +18,7 @@ function Tour() {
         </Flex>
       </St.TopImgSectionWrapper>
       <St.MainSectionWrapper>
-        <Flex style={{ paddingTop: '10px' }}>
+        <Flex justifycontent="center" style={{ paddingTop: '10px' }}>
           <Flex column alignitems="center" style={{ borderBottom: `3px solid ${theme.Color.blue2}`, width: '111px' }}>
             <Icon type="img_tourticket" />
             <Text type="body_bold_14" innerText="투어·티켓" style={{ color: theme.Color.blue1 }} />
@@ -131,7 +131,7 @@ const St = {
     }
   `,
   MainSectionWrapper: styled.section`
-    margin-top: 77px;
+    margin-top: 135px;
     border-radius: 10px 10px 0 0;
     background-color: ${({ theme }) => theme.Color.white};
     padding-right: 15px;

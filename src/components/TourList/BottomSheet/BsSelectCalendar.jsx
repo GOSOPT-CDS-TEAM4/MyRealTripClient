@@ -7,7 +7,7 @@ function BsSelectCalendar() {
   const week = ['일', '월', '화', '수', '목', '금', '토'];
 
   const today = new Date();
-  const month = today.getMonth() + 1; // 월은 0부터 시작하므로 +1을 해줍니다.
+  const month = today.getMonth() + 1; // 월은 0부터 시작하니 +1
   const day = today.getDate();
 
   const weekDays = () =>
@@ -44,6 +44,8 @@ function BsSelectCalendar() {
         style={{
           width: '100%',
           alignItems: 'center',
+          height: '80vh',
+          overflowY: 'auto',
         }}>
         <ST.CalendarWrapper>
           <ST.HorizonLine />
