@@ -7,7 +7,10 @@ import Text from '../layout/atom/Text';
 
 function Footer() {
   return (
-    <Flex column style={{ width: 'calc(100% - 30px)', height: 'auto', marginLeft: '15px', marginRight: '15px' }}>
+    <Flex
+      justifycontent="center"
+      column
+      style={{ width: '375px', height: '869px', marginLeft: '15px', marginRight: '15px' }}>
       <St.FooterLine />
       <Text type="title_bold_18" innerText="고객지원실 운영안내" />
       <St.CustomerSupport>
@@ -36,28 +39,29 @@ function Footer() {
       </St.ButtomBtn>
       <DivideLine marginbottom="42px" />
 
-      <Flex justifycontent="center">
+      <Flex justifycontent="center" style={{ gap: '14px' }}>
         <Text innerText="이용약관" type="body_regular_14" />
-        <Text innerText="개인정보 처리방침" type="body_bold_14" style={{ margin: '0 14px' }} />
+        <Text innerText="개인정보 처리방침" type="body_bold_14" />
         <Text innerText="이용약관" type="body_regular_14" />
       </Flex>
 
-      <Text
-        innerText="상호명 (주)마이리얼트립 | 대표 이동건 | 개인정보보호책임자 정재훈 | 사업자등록번호 209-81-55339 사업자정보확인 | 통신판매업신고번호 2019-서
+      <Flex column style={{ gap: '12px' }}>
+        <Text
+          innerText="상호명 (주)마이리얼트립 | 대표 이동건 | 개인정보보호책임자 정재훈 | 사업자등록번호 209-81-55339 사업자정보확인 | 통신판매업신고번호 2019-서
 울서초-0260 | 관광사업등록번호 : 제2019-3호
 주소 서울 특별시 서초구 강남대로 311, 드림플러스 강남 18~19층 (서초동, 한화생명보험빌딩) | 이메일 help@myrealtrip.com | 광고/제휴 문의 partnership@myrealtrip.com"
-        type="detail_regular_12"
-        style={{ color: '#848C94', marginBottom: '6px' }}
-      />
-      <Text
-        innerText="자사는 서울특별시관광협회 공제영업보증보험에 가입되어 있습니다. 
+          type="detail_regular_12"
+          style={{ color: '#848C94', marginTop: '6px' }}
+        />
+        <Text
+          innerText="자사는 서울특별시관광협회 공제영업보증보험에 가입되어 있습니다. 
         영업보증보험: 1.5억원 / 기획여행보증: 2억원
         마이리얼트립은 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 상품·거래정보 및 거래에 대하여 책임을 지지않습니다.
         부득이한 사정에 의해 확정된 여행일정이 변경되는 경우 여행자의 사전 동의를 받습니다."
-        type="detail_regular_12"
-        style={{ color: '#848C94', marginBottom: '11px' }}
-      />
-
+          type="detail_regular_12"
+          style={{ color: '#848C94', marginBottom: '11px' }}
+        />
+      </Flex>
       <St.LanguageBtn>
         <Icon type="language" />
         한국어
@@ -95,7 +99,7 @@ const St = {
   FooterLine: styled.div`
     margin-bottom: 32px;
     border: 3px solid ${({ theme }) => theme.Color.gray9};
-    width: 374px;
+    width: 100vw;
   `,
 
   CustomerSupport: styled.article`
@@ -142,7 +146,7 @@ const St = {
     width: 118px;
     height: 39px;
 
-    margin-top: 14px;
+    gap: 1px;
 
     border: 1px solid ${({ theme }) => theme.Color.gray7};
     border-radius: 4px;
@@ -157,6 +161,7 @@ const St = {
     justify-content: space-around;
 
     width: 140px;
+    gap: 10px;
   `,
 
   DownloadBtn: styled.button`
