@@ -1,16 +1,16 @@
 import { styled } from 'styled-components';
 
 import Carousel from './Carousel';
-import GoodsSection from './GoodsSection';
+import GlobalGoodsSection from './GlobalGoodsSection';
 import MainButtonSection from './MainButtonSection';
 import IconSection from './MainIconSection';
+import ParisGoodsSection from './ParisGoodsSection';
 import TrendPlaceSection from './TrendPlaceSection';
 import Icon from '../layout/atom/Icon';
 
 function Landing() {
   return (
     <St.LandingWrapper>
-      {/* {randomData} */}
       <St.InputWrapper>
         <Icon type="search" style={{ width: '20px', paddingLeft: '20px' }} />
         <input type="text" placeholder="도시나 상품을 검색해보세요" />
@@ -21,8 +21,8 @@ function Landing() {
         <IconSection />
         <St.Line />
         <Carousel />
-        <GoodsSection />
-        <GoodsSection />
+        <GlobalGoodsSection />
+        <ParisGoodsSection />
       </St.MainSectionWrapper>
     </St.LandingWrapper>
   );
