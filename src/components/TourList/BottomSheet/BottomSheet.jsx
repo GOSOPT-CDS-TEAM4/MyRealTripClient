@@ -7,6 +7,7 @@ import Text from '../../layout/atom/Text';
 
 function BottomSheet({ setModal, clickedModal, title, setTitle }) {
   const CloseModal = () => {
+    document.body.style.overflowY = 'auto';
     setModal(false);
     titleNaming();
   };
