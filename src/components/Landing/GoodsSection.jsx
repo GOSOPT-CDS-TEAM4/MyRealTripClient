@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
+
 import { styled } from 'styled-components';
 
+import IndivGoods from './IndivGoods';
 import axiosInstance from '../../api/axios';
 import { theme } from '../../styles/theme';
 import Flex from '../layout/atom/Flex';
 import Icon from '../layout/atom/Icon';
-import Img from '../layout/atom/Img';
-import ImgWithSrc from '../layout/atom/ImgWithSrc';
 import Text from '../layout/atom/Text';
-
 function GoodsSection() {
   const [randomData, setRandomData] = useState([]);
 
@@ -40,7 +39,10 @@ function GoodsSection() {
       </Flex>
       {randomData[0] && (
         <Flex style={{ gap: '10px' }}>
-          <St.IndivGoodsWrapper>
+          {randomData.map((indivgoods, idx) => (
+            <IndivGoods randomData={indivgoods} key={idx} />
+          ))}
+          {/* <St.IndivGoodsWrapper>
             <Flex column alignitems="start">
               <ImgWithSrc src={randomData[0].image} height="103px" />
               <Icon type="heart_fill" />
@@ -139,7 +141,7 @@ function GoodsSection() {
                 />
               </Flex>
             </Flex>
-          </St.IndivGoodsWrapper>
+          </St.IndivGoodsWrapper> */}
         </Flex>
       )}
     </St.GoodsSectionWrapper>
@@ -158,7 +160,6 @@ const St = {
     margin-top: 12px;
     width: fit-content;
     div {
-      width: auto;
       img:nth-child(2) {
         position: absolute;
         top: 8px;

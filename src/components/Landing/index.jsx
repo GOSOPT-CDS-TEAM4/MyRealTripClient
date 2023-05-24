@@ -1,12 +1,11 @@
 import { styled } from 'styled-components';
 
-// eslint-disable-next-line import/order
-import Icon from '../layout/atom/Icon';
 import Carousel from './Carousel';
 import GoodsSection from './GoodsSection';
 import MainButtonSection from './MainButtonSection';
 import IconSection from './MainIconSection';
 import TrendPlaceSection from './TrendPlaceSection';
+import Icon from '../layout/atom/Icon';
 
 function Landing() {
   return (
