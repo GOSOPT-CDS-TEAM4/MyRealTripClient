@@ -1,48 +1,57 @@
 //이용 후기
+import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import useDetailTour from '../../../utils/useDetailTour';
 import Button from '../../common/Button';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 
 function DetailTourReview() {
+  const { tourId } = useParams();
+  const detailTour = useDetailTour(tourId);
+
   return (
     <Flex column>
       <St.ReviewTitle>이용 후기</St.ReviewTitle>
       <St.ScoreWrapper>
-        <St.Score>4.9</St.Score>
+        <St.Score>{detailTour?.reviewTotalResponseDto?.totalRating}</St.Score>
         <St.ReviewCount>
           <Icon type="star_five_small" />
-          후기 2406개
+          후기 {detailTour?.reviewTotalResponseDto?.totalNumber}
         </St.ReviewCount>
       </St.ScoreWrapper>
-      <St.ReviewScroll>
-        <St.ReviewWrapper>
-          <St.Reviewer>
-            <Icon type="star_five_black" />
-            강**
-          </St.Reviewer>
-          <St.ReviewDescription>30대 • 배우자와 가는 여행 • 2023-04-28</St.ReviewDescription>
-          <St.Review>
-            가이드님이 너무 재미있게 잘 설명해주세요! 특히 파리의 건축과 역사를 먼저 설명해주신게 이해가 쏙쏙 됐습니다.
-            미술사, 건축양식, 인문학이 합...
-          </St.Review>
-        </St.ReviewWrapper>
 
-        <St.ReviewWrapper>
-          <St.Reviewer>
-            <Icon type="star_five_black" />
-            김**
-          </St.Reviewer>
-          <St.ReviewDescription>20대 • 친구들과 가는 여행 • 2023-05-09</St.ReviewDescription>
-          <St.Review>
-            루브르박물관 세번째 가이드 투어 방문입니다. 베테랑 가이드님을 만나서 루브르 박물관 건축사부터 미술사까지
-            재미나고 알찬 시간을 보냈습니...
-          </St.Review>
-        </St.ReviewWrapper>
-      </St.ReviewScroll>
-      <Button>후기 2,406개 전체보기</Button>
+      <St.ReviewWrapper>
+        <St.Reviewer>
+          <Icon type="star_five_black" />
+          <span> </span>
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].nickname}
+        </St.Reviewer>
+        <St.ReviewDescription>
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword1}•
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword2}•
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].createdAt}
+        </St.ReviewDescription>
+        <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].content}</St.Review>
+      </St.ReviewWrapper>
+
+      <St.ReviewWrapper>
+        <St.Reviewer>
+          <Icon type="star_five_black" />
+          <span> </span>
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].nickname}
+        </St.Reviewer>
+        <St.ReviewDescription>
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword1}•
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword2}•
+          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].createdAt}
+        </St.ReviewDescription>
+        <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].content}</St.Review>
+      </St.ReviewWrapper>
+
+      <Button>후기 {detailTour?.reviewTotalResponseDto?.totalNumber}개 전체보기</Button>
 
       <DivideLine margintop="24px" />
     </Flex>
