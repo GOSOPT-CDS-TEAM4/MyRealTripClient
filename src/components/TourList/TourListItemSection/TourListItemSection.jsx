@@ -1,34 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
+import { test } from '../../../recoil/test';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
-
-function TourListItemSection() {
+function TourListItemSection({ tourList }) {
+  const [sort, setSort] = useState();
+  const [minimumPrice, setminiMumPrice] = useState();
+  const [maximumPrice, setMaximumPrice] = useState();
+  const [tourType, setTourType] = useState();
+  const [page, setPage] = useState();
+  const testText = useRecoilValue(test);
   return (
     <>
+      <div>{testText}</div>
       <Flex
         justifycontent="center"
+        alignitems="alignitems"
         style={{
-          flexWrap: 'wrap',
+          padding: '13px',
+          flexDirection: 'column',
         }}>
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-        <TourListCardSquare />
-      </Flex>
+        <Flex
+          justifycontent="start"
+          style={{
+            flexWrap: 'wrap',
+          }}>
+          {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)}
+        </Flex>
 
-      <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
-        <Icon type="arrow_left_gray" />
-        <St.PaginationBtn>1</St.PaginationBtn>
-        <St.PaginationBtn>2</St.PaginationBtn>
-        <St.PaginationBtn>3</St.PaginationBtn>
-        <St.PaginationBtn>4</St.PaginationBtn>
-        <St.PaginationBtn>5</St.PaginationBtn>
-        <Icon type="arrow_right_blue" />
+        <Flex justifycontent="space-around" style={{ marginBottom: '80px' }}>
+          <Icon type="arrow_left_gray" />
+          <St.PaginationBtn>1</St.PaginationBtn>
+          <St.PaginationBtn>2</St.PaginationBtn>
+          <St.PaginationBtn>3</St.PaginationBtn>
+          <St.PaginationBtn>4</St.PaginationBtn>
+          <St.PaginationBtn>5</St.PaginationBtn>
+          <Icon type="arrow_right_blue" />
+        </Flex>
       </Flex>
       <St.HorizonLine />
     </>
