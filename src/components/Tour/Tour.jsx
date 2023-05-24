@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { styled } from 'styled-components';
 
 import BestReviewTourSection from './BestReviewTourSection';
@@ -96,7 +97,7 @@ function Tour() {
           </Flex>
           <St.MagazineCarouselWrapper>
             <St.IndivMagazineWrapper>
-              <Img width="248px" height="146px" url="" />
+              <Img width="248px" height="146px" type="mymagazine_mockup_1" />
               <Text type="body_bold_14" innerText="세상에 이런 여행이!" style={{ color: theme.Color.white }} />
               <Text
                 type="detail_regular_12"
@@ -105,18 +106,9 @@ function Tour() {
               />
             </St.IndivMagazineWrapper>
             <St.IndivMagazineWrapper>
-              <Img width="248px" height="146px" url="" />
+              <Img width="248px" height="146px" type="mymagazine_mockup_2" />
               <Text type="body_bold_14" innerText="파리에 이런 것도 있다고?" style={{ color: theme.Color.white }} />
               <Text type="detail_regular_12" innerText="색다른 여행이 궁금해요." style={{ color: theme.Color.white }} />
-            </St.IndivMagazineWrapper>
-            <St.IndivMagazineWrapper>
-              <Img width="248px" height="146px" url="" />
-              <Text type="body_bold_14" innerText="세상에 이런 여행이!" style={{ color: theme.Color.white }} />
-              <Text
-                type="detail_regular_12"
-                innerText="전세계의 특색 있는 여행을 소개해요."
-                style={{ color: theme.Color.white }}
-              />
             </St.IndivMagazineWrapper>
           </St.MagazineCarouselWrapper>
         </St.MyRealMagazineWrapper>

@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import addCommasInNumbers from '../../utils/addCommasInNumber';
+import EllipsisText from '../layout/atom/EllipsisText';
 import Flex from '../layout/atom/Flex';
 import Text from '../layout/atom/Text';
 
@@ -9,7 +11,14 @@ function BestReviewTourSection({ bestReviewData }) {
       <St.IndivBestReviewTourWrapper src={bestReviewData.image}>
         <Text type="detail_regular_12" innerText={bestReviewData.itemType} style={{ color: '#fff' }} />
         <Flex justifycontent="space-between" alignitems="center">
-          <Text type="body_bold_14" innerText={bestReviewData.name} style={{ color: '#fff' }} />
+          <EllipsisText type="body_bold_14" innerText={bestReviewData.name} style={{ color: '#fff', width: '200px' }} />
+          <Text
+            type="body_bold_14"
+            innerText={`${addCommasInNumbers(
+              bestReviewData.price.discountPrice || bestReviewData.price.originalPrice,
+            )}원`}
+            style={{ color: '#fff' }}
+          />
         </Flex>
       </St.IndivBestReviewTourWrapper>
     </Flex>
@@ -32,9 +41,16 @@ const St = {
       left: 15px;
     }
     :nth-child(2) {
-      position: absolute;
-      top: 71px;
-      left: 15px;
+      :nth-child(1) {
+        position: absolute;
+        top: 71px;
+        left: 15px;
+      }
+      :nth-child(2) {
+        position: absolute;
+        top: 71px;
+        right: 15px;
+      }
     }
   `,
 };
