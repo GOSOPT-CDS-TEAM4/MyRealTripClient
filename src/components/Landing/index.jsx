@@ -11,6 +11,7 @@ import TrendPlaceSection from './TrendPlaceSection';
 function Landing() {
   return (
     <St.LandingWrapper>
+      {/* {randomData} */}
       <St.InputWrapper>
         <Icon type="search" style={{ width: '20px', paddingLeft: '20px' }} />
         <input type="text" placeholder="도시나 상품을 검색해보세요" />
