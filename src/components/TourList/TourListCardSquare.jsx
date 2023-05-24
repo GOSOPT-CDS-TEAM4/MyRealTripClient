@@ -51,7 +51,10 @@ function TourListCardSquare({ tourData }) {
           <Text type="body_bold_14" innerText={`${tourData.totalRating}`} />
           <Text type="body_medium_14" innerText={`(${tourData.reviewNumber})`} />
         </Flex>
-        <Text type="body_bold_16" innerText={`${tourData.price.originalPrice}`} />
+        <Text
+          type="body_bold_16"
+          innerText={`${tourData.price.originalPrice}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        />
         <Text type="detail_regular_12" innerText="파리 · 투어" style={{ color: `theme.Color.gray3` }} />
       </Flex>
     </>
