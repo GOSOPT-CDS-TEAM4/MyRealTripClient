@@ -1,13 +1,20 @@
+import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import useDetailTour from '../../../utils/useDetailTour';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 
 //디테일 투어 title 밑의 무료취소~한국어 까지
 function DetailTourAbout() {
+  const { tourId } = useParams();
+  const detailTour = useDetailTour(tourId);
+  const time = detailTour?.requiredTime;
+  console.log(time);
+
   return (
-    <Flex column justifycontent="center" style={{ marginTop: '20px', marginLeft: '15px' }}>
+    <Flex column justifycontent="center">
       <St.FreeCancelWrapper>
         <Icon type="cancel_blue" />
         <St.FreeCancel>무료 취소</St.FreeCancel>
@@ -22,22 +29,29 @@ function DetailTourAbout() {
 
       <St.AboutWrapper>
         <Icon type="meta_group" />
-        <St.AboutTour>그룹 투어(최소 출발 인원 1명)</St.AboutTour>
+        <St.AboutTour>
+          {detailTour.itemType}
+          <span />
+          (최소 출발 인원 1명)
+        </St.AboutTour>
       </St.AboutWrapper>
 
       <St.AboutWrapper>
         <Icon type="meta_walking" />
-        <St.AboutTour>도보 이동</St.AboutTour>
+        <St.AboutTour>{detailTour?.transfortation}</St.AboutTour>
       </St.AboutWrapper>
 
       <St.AboutWrapper>
         <Icon type="meta_time" />
-        <St.AboutTour>3시간 30분 소요</St.AboutTour>
+        <St.AboutTour>
+          시간 <span />
+          {/* {detailTour?.requiredTime.split(':')[1]}분 소요 */}
+        </St.AboutTour>
       </St.AboutWrapper>
 
       <St.AboutWrapper>
         <Icon type="meta_language" />
-        <St.AboutTour>한국어</St.AboutTour>
+        <St.AboutTour>{detailTour.language}</St.AboutTour>
       </St.AboutWrapper>
       <DivideLine margintop="15px" />
     </Flex>
@@ -49,6 +63,9 @@ export default DetailTourAbout;
 const St = {
   FreeCancelWrapper: styled.article`
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
   `,
 
   FreeCancel: styled.h1`
@@ -66,6 +83,7 @@ const St = {
   AboutWrapper: styled.div`
     display: flex;
     margin-top: 13px;
+    align-items: center;
   `,
   RecentlyReservation: styled.span`
     display: flex;

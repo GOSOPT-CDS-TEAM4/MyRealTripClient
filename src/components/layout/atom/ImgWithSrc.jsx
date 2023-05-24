@@ -7,7 +7,9 @@ function ImgWithSrc({ src, width, height }) {
 export default ImgWithSrc;
 
 const St = {
-  Image: styled.img`
+  Image: styled.div`
+    background-image: url(${({ src }) => src});
+    background-size: cover;
     width: ${({ width }) => width};
     height: ${({ height }) => height};
   `,

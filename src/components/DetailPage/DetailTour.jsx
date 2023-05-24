@@ -1,21 +1,21 @@
 //디테일 투어 페이지
 import { styled } from 'styled-components';
 
-import DetailTourAbout from '../components/DetailPage/DetailTourAbout';
-import DetailTourCourse from '../components/DetailPage/DetailTourCourse';
-import DetailTourDescription from '../components/DetailPage/DetailTourDescription';
-import DetailTourGuide from '../components/DetailPage/DetailTourGuide';
-import DetailTourImg from '../components/DetailPage/DetailTourImg';
-import DetailTourMore from '../components/DetailPage/DetailTourMore/DetailTourMore';
-import DetailTourNotice from '../components/DetailPage/DetailTourNotice';
-import DetailTourReview from '../components/DetailPage/DetailTourReview/DetailTourReview';
-import DetailTourTitle from '../components/DetailPage/DetailTourTitle/DetailTourTitle';
-import DetailTourTripInfo from '../components/DetailPage/DetailTourTripInfo';
-import Flex from '../components/layout/atom/Flex';
+import DetailPageFloat from './DetailPageFloat/DetailPageFloat';
+import DetailTourAbout from './DetailTourAbout';
+import DetailTourCourse from './DetailTourCourse';
+import DetailTourDescription from './DetailTourDescription';
+import DetailTourGuide from './DetailTourGuide';
+import DetailTourImg from './DetailTourImg';
+import DetailTourMore from './DetailTourMore/DetailTourMore';
+import DetailTourNotice from './DetailTourNotice';
+import DetailTourReview from './DetailTourReview/DetailTourReview';
+import DetailTourTitle from './DetailTourTitle/DetailTourTitle';
+import DetailTourTripInfo from './DetailTourTripInfo';
 
 function DetailTour() {
   return (
-    <Flex column justifycontent="center">
+    <>
       <St.DetailPageWholeWrapper>
         <St.StDetailTourImg />
         <St.DetailPageWrapper>
@@ -29,8 +29,9 @@ function DetailTour() {
           <DetailTourGuide />
           <DetailTourMore />
         </St.DetailPageWrapper>
+        <DetailPageFloat />
       </St.DetailPageWholeWrapper>
-    </Flex>
+    </>
   );
 }
 
@@ -43,27 +44,25 @@ const St = {
     align-items: center;
     justify-content: center;
     padding: 0 15px;
-
-    width: 375px;
   `,
 
   StDetailTourImg: styled(DetailTourImg)`
     position: relative;
   `,
 
-  DetailPageWrapper: styled.div`
+  DetailPageWrapper: styled.main`
     display: flex;
     position: relative;
+    background-color: ${({ theme }) => theme.Color.white};
+    width: 375px;
 
     top: -20px;
+    z-index: 2;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-top-left-radius: 15px;
-
     border-top-right-radius: 15px;
-    background-color: ${({ theme }) => theme.Color.white};
-
-    width: 375px;
   `,
 };
