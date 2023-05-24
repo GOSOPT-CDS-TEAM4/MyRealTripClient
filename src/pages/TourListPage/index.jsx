@@ -1,13 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import TourListHeaderSection from '../../components/TourList/TourListHeaderSection';
 import TourListItemSection from '../../components/TourList/TourListItemSection';
 import TourListSortNav from '../../components/TourList/TourListSortNav';
+import { test } from '../../recoil/test';
 
 function TourListPage() {
   const [tourList, setTourList] = useState();
+  const [testRecoil, setTextRecoil] = useRecoilState(test);
+
+  setTextRecoil('isDone');
 
   useEffect(() => {
     getTourList();

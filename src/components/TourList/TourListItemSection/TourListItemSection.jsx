@@ -1,19 +1,21 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
+import { test } from '../../../recoil/test';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
-
-function TourListItemSection() {
+function TourListItemSection({ tourList }) {
   const [sort, setSort] = useState();
   const [minimumPrice, setminiMumPrice] = useState();
   const [maximumPrice, setMaximumPrice] = useState();
   const [tourType, setTourType] = useState();
   const [page, setPage] = useState();
+  const testText = useRecoilValue(test);
   return (
     <>
+      <div>{testText}</div>
       <Flex
         justifycontent="center"
         alignitems="alignitems"
