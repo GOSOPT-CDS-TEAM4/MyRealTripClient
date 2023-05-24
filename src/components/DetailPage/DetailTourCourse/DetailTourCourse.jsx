@@ -1,73 +1,59 @@
 //코스 소개 안내
+import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import useDetailTour from '../../../utils/useDetailTour';
 import Button from '../../common/Button';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
-
 function DetailTourCourse() {
+  const { tourId } = useParams();
+  const detailTour = useDetailTour(tourId);
+
   return (
-    <Flex column justifycontent="center">
-      <St.CourseTitle>코스 소개</St.CourseTitle>
-      <St.TimeWrapper>
-        <Icon type="location_blue" />
-        <St.Time>09:00</St.Time>
-        <St.TimeDescription>출발</St.TimeDescription>
-      </St.TimeWrapper>
-      <Flex>
-        <Flex alignitems="center" style={{ marginLeft: '15px' }}>
-          <St.CourseLineTitle />
-          <St.CourseDescriptionWrapper>
-            <St.Address>주소: 1 place colette, 75001 Paris</St.Address>
-            <St.CourseDesciption>
-              루브르 박물관 유리 피라미드 앞 루이 14세 청동 기마상 아래 모임 장소 안내 : 상품페이지 하단 링크 참고 출발
-              시간 10분 전까지 지정된 장소에 도착해주세요.
-            </St.CourseDesciption>
-          </St.CourseDescriptionWrapper>
+    <>
+      {detailTour.courseResponseDtoList ? (
+        <Flex column justifycontent="center">
+          <St.CourseTitle>코스 소개</St.CourseTitle>
+          <St.TimeWrapper>
+            <Icon type="location_blue" />
+            <St.Time>{detailTour.courseResponseDtoList[0].time}</St.Time>
+            <St.TimeDescription>{detailTour.courseResponseDtoList[0].title}</St.TimeDescription>
+          </St.TimeWrapper>
+          <Flex alignitems="center" style={{ marginLeft: '15px' }}>
+            <St.CourseLineTitle />
+            <St.CourseDescriptionWrapper>
+              <St.Address>{detailTour.courseResponseDtoList[0].address}</St.Address>
+              <St.CourseDesciption>{detailTour.courseResponseDtoList[0].description}</St.CourseDesciption>
+            </St.CourseDescriptionWrapper>
+          </Flex>
+          {detailTour.courseResponseDtoList.length >= 2 ? (
+            <Flex column justifycontent="center" style={{ gap: '20px' }}>
+              <St.TimeWrapper>
+                <Icon type="location_black" />
+                <St.Time>{detailTour.courseResponseDtoList[1].time}</St.Time>
+                <St.TimeDescription>{detailTour.courseResponseDtoList[1].title}</St.TimeDescription>
+              </St.TimeWrapper>
+              <Flex alignitems="center" style={{ marginLeft: '15px' }}>
+                <St.CourseLineTitle />
+                <St.CourseDescriptionWrapper>
+                  <St.Address>{detailTour.courseResponseDtoList[1].address}</St.Address>
+                  <St.CourseDesciption>{detailTour.courseResponseDtoList[1].description}</St.CourseDesciption>
+                  <St.CourseImg src={detailTour.courseResponseDtoList[1]?.image} alt="투어이미지" />
+                </St.CourseDescriptionWrapper>
+              </Flex>
+              <Button>코스소개 더 보기</Button>
+              <DivideLine margintop="24px" marginbottom="30px" />
+            </Flex>
+          ) : (
+            <Flex></Flex>
+          )}
         </Flex>
-      </Flex>
-
-      <St.TimeWrapper>
-        <Icon type="location_black" />
-        <St.Time>09:10</St.Time>
-        <St.TimeDescription>루브르 발견하기</St.TimeDescription>
-      </St.TimeWrapper>
-      <Flex style={{ marginLeft: '15px' }}>
-        <St.CourseLine />
-        <St.CourseWrapper>
-          <St.CourseDesciption>각 시대별 루브르 박물관의 쓰임을 살펴봅니다.</St.CourseDesciption>
-
-          <img
-            src="https://t1.daumcdn.net/cfile/tistory/2157723656165D1D15"
-            alt="루브르박물관"
-            style={{ width: '293px', height: '189px', borderRadius: '8px', margintop: '15px' }}
-          />
-        </St.CourseWrapper>
-      </Flex>
-
-      <St.TimeWrapper>
-        <Icon type="location_black" />
-        <St.Time>09:20</St.Time>
-        <St.TimeDescription>인류 최초의 문명 메소포타미아</St.TimeDescription>
-      </St.TimeWrapper>
-
-      <St.CourseGradient>
-        <St.CourseLine />
-        <St.CourseWrapper>
-          <St.CourseDesciption>지금으로부터 4천 년 전 이야기에 대해 살펴봅니다.</St.CourseDesciption>
-
-          <img
-            src="https://www.jsd.or.kr/files/2021/07/05/8bf87f030308086168be90d92d92f2f9125913.jpg"
-            alt="루브르박물관"
-            style={{ width: '293px', height: '189px', borderRadius: '8px', margintop: '15px' }}
-          />
-        </St.CourseWrapper>
-      </St.CourseGradient>
-
-      <Button>코스소개 더 보기</Button>
-      <DivideLine margintop="24px" marginbottom="30px" />
-    </Flex>
+      ) : (
+        <Flex></Flex>
+      )}
+    </>
   );
 }
 
@@ -101,7 +87,7 @@ const St = {
     display: flex;
     flex-direction: column;
     width: 293px;
-    height: 126px;
+
     margin-left: 20px;
   `,
 
@@ -127,9 +113,11 @@ const St = {
     margin: 20px 0 20px 20px;
   `,
 
-  CourseGradient: styled.article`
+  CourseImg: styled.img`
     display: flex;
-    margin-left: 15px;
-    margin-bottom: 27px;
+    width: 293px;
+    height: 189px;
+
+    border-radius: 8px;
   `,
 };
