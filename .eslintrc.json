@@ -35,7 +35,7 @@
     "react-hooks/exhaustive-deps": "off", // Checks effect dependencies
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "simple-import-sort/imports": "error", // import 정렬
+    // "simple-import-sort/imports": "error", // import 정렬
     "simple-import-sort/exports": "error", // export 정렬
     "import/no-unresolved": "off",
     "arrow-body-style": ["error", "as-needed"], // 한 줄일 때는 {} 없이, 두 줄 이상이면 {} 포함
@@ -47,25 +47,51 @@
     "import/order": [
       "error",
       {
-				// 1. node "builtin" modules
-					//import fs from 'fs';
-				// 2. "external" modules
-					//import _ from 'lodash';
-				// 3. "internal" modules
-					//import foo from 'src/foo';
-        "groups": ["builtin", "external", ["parent", "sibling"], "index"], // import 되는 순서 정의
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent", "index"],
+          "type",
+          "unknown"
+        ],
         "pathGroups": [
           {
-            "pattern": "react*", // path가 react로 시작하면
-            "group": "external", // external 앞에
-            "position": "before" 
+            "pattern": "{react*,react*/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@saas-fe/**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "@pages/**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "@components/**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "./**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "../**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "*.style",
+            "group": "unknown"
           }
         ],
+        "pathGroupsExcludedImportTypes": ["react", "unknown"],
+        "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
-        },
-        "newlines-between": "always" // group들 사이마다 개행 적용 (group 내부에서 개행 적용 불가)
+        }
       }
     ]
   },

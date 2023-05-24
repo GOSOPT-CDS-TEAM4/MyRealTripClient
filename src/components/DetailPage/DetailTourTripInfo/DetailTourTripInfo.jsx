@@ -1,10 +1,15 @@
 //이용 후기 밑의 상품 정보에 관한 것
+import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import useDetailTour from '../../../utils/useDetailTour';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 
 function DetailTourTripInfo() {
+  const { tourId } = useParams();
+  const detailTour = useDetailTour(tourId);
+
   return (
     <Flex column>
       <St.InfoTitle>상품 정보</St.InfoTitle>
@@ -14,14 +19,14 @@ function DetailTourTripInfo() {
           <St.PeopleInfoDetail>1명~6명</St.PeopleInfoDetail>
         </St.PeopleDetailWrapper>
         <St.PriceDetailWrpper>
-          <St.PeoplePriceDetail>55,000원</St.PeoplePriceDetail>
+          <St.PeoplePriceDetail>{detailTour?.price}원</St.PeoplePriceDetail>
         </St.PriceDetailWrpper>
       </Flex>
 
       <St.InfoDetailTitle>포함 사항</St.InfoDetailTitle>
-      <St.InfoDetail>- 가이드 투어비</St.InfoDetail>
+      <St.InfoDetail>{detailTour?.includedOption}</St.InfoDetail>
       <St.InfoDetailTitle>불포함 사항</St.InfoDetailTitle>
-      <St.InfoDetail>- 박물관 입장권</St.InfoDetail>
+      <St.InfoDetail>{detailTour?.excludedOption}</St.InfoDetail>
 
       <DivideLine margintop="30px" marginbottom="30px" />
     </Flex>
