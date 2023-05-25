@@ -22,35 +22,35 @@ function DetailTourReview() {
           후기 {detailTour?.reviewTotalResponseDto?.totalNumber}
         </St.ReviewCount>
       </St.ScoreWrapper>
+      <St.ReviewScroll>
+        <St.ReviewWrapper>
+          <St.Reviewer>
+            <Icon type="star_five_black" />
+            <span> </span>
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].nickname}
+          </St.Reviewer>
+          <St.ReviewDescription>
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword1}•
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword2}•
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].createdAt.slice(0, 10)}
+          </St.ReviewDescription>
+          <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].content}</St.Review>
+        </St.ReviewWrapper>
 
-      <St.ReviewWrapper>
-        <St.Reviewer>
-          <Icon type="star_five_black" />
-          <span> </span>
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].nickname}
-        </St.Reviewer>
-        <St.ReviewDescription>
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword1}•
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword2}•
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].createdAt}
-        </St.ReviewDescription>
-        <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].content}</St.Review>
-      </St.ReviewWrapper>
-
-      <St.ReviewWrapper>
-        <St.Reviewer>
-          <Icon type="star_five_black" />
-          <span> </span>
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].nickname}
-        </St.Reviewer>
-        <St.ReviewDescription>
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword1}•
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword2}•
-          {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].createdAt}
-        </St.ReviewDescription>
-        <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].content}</St.Review>
-      </St.ReviewWrapper>
-
+        <St.ReviewWrapper>
+          <St.Reviewer>
+            <Icon type="star_five_black" />
+            <span> </span>
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].nickname}
+          </St.Reviewer>
+          <St.ReviewDescription>
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword1}•
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword2}•
+            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].createdAt.slice(0, 10)}
+          </St.ReviewDescription>
+          <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].content}</St.Review>
+        </St.ReviewWrapper>
+      </St.ReviewScroll>
       <Button>후기 {detailTour?.reviewTotalResponseDto?.totalNumber}개 전체보기</Button>
 
       <DivideLine margintop="24px" />
@@ -91,7 +91,7 @@ const St = {
     ${({ theme }) => theme.Text.detail_regular_12};
   `,
 
-  ReviewWrapper: styled.article`
+  ReviewWrapper: styled.div`
     display: flex;
     flex-direction: column;
     width: 309px;
@@ -134,7 +134,6 @@ const St = {
     position: relative;
     overflow-x: scroll;
 
-    justify-content: center;
     align-items: center;
   `,
 };

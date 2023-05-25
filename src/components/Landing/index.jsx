@@ -38,7 +38,7 @@ const St = {
     position: absolute;
     flex-direction: column;
     align-items: center;
-    z-index: -1;
+    z-index: 0;
     background-color: ${({ theme }) => theme.Color.blue2};
     padding-top: 58px;
     padding-right: 15px;
@@ -64,6 +64,8 @@ const St = {
     }
   `,
   MainSectionWrapper: styled.section`
+    position: relative;
+    z-index: 1;
     margin-top: 380px;
     border-radius: 15px 15px 0 0;
     background-color: ${({ theme }) => theme.Color.white};

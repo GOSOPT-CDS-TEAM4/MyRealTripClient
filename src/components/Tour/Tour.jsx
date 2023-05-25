@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { styled } from 'styled-components';
 
@@ -12,6 +13,8 @@ import Text from '../layout/atom/Text';
 
 function Tour() {
   const [bestReviewData, setBestReviewData] = useState([]);
+
+  const navigate = useNavigate();
 
   const getBestReviewData = async () => {
     try {
@@ -39,7 +42,11 @@ function Tour() {
       </St.TopImgSectionWrapper>
       <St.MainSectionWrapper>
         <Flex justifycontent="center" style={{ paddingTop: '10px' }}>
-          <Flex column alignitems="center" style={{ borderBottom: `3px solid ${theme.Color.blue2}`, width: '111px' }}>
+          <Flex
+            onClick={() => navigate('/tourList')}
+            column
+            alignitems="center"
+            style={{ borderBottom: `3px solid ${theme.Color.blue2}`, width: '111px', cursor: 'pointer' }}>
             <Icon type="img_tourticket" />
             <Text type="body_bold_14" innerText="투어·티켓" style={{ color: theme.Color.blue1 }} />
           </Flex>
@@ -59,34 +66,34 @@ function Tour() {
               <Text type="detail_regular_12" innerText="투어" />
             </St.MenuIcon>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_entry" />
+              <Text type="detail_regular_12" innerText="입장권" />
             </St.MenuIcon>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_activity" />
+              <Text type="detail_regular_12" innerText="액티비티" />
             </St.MenuIcon>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_class" />
+              <Text type="detail_regular_12" innerText="클래스" />
             </St.MenuIcon>
           </Flex>
           <Flex justifycontent="center" style={{ gap: '18px', marginTop: '18px' }}>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_traffic" />
+              <Text type="detail_regular_12" innerText="교통편의" />
             </St.MenuIcon>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_cart" />
+              <Text type="detail_regular_12" innerText="여행편의" />
             </St.MenuIcon>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_camera" />
+              <Text type="detail_regular_12" innerText="스냅촬영" />
             </St.MenuIcon>
             <St.MenuIcon>
-              <Icon type="img_flag" />
-              <Text type="detail_regular_12" innerText="투어" />
+              <Icon type="img_food" />
+              <Text type="detail_regular_12" innerText="미식" />
             </St.MenuIcon>
           </Flex>
         </St.GridMenuSectionWrapper>

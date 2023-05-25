@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { styled } from 'styled-components';
 
 import useDetailTour from '../../../utils/useDetailTour';
@@ -9,10 +11,11 @@ import Icon from '../../layout/atom/Icon';
 //디테일 투어 title 밑의 무료취소~한국어 까지
 function DetailTourAbout() {
   const { tourId } = useParams();
+  const [time, setTime] = useState();
   const detailTour = useDetailTour(tourId);
-  const time = detailTour?.requiredTime;
-  console.log(time);
-
+  useEffect(() => {
+    setTime(detailTour.requiredTime);
+  }, []);
   return (
     <Flex column justifycontent="center">
       <St.FreeCancelWrapper>
@@ -44,8 +47,8 @@ function DetailTourAbout() {
       <St.AboutWrapper>
         <Icon type="meta_time" />
         <St.AboutTour>
-          시간 <span />
-          {/* {detailTour?.requiredTime.split(':')[1]}분 소요 */}
+          {time && time.slice(0, 2)}시간 <span />
+          {time && time.slice(3, 5)}분 소요
         </St.AboutTour>
       </St.AboutWrapper>
 
@@ -63,8 +66,8 @@ export default DetailTourAbout;
 const St = {
   FreeCancelWrapper: styled.article`
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin-top: 18px;
   `,
 
@@ -82,8 +85,8 @@ const St = {
 
   AboutWrapper: styled.div`
     display: flex;
-    margin-top: 13px;
     align-items: center;
+    margin-top: 13px;
   `,
   RecentlyReservation: styled.span`
     display: flex;

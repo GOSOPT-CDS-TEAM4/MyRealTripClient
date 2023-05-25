@@ -1,11 +1,32 @@
 //하단의 비슷한 상품과 비교해 보세요
+
+import { useEffect, useState } from 'react';
+
+import axios from 'axios';
 import { styled } from 'styled-components';
 
+import MoreTour from './MoreTour';
 import Flex from '../../layout/atom/Flex';
-import Icon from '../../layout/atom/Icon';
-import Img from '../../layout/atom/Img';
-
 function DetailTourMore() {
+  const [moreData, setMoreData] = useState([]);
+
+  const getMoreData = async () => {
+    try {
+      const data = await axios.get('https://api.my-real-trip.o-r.kr/api/tour/random', {
+        headers: {
+          Location: 'global',
+        },
+      });
+      setMoreData(data.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getMoreData();
+  }, []);
+
   return (
     <Flex column alignitems="start">
       <img
@@ -15,39 +36,13 @@ function DetailTourMore() {
       />
       <Flex column>
         <St.SimilarTitle>비슷한 상품과 비교해보세요</St.SimilarTitle>
-        <St.GoodWrapper>
-          <St.SimilarGoodsWrapper>
-            <Flex column alignitems="start">
-              <Img type="img_tour_detail" width="149px" height="103px" />
-              <Icon type="heart_fill" />
-              <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
-              <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
-              <Flex alignitems="center" style={{ margintop: '13px' }}>
-                <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
-              </Flex>
-            </Flex>
-          </St.SimilarGoodsWrapper>
-
-          <St.SimilarGoodsWrapper>
-            <Flex column alignitems="start">
-              <Img type="img_tour_detail" width="149px" height="103px" />
-              {/* <Icon type="heart_fill" /> */}
-              <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
-              <St.SimilarTourGuideTitle>[루브르+오르세] 4시간..</St.SimilarTourGuideTitle>
-              <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
-            </Flex>
-          </St.SimilarGoodsWrapper>
-
-          <St.SimilarGoodsWrapper>
-            <Flex column alignitems="start">
-              <Img type="img_tour_detail" width="149px" height="103px" />
-              {/* <Icon type="heart_fill" /> */}
-              <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
-              <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
-              <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
-            </Flex>
-          </St.SimilarGoodsWrapper>
-        </St.GoodWrapper>
+        {moreData[0] && (
+          <St.GoodWrapper>
+            {moreData.map((similarTour, index) => (
+              <MoreTour key={index} similarTour={similarTour} />
+            ))}
+          </St.GoodWrapper>
+        )}
       </Flex>
     </Flex>
   );
