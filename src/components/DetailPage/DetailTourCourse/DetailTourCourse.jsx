@@ -37,9 +37,8 @@ function DetailTourCourse() {
                 <St.TimeDescription>{detailTour.courseResponseDtoList[1].title}</St.TimeDescription>
               </St.TimeWrapper>
               <Flex alignitems="center" style={{ marginLeft: '15px' }}>
-                <St.CourseLineTitle />
+                <St.CourseLine />
                 <St.CourseDescriptionWrapper>
-                  <St.Address>{detailTour.courseResponseDtoList[1].address}</St.Address>
                   <St.CourseDesciption>{detailTour.courseResponseDtoList[1].description}</St.CourseDesciption>
                   <St.CourseImg src={detailTour.courseResponseDtoList[1]?.image} alt="투어이미지" />
                 </St.CourseDescriptionWrapper>
@@ -102,10 +101,12 @@ const St = {
   `,
   Address: styled.h2`
     ${({ theme }) => theme.Text.body_bold_14};
+    margin-bottom: 15px;
   `,
 
   CourseDesciption: styled.h3`
     ${({ theme }) => theme.Text.body_regular_14};
+    margin-bottom: 15px;
   `,
 
   CourseWrapper: styled.article`
