@@ -1,11 +1,18 @@
-import './App.css';
+import { atom, RecoilRoot, selector, useRecoilState, useRecoilValue } from 'recoil';
+import { ThemeProvider } from 'styled-components';
+
+import Router from './components/common/Router';
+import GlobalStyle from './styles/globalstyle';
+import { theme } from './styles/theme';
 
 function App() {
   return (
-    <>
-      <div>hello</div>
-      <p>new change</p>
-    </>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Router />
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 
