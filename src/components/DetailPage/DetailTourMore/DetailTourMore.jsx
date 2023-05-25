@@ -57,6 +57,10 @@ const St = {
     position: relative;
 
     overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
 
   SimilarGoodsWrapper: styled.article`
