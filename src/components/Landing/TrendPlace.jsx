@@ -4,7 +4,7 @@ import { theme } from '../../styles/theme';
 import Img from '../layout/atom/Img';
 import Text from '../layout/atom/Text';
 
-function TrendPlace({ type }) {
+function TrendPlace({ type, onClick }) {
   const imgType = () => {
     switch (type) {
       case '방콕':
@@ -16,7 +16,7 @@ function TrendPlace({ type }) {
     }
   };
   return (
-    <St.TrendPlaceWrapper>
+    <St.TrendPlaceWrapper onClick={onClick}>
       <Img type={imgType()} width="111px" height="111px" />
       <Text innerText={type} type="body_bold_16" style={{ color: theme.Color.white }} />
     </St.TrendPlaceWrapper>
@@ -32,8 +32,8 @@ const St = {
     align-items: center;
     justify-content: center;
     border: 2px solid ${({ theme }) => theme.Color.white};
-
     border-radius: calc(129px / 2);
+    cursor: pointer;
     width: 129px;
     height: 129px;
     img {
