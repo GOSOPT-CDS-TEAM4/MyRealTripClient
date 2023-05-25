@@ -6,6 +6,8 @@ import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
+
 //이미지 하단 투어에 관한 제목, 별점, 가격
 function DetailTourTitle() {
   const { tourId } = useParams();
@@ -34,9 +36,8 @@ function DetailTourTitle() {
               ({detailTour?.reviewTotalResponseDto?.totalNumber}) {'>'}
             </St.ReviewCount>
           </St.ReviewWrapper>
-
           <St.MoneyWrapper>
-            <St.Money>{detailTour.price}</St.Money>
+            <St.Money>{detailTour.price && `${addCommasInNumbers(detailTour.price)}`}</St.Money>
             <St.People>1인</St.People>
           </St.MoneyWrapper>
         </St.Container>
