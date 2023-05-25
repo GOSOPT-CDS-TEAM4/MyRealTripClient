@@ -20,7 +20,7 @@ function DetailTourMap() {
 
   useEffect(() => {
     initMap();
-  }, [mapRef]);
+  }, []);
   return <div className="map" style={{ width: '345px', height: '154px', borderRadius: '8px' }} ref={mapRef}></div>;
 }
 
