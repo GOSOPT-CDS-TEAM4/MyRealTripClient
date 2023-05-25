@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { styled } from 'styled-components';
 
 import axiosInstance from '../../api/axios';
@@ -10,13 +12,24 @@ import ImgWithSrc from '../layout/atom/ImgWithSrc';
 import Text from '../layout/atom/Text';
 
 function IndivGoods({ randomData }) {
+  const [heartState, setHeartState] = useState(randomData.isScrap ? 'heart_fill' : 'heart_empty');
   const handleScrap = async (method, tourId) => {
     switch (method) {
       case 'POST':
-        await axiosInstance.post('/api/scrap', { tourId }).then((res) => console.log(res));
+        await axiosInstance.post('/api/scrap', { tourId }).then((res) => {
+          console.log(res);
+          if (res.status <= 300) {
+            setHeartState('heart_fill');
+          }
+        });
         return;
       case 'DELETE':
-        await axiosInstance.delete(`/api/scrap/${tourId}`).then((res) => console.log(res));
+        await axiosInstance.delete(`/api/scrap/${tourId}`).then((res) => {
+          console.log(res);
+          if (res.status <= 300) {
+            setHeartState('heart_empty');
+          }
+        });
         return;
     }
   };
@@ -26,8 +39,8 @@ function IndivGoods({ randomData }) {
       <Flex column alignitems="start">
         <ImgWithSrc src={randomData.image} height="103px" width="149px" />
         <Icon
-          type={randomData.isScrap ? 'heart_fill' : 'heart_empty'}
-          onClick={() => handleScrap(randomData.isScrap ? 'DELETE' : 'POST', randomData.id)}
+          type={heartState}
+          onClick={() => handleScrap(heartState === 'heart_fill' ? 'DELETE' : 'POST', randomData.id)}
         />
         <Text
           type="detail_regular_12"
