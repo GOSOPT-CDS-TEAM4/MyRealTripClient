@@ -2,7 +2,7 @@ import { atom, RecoilRoot, selector, useRecoilState, useRecoilValue } from 'reco
 import { ThemeProvider } from 'styled-components';
 
 import Router from './components/common/Router';
-import GlobalStyle from './styles/globalstyle';
+import GlobalStyle from './styles/globalStyle';
 import { theme } from './styles/theme';
 
 function App() {
