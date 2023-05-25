@@ -12,6 +12,7 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BsPrice() {
+  const [modal, setModal] = useRecoilState(setModalData);
   const [minimumPrice, setMinimumPrice] = useRecoilState(minimumPriceData);
   const [maximumPrice, setMaximumPrice] = useRecoilState(maximumPriceData);
   const [value, setValue] = useState([2000, 390000]);

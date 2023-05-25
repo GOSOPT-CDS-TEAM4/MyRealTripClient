@@ -16,7 +16,7 @@ function BsTourType() {
   const handleTourType = (e) => {
     setHandleType(e.target.value);
   };
-  const clickedTourType = (e) => {
+  const clickedTourType = () => {
     setTourType(handleType);
     setModal(false);
   };
