@@ -6,7 +6,7 @@ function useDetailTour(tourId) {
 
   const getData = async () => {
     try {
-      const data = await axios.get(`http://15.165.135.183:8080/api/tour/detail/${tourId}`, {
+      const data = await axios.get(`https://api.my-real-trip.o-r.kr/api/tour/detail/${tourId}`, {
         headers: {
           'Content-Type': 'application/json',
         },
