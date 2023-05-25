@@ -10,7 +10,7 @@ function Footer() {
     <Flex
       justifycontent="center"
       column
-      style={{ width: '375px', height: '869px', marginLeft: '15px', marginRight: '15px' }}>
+      style={{ width: '375px', height: 'auto', marginLeft: '15px', marginRight: '15px' }}>
       <St.FooterLine />
       <Text type="title_bold_18" innerText="고객지원실 운영안내" />
       <St.CustomerSupport>
