@@ -31,6 +31,7 @@ const St = {
   HeaderWrapper: styled.header`
     position: absolute;
     top: 0;
+    z-index: 999;
     background: none;
     width: calc(100%);
   `,

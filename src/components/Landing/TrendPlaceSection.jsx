@@ -10,13 +10,15 @@ function TrendPlaceSection() {
   return (
     <St.TrendPlaceWrapper>
       <Text type="title_medium_20" innerText="요즘 인기 있는 여행지" style={{ color: theme.Color.white }} />
-      <Flex alignitems="center" justifycontent="center" style={{ marginTop: '27px', gap: '15px' }}>
-        <TrendPlace type="제주" />
-        <TrendPlace type="파리" />
-        <TrendPlace type="방콕" />
-        <TrendPlace type="방콕" />
-        <TrendPlace type="방콕" />
-      </Flex>
+      <St.TrendPlaceCarousel>
+        <Flex alignitems="center" style={{ gap: '15px', width: 'fit-content' }}>
+          <TrendPlace type="제주" />
+          <TrendPlace type="파리" />
+          <TrendPlace type="방콕" />
+          <TrendPlace type="방콕" />
+          <TrendPlace type="방콕" />
+        </Flex>
+      </St.TrendPlaceCarousel>
     </St.TrendPlaceWrapper>
   );
 }
@@ -24,11 +26,16 @@ function TrendPlaceSection() {
 export default TrendPlaceSection;
 const St = {
   TrendPlaceWrapper: styled.section`
-    width: fit-content;
-    overflow-x: auto;
+    width: 100%;
     & > span {
       display: block;
       margin-top: 17px;
+    }
+  `,
+  TrendPlaceCarousel: styled.section`
+    margin-top: 27px;
+    &::-webkit-scrollbar {
+      display: none;
     }
   `,
 };

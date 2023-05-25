@@ -1,16 +1,13 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+import axiosInstance from '../api/axios';
 
 function useDetailTour(tourId) {
   const [detailTour, setDetailTour] = useState('');
 
   const getData = async () => {
     try {
-      const data = await axios.get(`https://api.my-real-trip.o-r.kr/api/tour/detail/${tourId}`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const data = await axiosInstance.get(`/api/tour/detail/${tourId}`);
       setDetailTour(data.data.data);
     } catch (e) {
       console.error(e);

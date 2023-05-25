@@ -1,19 +1,18 @@
 import { styled } from 'styled-components';
 
-import Flex from '../layout/atom/Flex';
 import Icon from '../layout/atom/Icon';
 
 function IconSection() {
   return (
     <St.MainSectionIconWrapper>
-      <Flex justifycontent="flex-start" alignitems="center" style={{ gap: '15px' }}>
+      <St.IconWrapper>
         <Icon type="hotel" />
         <Icon type="insurance" />
         <Icon type="kids" />
         <Icon type="car" />
         <Icon type="package" />
         <Icon type="koreastay" />
-      </Flex>
+      </St.IconWrapper>
     </St.MainSectionIconWrapper>
   );
 }
@@ -22,7 +21,16 @@ export default IconSection;
 
 const St = {
   MainSectionIconWrapper: styled.section`
-    padding-top: 70px;
     width: 100%;
+  `,
+  IconWrapper: styled.section`
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
 };
