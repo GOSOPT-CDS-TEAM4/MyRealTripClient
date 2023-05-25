@@ -16,11 +16,11 @@ function DetailTourMap() {
       center: { lat: latitude, lng: longtitude },
       zoom: 50,
     });
-  }, [mapRef]);
+  }, [latitude, longtitude, mapRef]);
 
   useEffect(() => {
     initMap();
-  }, []);
+  }, [latitude, longtitude, mapRef]);
   return <div className="map" style={{ width: '345px', height: '154px', borderRadius: '8px' }} ref={mapRef}></div>;
 }
 
