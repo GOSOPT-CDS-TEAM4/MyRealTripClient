@@ -7,46 +7,48 @@ import Img from '../../layout/atom/Img';
 
 function DetailTourMore() {
   return (
-    <Flex column alignitems="start" style={{ marginTop: '50px' }}>
+    <Flex column alignitems="start">
       <img
         src="/assets/img/pocketWifi.png"
         alt="pocketWifi"
-        style={{ width: '375px', height: '75px', margintop: '50px', marginbottom: '42px' }}
+        style={{ width: '375px', height: '75px', margin: '42px 0' }}
       />
-      <St.SimilarTitle>비슷한 상품과 비교해보세요</St.SimilarTitle>
-      <St.GoodWrapper>
-        <St.SimilarGoodsWrapper>
-          <Flex column alignitems="start">
-            <Img type="img_tour_detail" width="149px" height="103px" />
-            <Icon type="heart_fill" />
-            <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
-            <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
-            <Flex alignitems="center" style={{ margintop: '13px' }}>
+      <Flex column>
+        <St.SimilarTitle>비슷한 상품과 비교해보세요</St.SimilarTitle>
+        <St.GoodWrapper>
+          <St.SimilarGoodsWrapper>
+            <Flex column alignitems="start">
+              <Img type="img_tour_detail" width="149px" height="103px" />
+              <Icon type="heart_fill" />
+              <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
+              <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
+              <Flex alignitems="center" style={{ margintop: '13px' }}>
+                <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
+              </Flex>
+            </Flex>
+          </St.SimilarGoodsWrapper>
+
+          <St.SimilarGoodsWrapper>
+            <Flex column alignitems="start">
+              <Img type="img_tour_detail" width="149px" height="103px" />
+              {/* <Icon type="heart_fill" /> */}
+              <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
+              <St.SimilarTourGuideTitle>[루브르+오르세] 4시간..</St.SimilarTourGuideTitle>
               <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
             </Flex>
-          </Flex>
-        </St.SimilarGoodsWrapper>
+          </St.SimilarGoodsWrapper>
 
-        <St.SimilarGoodsWrapper>
-          <Flex column alignitems="start">
-            <Img type="img_tour_detail" width="149px" height="103px" />
-            <Icon type="heart_fill" />
-            <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
-            <St.SimilarTourGuideTitle>[루브르+오르세] 4시간..</St.SimilarTourGuideTitle>
-            <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
-          </Flex>
-        </St.SimilarGoodsWrapper>
-
-        <St.SimilarGoodsWrapper>
-          <Flex column alignitems="start">
-            <Img type="img_tour_detail" width="149px" height="103px" />
-            <Icon type="heart_fill" />
-            <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
-            <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
-            <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
-          </Flex>
-        </St.SimilarGoodsWrapper>
-      </St.GoodWrapper>
+          <St.SimilarGoodsWrapper>
+            <Flex column alignitems="start">
+              <Img type="img_tour_detail" width="149px" height="103px" />
+              {/* <Icon type="heart_fill" /> */}
+              <St.SimilarTourGuide>가이드 투어 ・ 파리</St.SimilarTourGuide>
+              <St.SimilarTourGuideTitle>[루브르+오르세] 명작 프..</St.SimilarTourGuideTitle>
+              <St.SimilarTourGuideTitle>300.000원</St.SimilarTourGuideTitle>
+            </Flex>
+          </St.SimilarGoodsWrapper>
+        </St.GoodWrapper>
+      </Flex>
     </Flex>
   );
 }
@@ -56,7 +58,7 @@ export default DetailTourMore;
 const St = {
   GoodWrapper: styled.section`
     display: flex;
-    width: 100%;
+    width: 375px;
     position: relative;
 
     overflow-x: scroll;
@@ -64,9 +66,9 @@ const St = {
 
   SimilarGoodsWrapper: styled.article`
     margin-right: 10px;
-    width: fit-content;
+    width: 375px;
     position: relative;
-
+    /* 
     div {
       width: auto;
       img:nth-child(2) {
@@ -75,7 +77,7 @@ const St = {
         right: 20px;
         z-index: 999;
       }
-    }
+    } */
   `,
 
   SimilarTitle: styled.h1`

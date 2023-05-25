@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { useParams } from 'react-router-dom/';
+
+import useDetailTour from '../../../utils/useDetailTour';
 import Flex from '../../layout/atom/Flex';
 
 //제목 상단의 이미지
 function DetailTourImg() {
+  const { tourId } = useParams();
+  const detailTour = useDetailTour(tourId);
+
   return (
     <Flex>
-      <img src="https://t1.daumcdn.net/cfile/tistory/2157723656165D1D15" width="375px" height="305px" />
+      <img src={detailTour?.image} width="375px" height="305px" />
     </Flex>
   );
 }

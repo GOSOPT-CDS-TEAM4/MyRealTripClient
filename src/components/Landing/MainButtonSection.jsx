@@ -7,7 +7,7 @@ import Text from '../layout/atom/Text';
 function MainButtonSection() {
   return (
     <St.MainButtonWrapper>
-      <Flex style={{ gap: '20px', transform: 'translateY(41px)' }} justifycontent="center">
+      <Flex style={{ gap: '20px', transform: 'translateY(-41px)' }} justifycontent="center">
         <article>
           <Icon type="img_ticket" />
           <Text type="detail_medium_12" innerText="항공권" />

@@ -10,7 +10,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/detailTour" element={<DetailTour />} />
+        <Route path="/detailTour/:tourId" element={<DetailTour />} />
         <Route path="/tour" element={<Tour />} />
         <Route path="/tourList" element={<TourList />} />
       </Routes>
