@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
-import { tourListData } from '../../../recoil/tourListRecoil';
+import { pageData, tourListData } from '../../../recoil/tourListRecoil';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
 
 function TourListItemSection() {
   const tourList = useRecoilValue(tourListData);
+  const [page, setPage] = useRecoilState(pageData);
+  const pagination = (e) => {
+    setPage(e.target.textContent);
+  };
+
+  useEffect(() => {
+    console.log(page);
+  }, []);
+
   return (
     <>
       <Flex
@@ -29,11 +38,11 @@ function TourListItemSection() {
 
         <Flex justifycontent="space-around" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
-          <St.PaginationBtn>1</St.PaginationBtn>
-          <St.PaginationBtn>2</St.PaginationBtn>
-          <St.PaginationBtn>3</St.PaginationBtn>
-          <St.PaginationBtn>4</St.PaginationBtn>
-          <St.PaginationBtn>5</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>1</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>2</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>3</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>4</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>5</St.PaginationBtn>
           <Icon type="arrow_right_blue" />
         </Flex>
       </Flex>
