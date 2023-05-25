@@ -11,7 +11,7 @@ function DetailTourImg() {
 
   return (
     <Flex>
-      <img src={detailTour?.image} width="375px" height="305px" />
+      <img src={detailTour?.image} width="420px" height="305px" />
     </Flex>
   );
 }

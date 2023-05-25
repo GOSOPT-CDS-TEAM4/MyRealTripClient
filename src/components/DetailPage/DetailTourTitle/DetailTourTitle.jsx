@@ -13,11 +13,9 @@ function DetailTourTitle() {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
 
-  // console.log(detailTour.reviewTotalResponseDto.totalRating);
-
   return (
     <>
-      <Flex column justifycontent="center" style={{ marginTop: '20px', marginLeft: '15px' }}>
+      <Flex column justifycontent="center" style={{ marginTop: '20px', marginLeft: '15px', height: 'auto' }}>
         <St.Location>
           {detailTour.country}
           {'>'}
@@ -59,7 +57,7 @@ const St = {
     ${({ theme }) => theme.Text.title_bold_24};
     margin-top: 16px;
     margin-bottom: 16px;
-    width: 375px;
+    width: 420px;
   `,
 
   Container: styled.section`

@@ -13,7 +13,7 @@ function DetailTourReview() {
   const detailTour = useDetailTour(tourId);
 
   return (
-    <Flex column>
+    <Flex column style={{ height: 'auto' }}>
       <St.ReviewTitle>이용 후기</St.ReviewTitle>
       <St.ScoreWrapper>
         <St.Score>{detailTour?.reviewTotalResponseDto?.totalRating}</St.Score>
