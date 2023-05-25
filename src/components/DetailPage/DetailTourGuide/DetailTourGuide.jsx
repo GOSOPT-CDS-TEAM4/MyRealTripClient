@@ -1,7 +1,7 @@
 //코스 소개 밑의 이용 안내
 
-// eslint-disable-next-line simple-import-sort/imports
 import { useParams } from 'react-router-dom';
+
 import { styled } from 'styled-components';
 
 import DetailTourMap from './DetailTourMap';

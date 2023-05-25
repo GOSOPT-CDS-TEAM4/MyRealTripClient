@@ -12,26 +12,31 @@ export const tourFullData = atom({
 
 export const cityNameData = atom({
   key: 'cityNameData',
-  default: '',
+  default: '파리',
 });
 
 export const sortData = atom({
   key: 'sortData',
-  default: '',
+  default: '추천순',
 });
 export const pageData = atom({
   key: 'pageData',
-  default: '',
+  default: '1',
 });
 export const tourTypeData = atom({
   key: 'tourTypeData',
-  default: '',
-});
-export const maximumPriceData = atom({
-  key: 'maximumPriceData',
-  default: '',
+  default: 'all',
 });
 export const minimumPriceData = atom({
   key: 'minimumPriceData',
-  default: '',
+  default: '2000',
+});
+export const maximumPriceData = atom({
+  key: 'maximumPriceData',
+  default: '390000',
+});
+
+export const setModalData = atom({
+  key: 'setModalData',
+  default: false,
 });

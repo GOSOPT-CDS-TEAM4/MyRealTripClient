@@ -14,9 +14,7 @@ function TourListSortNav() {
     setSort(e.target.value);
   };
 
-  useEffect(() => {
-    console.log(sort);
-  });
+  useEffect(() => {});
   return (
     <Flex
       justifycontent="space-between"

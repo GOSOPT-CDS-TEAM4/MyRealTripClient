@@ -1,8 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
+import { setModalData } from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
@@ -13,7 +15,7 @@ import BsSelectCalendar from '../BottomSheet/BsSelectCalendar';
 import BsTourType from '../BottomSheet/BsTourType';
 
 function TourListHeaderSection() {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useRecoilState(setModalData);
   const [clickedValue, setClickedValue] = useState('');
   const [clickedModal, setClickedModal] = useState();
   const [title, setTitle] = useState('');
@@ -52,6 +54,7 @@ function TourListHeaderSection() {
           width: '100%',
           flexDirection: 'column',
           padding: '15px',
+          marginTop: '24px',
         }}>
         <Text type="title_bold_24" innerText="파리의 투어" style={{ margin: '14px 17px' }} />
 

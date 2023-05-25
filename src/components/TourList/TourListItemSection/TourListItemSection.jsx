@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
@@ -11,13 +11,10 @@ import TourListCardSquare from '../TourListCardSquare';
 function TourListItemSection() {
   const tourList = useRecoilValue(tourListData);
   const [page, setPage] = useRecoilState(pageData);
-  const pagination = (e) => {
-    setPage(e.target.textContent);
-  };
 
-  useEffect(() => {
-    console.log(page);
-  }, []);
+  const pagination = (e) => {
+    setPage(e.target.value);
+  };
 
   return (
     <>
