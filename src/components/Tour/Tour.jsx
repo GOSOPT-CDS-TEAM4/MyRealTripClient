@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { styled } from 'styled-components';
 
@@ -12,6 +13,8 @@ import Text from '../layout/atom/Text';
 
 function Tour() {
   const [bestReviewData, setBestReviewData] = useState([]);
+
+  const navigate = useNavigate();
 
   const getBestReviewData = async () => {
     try {
@@ -39,7 +42,11 @@ function Tour() {
       </St.TopImgSectionWrapper>
       <St.MainSectionWrapper>
         <Flex justifycontent="center" style={{ paddingTop: '10px' }}>
-          <Flex column alignitems="center" style={{ borderBottom: `3px solid ${theme.Color.blue2}`, width: '111px' }}>
+          <Flex
+            onClick={() => navigate('/tourList')}
+            column
+            alignitems="center"
+            style={{ borderBottom: `3px solid ${theme.Color.blue2}`, width: '111px', cursor: 'pointer' }}>
             <Icon type="img_tourticket" />
             <Text type="body_bold_14" innerText="투어·티켓" style={{ color: theme.Color.blue1 }} />
           </Flex>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { styled } from 'styled-components';
 
@@ -12,6 +13,7 @@ import ImgWithSrc from '../layout/atom/ImgWithSrc';
 import Text from '../layout/atom/Text';
 
 function IndivGoods({ randomData }) {
+  const navigate = useNavigate();
   const [heartState, setHeartState] = useState(randomData.isScrap ? 'heart_fill' : 'heart_empty');
   const handleScrap = async (method, tourId) => {
     switch (method) {
@@ -35,7 +37,7 @@ function IndivGoods({ randomData }) {
   };
 
   return (
-    <St.IndivGoodsWrapper>
+    <St.IndivGoodsWrapper onClick={() => navigate(`/detailTour/2`)}>
       <Flex column alignitems="start">
         <ImgWithSrc src={randomData.image} height="103px" width="149px" />
         <Icon
@@ -74,6 +76,7 @@ const St = {
   IndivGoodsWrapper: styled.article`
     position: relative;
     margin-top: 12px;
+    cursor: pointer;
     width: fit-content;
     div {
       border-radius: 5px;
