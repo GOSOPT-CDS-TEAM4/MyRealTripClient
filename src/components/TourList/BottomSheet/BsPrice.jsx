@@ -1,5 +1,6 @@
-import { Slider } from '@mui/material';
 import { useState } from 'react';
+
+import { Slider } from '@mui/material';
 import { styled } from 'styled-components';
 
 import { theme } from '../../../styles/theme';

@@ -9,14 +9,29 @@ export const tourFullData = atom({
   key: 'tourFullData',
   default: '',
 });
-// export const tourTitle = atom({
-//   key: 'tourTitle',
-//   default: '',
-// });
 
-// export const tourPrice = atom({
-//   key: 'tourTitle',
-//   default: '',
-// });
+export const cityNameData = atom({
+  key: 'cityNameData',
+  default: '',
+});
 
-// export const tourTitle = atom(s
+export const sortData = atom({
+  key: 'sortData',
+  default: '',
+});
+export const pageData = atom({
+  key: 'pageData',
+  default: '',
+});
+export const tourTypeData = atom({
+  key: 'tourTypeData',
+  default: '',
+});
+export const maximumPriceData = atom({
+  key: 'maximumPriceData',
+  default: '',
+});
+export const minimumPriceData = atom({
+  key: 'minimumPriceData',
+  default: '',
+});

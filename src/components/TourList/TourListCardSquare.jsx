@@ -8,7 +8,6 @@ import Icon from '../layout/atom/Icon';
 import Text from '../layout/atom/Text';
 
 function TourListCardSquare({ tourData }) {
-  console.log(tourData);
   return (
     <>
       <Flex column="column" style={{ margin: '36px 8px' }}>
