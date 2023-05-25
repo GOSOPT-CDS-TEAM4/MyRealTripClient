@@ -10,32 +10,41 @@ import Icon from '../layout/atom/Icon';
 
 function Landing() {
   return (
-    <St.LandingWrapper>
-      <St.InputWrapper>
-        <Icon type="search" style={{ width: '20px', paddingLeft: '20px' }} />
-        <input type="text" placeholder="도시나 상품을 검색해보세요" />
-      </St.InputWrapper>
-      <TrendPlaceSection />
-      <MainButtonSection />
+    <>
+      <St.LandingWrapper>
+        <St.InputWrapper>
+          <Icon type="search" style={{ width: '20px', paddingLeft: '20px' }} />
+          <input type="text" placeholder="도시나 상품을 검색해보세요" />
+        </St.InputWrapper>
+        <TrendPlaceSection />
+      </St.LandingWrapper>
       <St.MainSectionWrapper>
+        <MainButtonSection />
         <IconSection />
         <St.Line />
         <Carousel />
         <GlobalGoodsSection />
         <ParisGoodsSection />
       </St.MainSectionWrapper>
-    </St.LandingWrapper>
+    </>
   );
 }
 
 export default Landing;
 
 const St = {
-  LandingWrapper: styled.main`
+  LandingWrapper: styled.section`
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
     background-color: ${({ theme }) => theme.Color.blue2};
     padding-top: 58px;
     padding-right: 15px;
     padding-left: 15px;
+    width: calc(100% - 30px);
+    height: 418px;
   `,
   InputWrapper: styled.section`
     display: flex;
@@ -55,13 +64,13 @@ const St = {
     }
   `,
   MainSectionWrapper: styled.section`
-    margin-left: calc(-50vw + 50%);
+    margin-top: 380px;
     border-radius: 15px 15px 0 0;
     background-color: ${({ theme }) => theme.Color.white};
     padding-right: 15px;
     padding-bottom: 41px;
     padding-left: 15px;
-    width: calc(100vw - 30px);
+    width: calc(100% - 30px);
     height: calc(100% + 41px);
   `,
   Line: styled.div`

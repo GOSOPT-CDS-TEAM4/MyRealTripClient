@@ -21,7 +21,6 @@ export default IconSection;
 
 const St = {
   MainSectionIconWrapper: styled.section`
-    padding-top: 70px;
     width: 100%;
   `,
   IconWrapper: styled.section`

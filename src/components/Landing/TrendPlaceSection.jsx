@@ -34,7 +34,6 @@ const St = {
   `,
   TrendPlaceCarousel: styled.section`
     margin-top: 27px;
-    overflow-x: scroll;
     &::-webkit-scrollbar {
       display: none;
     }
