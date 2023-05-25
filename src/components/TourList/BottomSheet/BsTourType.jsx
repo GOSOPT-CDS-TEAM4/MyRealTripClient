@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
@@ -11,7 +11,7 @@ import Text from '../../layout/atom/Text';
 function BsTourType() {
   const [modal, setModal] = useRecoilState(setModalData);
   const [tourType, setTourType] = useRecoilState(tourTypeData);
-  const [handleType, setHandleType] = useState();
+  const [handleType, setHandleType] = useState('all');
 
   const handleTourType = (e) => {
     setHandleType(e.target.value);
@@ -21,28 +21,49 @@ function BsTourType() {
     setModal(false);
   };
 
-  useEffect(() => {
-    console.log(tourType);
-  });
+  const resetTourType = () => {
+    setTourType('all');
+    document.body.style.overflowY = 'auto';
+    setModal(false);
+  };
+
   return (
     <>
       <St.TourTypeWrapper>
         <label>
-          <input type="radio" name="tour-type-radio" value="all" onChange={handleTourType} />
+          <input
+            type="radio"
+            name="tour-type-radio"
+            value="all"
+            onChange={handleTourType}
+            checked={handleType === 'all'}
+          />
           <Text type="body_regular_14" innerText="전체" style={{ color: theme.Color.gray2 }} />
         </label>
         <label>
-          <input type="radio" name="tour-type-radio" value="group" onChange={handleTourType} />
+          <input
+            type="radio"
+            name="tour-type-radio"
+            value="group"
+            onChange={handleTourType}
+            checked={handleType === 'group'}
+          />
           <Text type="body_regular_14" innerText="그룹" style={{ color: theme.Color.gray2 }} />
         </label>
         <label>
-          <input type="radio" name="tour-type-radio" value="private" onChange={handleTourType} />
+          <input
+            type="radio"
+            name="tour-type-radio"
+            value="private"
+            onChange={handleTourType}
+            checked={handleType === 'private'}
+          />
           <Text type="body_regular_14" innerText="프라이빗" style={{ color: theme.Color.gray2 }} />
         </label>
       </St.TourTypeWrapper>
 
       <St.BottomSheetFooter>
-        <button className="refresh">
+        <button className="refresh" onClick={resetTourType}>
           <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
           <Text type="body_bold_14" innerText="초기화" />
         </button>

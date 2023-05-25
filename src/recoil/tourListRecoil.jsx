@@ -29,11 +29,11 @@ export const tourTypeData = atom({
 });
 export const minimumPriceData = atom({
   key: 'minimumPriceData',
-  default: '2000',
+  default: 2000,
 });
 export const maximumPriceData = atom({
   key: 'maximumPriceData',
-  default: '390000',
+  default: 390000,
 });
 
 export const setModalData = atom({

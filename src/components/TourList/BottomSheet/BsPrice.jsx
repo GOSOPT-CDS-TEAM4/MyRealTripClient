@@ -4,7 +4,7 @@ import { Slider } from '@mui/material';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
-import { minimumPriceData, tourFullData, maximumPriceData } from '../../../recoil/tourListRecoil';
+import { minimumPriceData, tourFullData, maximumPriceData, setModalData } from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
 import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import Flex from '../../layout/atom/Flex';
@@ -21,6 +21,12 @@ function BsPrice() {
   const [handleMaximum, setHandleMaximum] = useState();
 
   const tourFull = useRecoilValue(tourFullData);
+  const resetPrice = () => {
+    setMinimumPrice(2000);
+    setMaximumPrice(390000);
+    document.body.style.overflowY = 'auto';
+    setModal(false);
+  };
 
   const handleChange = (event, newValue) => {
     setHandleMinimum(value[0]);
@@ -69,7 +75,7 @@ function BsPrice() {
       </St.BsPriceContent>
 
       <St.BottomSheetFooter>
-        <button className="refresh">
+        <button className="refresh" onClick={resetPrice}>
           <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
           <Text type="body_bold_14" innerText="초기화" />
         </button>

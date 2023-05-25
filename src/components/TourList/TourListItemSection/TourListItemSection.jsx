@@ -33,7 +33,10 @@ function TourListItemSection() {
 
         <Flex justifycontent="space-around" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
-          <St.PaginationBtn onClick={(e) => pagination(e)}>1</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>
+            1{/* <Icon className="pageEllipse" type="ellipse" /> */}
+            <img className="pageEllipse" src="/assets/icon/ellipse.png" alt="" />
+          </St.PaginationBtn>
           <St.PaginationBtn onClick={(e) => pagination(e)}>2</St.PaginationBtn>
           <St.PaginationBtn onClick={(e) => pagination(e)}>3</St.PaginationBtn>
           <St.PaginationBtn onClick={(e) => pagination(e)}>4</St.PaginationBtn>
@@ -50,13 +53,17 @@ export default TourListItemSection;
 
 const St = {
   PaginationBtn: styled.button`
+    position: relative;
     padding-right: 40px;
     all: unset;
     ${({ theme }) => theme.Text.body_medium_14};
-    color: ${({ theme }) => theme.Color.blue2};
-    &:active {
-      background-color: ${({ theme }) => theme.Color.blue2};
-      color: ${({ theme }) => theme.Color.white};
+    /* color: ${({ theme }) => theme.Color.blue2}; */
+    color: ${({ theme }) => theme.Color.white};
+    .pageEllipse {
+      position: absolute;
+      left: -12px;
+      top: -9px;
+      z-index: -9;
     }
   `,
   HorizonLine: styled.div`

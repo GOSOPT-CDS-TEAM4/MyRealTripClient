@@ -40,7 +40,7 @@ function TourListHeaderSection() {
         modalComponent = <BsTourType />;
         break;
       default:
-        modalComponent = 'notselected';
+        modalComponent = 'NOT SELECTED';
         break;
     }
 
@@ -65,15 +65,33 @@ function TourListHeaderSection() {
             width: '100%',
           }}>
           <St.FilterBtn value="date" onClick={(e) => showModal(e)}>
-            <Text value="date" type="body_bold_14" innerText="일정" style={{ color: theme.Color.black }} />
+            <Text
+              value="date"
+              type="body_bold_14"
+              innerText="일정"
+              style={{ color: theme.Color.black }}
+              onClick={showModal}
+            />
           </St.FilterBtn>
 
           <St.FilterBtn value="price" onClick={(e) => showModal(e)}>
-            <Text value="price" type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
+            <Text
+              value="price"
+              type="body_bold_14"
+              innerText="가격"
+              style={{ color: theme.Color.black }}
+              onClick={showModal}
+            />
           </St.FilterBtn>
 
           <St.FilterBtn value="tourType" onClick={(e) => showModal(e)}>
-            <Text value="tourType" type="body_bold_14" innerText="투어 형태" style={{ color: theme.Color.black }} />
+            <Text
+              value="tourType"
+              type="body_bold_14"
+              innerText="투어 형태"
+              style={{ color: theme.Color.black }}
+              onClick={showModal}
+            />
           </St.FilterBtn>
 
           <St.FilterBtn>
