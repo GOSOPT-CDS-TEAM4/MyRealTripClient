@@ -3,20 +3,43 @@ import Icon from '../../layout/atom/Icon';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import EllipsisText from '../../layout/atom/EllipsisText';
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
+import axiosInstance from '../../../api/axios';
 
 function MoreTour({ similarTour }) {
-  console.log('here');
-
+  const [heart, setHeart] = useState(similarTour.isScrap ? 'heart_fill' : 'heart_empty');
+  const handleScrap = async (method, tourId) => {
+    switch (method) {
+      case 'POST':
+        await axiosInstance.post('https://api.my-real-trip.o-r.kr/api/scrap', { tourId }).then((res) => {
+          console.log(res);
+          if (res.status <= 300) {
+            setHeart('heart_fill');
+          }
+        });
+        return;
+      case 'DELETE':
+        await axiosInstance.delete(`https://api.my-real-trip.o-r.kr/api/scrap/${tourId}`).then((res) => {
+          if (res.status <= 300) {
+            setHeart('heart_empty');
+          }
+        });
+        return;
+    }
+  };
   return (
     <>
       <St.SimilarGoodsWrapper>
         <St.TourImg src={similarTour.image} />
         <div>
-          <Icon type="heart_fill" />
+          <Icon type={heart} onClick={() => handleScrap(heart === 'heart_fill' ? 'DELETE' : 'POST', similarTour.id)} />
         </div>
         <St.SimilarTourAbout>{similarTour.itemType}</St.SimilarTourAbout>
-        <St.SimilarTourTitle>{similarTour.name}</St.SimilarTourTitle>
-        <St.SimilarTourPrice>{similarTour.price.originalPrice}원</St.SimilarTourPrice>
+        <EllipsisText type="body_bold_14" innerText={similarTour.name} style={{ width: '148px', color: '#343A40' }} />
+        <St.SimilarTourPrice>
+          {similarTour.price.originalPrice && `${addCommasInNumbers(similarTour.price.originalPrice)}`}원
+        </St.SimilarTourPrice>
       </St.SimilarGoodsWrapper>
     </>
   );
@@ -29,17 +52,17 @@ const St = {
     display: flex;
     flex-direction: column;
     margin-right: 10px;
-    width: 375px;
     position: relative;
+    cursor: pointer;
+    width: fit-content;
 
     div {
-      width: 21px;
-      img:nth-child(2) {
+      border-radius: 5px;
+      img:nth-child(1) {
         position: absolute;
-        top: 9px;
-        right: 20px;
         z-index: 999;
-        background-color: red;
+        right: 9px;
+        top: 10px;
       }
     }
   `,
@@ -55,22 +78,14 @@ const St = {
     margin-top: 9px;
     margin-bottom: 2px;
   `,
-  SimilarTourTitle: styled.h1`
-    color: ${({ theme }) => theme.Color.gray1};
-    ${({ theme }) => theme.Text.body_bold_14};
 
-    height: 21px;
-    display: inline-block;
-    overflow: hidden;
-    margin-bottom: 13px;
-  `,
-
-  SimilarTourPrice: styled.div`
+  SimilarTourPrice: styled.span`
     color: ${({ theme }) => theme.Color.gray1};
     ${({ theme }) => theme.Text.body_bold_14};
     display: flex;
     width: 148px;
 
+    margin-top: 10px;
     position: relative;
   `,
 };
