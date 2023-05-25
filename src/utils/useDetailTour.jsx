@@ -7,7 +7,7 @@ function useDetailTour(tourId) {
 
   const getData = async () => {
     try {
-      const data = await axiosInstance.get(`/api/tour/detail/${tourId}`);
+      const data = await axiosInstance.get(`https://api.my-real-trip.o-r.kr/api/tour/detail/${tourId}`);
       setDetailTour(data.data.data);
     } catch (e) {
       console.error(e);
