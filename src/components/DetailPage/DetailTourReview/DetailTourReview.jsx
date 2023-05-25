@@ -135,5 +135,9 @@ const St = {
     overflow-x: scroll;
 
     align-items: center;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
 };
