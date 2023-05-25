@@ -1,41 +1,34 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+
 import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
+import { getRawTourList } from '../../api/tourListAxios';
 import TourListHeaderSection from '../../components/TourList/TourListHeaderSection';
 import TourListItemSection from '../../components/TourList/TourListItemSection';
 import TourListSortNav from '../../components/TourList/TourListSortNav';
-import { test } from '../../recoil/test';
+import { tourListData, tourFullData } from '../../recoil/tourListRecoil';
 
 function TourListPage() {
-  const [tourList, setTourList] = useState();
-  const [testRecoil, setTextRecoil] = useRecoilState(test);
+  const [tourList, setTourList] = useRecoilState(tourListData);
+  const [tour, setTour] = useRecoilState(tourFullData);
 
-  setTextRecoil('isDone');
+  async function getRawTourInfo() {
+    const response = await getRawTourList();
+    setTourList(response.data.tourList);
+    setTour(response.data);
+  }
 
   useEffect(() => {
-    getTourList();
+    getRawTourInfo();
   }, []);
 
-  async function getTourList() {
-    try {
-      const response = await axios.get(
-        `http://15.165.135.183:8080/api/tour/filter?city=%ED%8C%8C%EB%A6%AC&order=%EC%B6%94%EC%B2%9C%EC%88%9C&minimumPrice=100&maximumPrice=100000000000&tourType=all&page=1`,
-      );
-      const data = response.data.data;
-      setTourList(data.tourList);
-      console.log(tourList);
-    } catch (error) {
-      console.error(error);
-    }
-  }
   return (
     <>
       <TourListHeaderSection />
       <St.PageWrapper>
         <TourListSortNav />
-        <TourListItemSection tourList={tourList} />
+        <TourListItemSection />
       </St.PageWrapper>
     </>
   );

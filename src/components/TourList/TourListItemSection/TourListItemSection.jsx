@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
+
 import { useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
-import { test } from '../../../recoil/test';
+import { tourListData } from '../../../recoil/tourListRecoil';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
-function TourListItemSection({ tourList }) {
-  const [sort, setSort] = useState();
-  const [minimumPrice, setminiMumPrice] = useState();
-  const [maximumPrice, setMaximumPrice] = useState();
-  const [tourType, setTourType] = useState();
-  const [page, setPage] = useState();
-  const testText = useRecoilValue(test);
+
+function TourListItemSection() {
+  const tourList = useRecoilValue(tourListData);
   return (
     <>
-      <div>{testText}</div>
       <Flex
         justifycontent="center"
         alignitems="alignitems"
