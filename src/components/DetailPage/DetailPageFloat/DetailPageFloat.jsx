@@ -4,14 +4,12 @@ import Icon from '../../layout/atom/Icon';
 
 function DetailPageFloat() {
   return (
-    <>
-      <St.FloatWrapper>
-        <St.HeartBtn>
-          <Icon type="heart_empty" />
-        </St.HeartBtn>
-        <St.ReservationBtn>예약하기</St.ReservationBtn>
-      </St.FloatWrapper>
-    </>
+    <St.FloatWrapper>
+      <St.HeartBtn>
+        <Icon type="heart_empty" />
+      </St.HeartBtn>
+      <St.ReservationBtn>예약하기</St.ReservationBtn>
+    </St.FloatWrapper>
   );
 }
 
@@ -22,10 +20,17 @@ const St = {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 375px;
+    width: 100%;
     height: 70px;
 
     gap: 10px;
+
+    display: flex;
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+
+    background-color: white;
   `,
   HeartBtn: styled.button`
     display: flex;

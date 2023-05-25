@@ -32,7 +32,7 @@ function DetailTourMore() {
       <img
         src="/assets/img/pocketWifi.png"
         alt="pocketWifi"
-        style={{ width: '375px', height: '75px', margin: '42px 0' }}
+        style={{ width: '420px', height: '75px', margin: '42px 0' }}
       />
       <Flex column>
         <St.SimilarTitle>비슷한 상품과 비교해보세요</St.SimilarTitle>
@@ -53,15 +53,19 @@ export default DetailTourMore;
 const St = {
   GoodWrapper: styled.section`
     display: flex;
-    width: 375px;
+    width: 420px;
     position: relative;
 
     overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
 
   SimilarGoodsWrapper: styled.article`
     margin-right: 10px;
-    width: 375px;
+    width: 420px;
     position: relative;
     /* 
     div {

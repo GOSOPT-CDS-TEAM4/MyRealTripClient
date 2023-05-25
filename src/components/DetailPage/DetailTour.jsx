@@ -28,8 +28,8 @@ function DetailTour() {
           <DetailTourCourse />
           <DetailTourGuide />
           <DetailTourMore />
+          <DetailPageFloat />
         </St.DetailPageWrapper>
-        <DetailPageFloat />
       </St.DetailPageWholeWrapper>
     </>
   );
@@ -54,8 +54,8 @@ const St = {
     display: flex;
     position: relative;
     background-color: ${({ theme }) => theme.Color.white};
-    width: 375px;
-
+    width: 420px;
+    height: auto;
     top: -20px;
     z-index: 2;
 
@@ -64,5 +64,7 @@ const St = {
     justify-content: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+
+    height: auto;
   `,
 };

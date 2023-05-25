@@ -6,16 +6,16 @@ import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
+
 //이미지 하단 투어에 관한 제목, 별점, 가격
 function DetailTourTitle() {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
 
-  // console.log(detailTour.reviewTotalResponseDto.totalRating);
-
   return (
     <>
-      <Flex column justifycontent="center" style={{ marginTop: '20px', marginLeft: '15px' }}>
+      <Flex column justifycontent="center" style={{ marginTop: '20px', marginLeft: '15px', height: 'auto' }}>
         <St.Location>
           {detailTour.country}
           {'>'}
@@ -34,9 +34,8 @@ function DetailTourTitle() {
               ({detailTour?.reviewTotalResponseDto?.totalNumber}) {'>'}
             </St.ReviewCount>
           </St.ReviewWrapper>
-
           <St.MoneyWrapper>
-            <St.Money>{detailTour.price}</St.Money>
+            <St.Money>{detailTour.price && `${addCommasInNumbers(detailTour.price)}`}</St.Money>
             <St.People>1인</St.People>
           </St.MoneyWrapper>
         </St.Container>
@@ -58,7 +57,7 @@ const St = {
     ${({ theme }) => theme.Text.title_bold_24};
     margin-top: 16px;
     margin-bottom: 16px;
-    width: 375px;
+    width: 420px;
   `,
 
   Container: styled.section`
