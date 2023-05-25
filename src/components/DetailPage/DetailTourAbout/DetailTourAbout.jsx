@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+
 import { styled } from 'styled-components';
 
 import useDetailTour from '../../../utils/useDetailTour';
@@ -11,7 +12,6 @@ function DetailTourAbout() {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
   const time = detailTour?.requiredTime;
-  console.log(time);
 
   return (
     <Flex column justifycontent="center">
@@ -44,8 +44,8 @@ function DetailTourAbout() {
       <St.AboutWrapper>
         <Icon type="meta_time" />
         <St.AboutTour>
-          시간 <span />
-          {/* {detailTour?.requiredTime.split(':')[1]}분 소요 */}
+          {time.slice(0, 2)}시간 <span />
+          {time.slice(3, 5)}분 소요
         </St.AboutTour>
       </St.AboutWrapper>
 

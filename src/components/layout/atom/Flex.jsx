@@ -1,8 +1,13 @@
 import { styled } from 'styled-components';
 
-function Flex({ children, column, justifycontent, alignitems, style }) {
+function Flex({ children, column, justifycontent, alignitems, style, onClick }) {
   return (
-    <St.FlexWrapper column={column} justifycontent={justifycontent} alignitems={alignitems} style={style}>
+    <St.FlexWrapper
+      column={column}
+      justifycontent={justifycontent}
+      alignitems={alignitems}
+      style={style}
+      onClick={onClick}>
       {children}
     </St.FlexWrapper>
   );

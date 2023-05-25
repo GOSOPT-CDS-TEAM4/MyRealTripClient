@@ -1,5 +1,6 @@
 //코스 소개 안내
 import { useParams } from 'react-router-dom';
+
 import { styled } from 'styled-components';
 
 import useDetailTour from '../../../utils/useDetailTour';
@@ -18,7 +19,7 @@ function DetailTourCourse() {
           <St.CourseTitle>코스 소개</St.CourseTitle>
           <St.TimeWrapper>
             <Icon type="location_blue" />
-            <St.Time>{detailTour.courseResponseDtoList[0].time}</St.Time>
+            <St.Time>{detailTour.courseResponseDtoList[0].time.slice(0, 5)}</St.Time>
             <St.TimeDescription>{detailTour.courseResponseDtoList[0].title}</St.TimeDescription>
           </St.TimeWrapper>
           <Flex alignitems="center" style={{ marginLeft: '15px' }}>
@@ -32,7 +33,7 @@ function DetailTourCourse() {
             <Flex column justifycontent="center" style={{ gap: '20px' }}>
               <St.TimeWrapper>
                 <Icon type="location_black" />
-                <St.Time>{detailTour.courseResponseDtoList[1].time}</St.Time>
+                <St.Time>{detailTour.courseResponseDtoList[1].time.slice(0, 5)}</St.Time>
                 <St.TimeDescription>{detailTour.courseResponseDtoList[1].title}</St.TimeDescription>
               </St.TimeWrapper>
               <Flex alignitems="center" style={{ marginLeft: '15px' }}>
