@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';

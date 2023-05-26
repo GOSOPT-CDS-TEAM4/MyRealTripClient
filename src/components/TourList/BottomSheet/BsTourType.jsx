@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { clickedTypeData, setModalData, tourTypeData } from '../../../recoil/tourListRecoil';

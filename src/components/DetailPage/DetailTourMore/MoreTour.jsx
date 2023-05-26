@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+
 import { styled } from 'styled-components';
 
-import Icon from '../../layout/atom/Icon';
 import axiosInstance from '../../../api/axios';
 import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import EllipsisText from '../../layout/atom/EllipsisText';
+import Icon from '../../layout/atom/Icon';
 
 function MoreTour({ similarTour }) {
   const [heart, setHeart] = useState(similarTour.isScrap ? 'heart_fill' : 'heart_empty');
