@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import { styled } from 'styled-components';
 
 import { theme } from '../../styles/theme';
@@ -48,7 +49,7 @@ function TourListCardSquare({ tourData }) {
         />
         <Flex alignitems="start">
           <Icon type="star" />
-          <Text type="body_bold_14" innerText={`${tourData.totalRating}`} />
+          <Text type="body_bold_14" innerText={Number(`${tourData.totalRating}`).toFixed(2)} />
           <Text type="body_medium_14" innerText={`(${tourData.reviewNumber})`} />
         </Flex>
         <Text

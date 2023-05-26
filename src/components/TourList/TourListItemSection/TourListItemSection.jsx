@@ -1,47 +1,52 @@
-import React, { useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRef, useState } from 'react';
+
+import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
-import { test } from '../../../recoil/test';
+import { pageData, tourListData } from '../../../recoil/tourListRecoil';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
-function TourListItemSection({ tourList }) {
-  const [sort, setSort] = useState();
-  const [minimumPrice, setminiMumPrice] = useState();
-  const [maximumPrice, setMaximumPrice] = useState();
-  const [tourType, setTourType] = useState();
-  const [page, setPage] = useState();
-  const testText = useRecoilValue(test);
+
+function TourListItemSection() {
+  const tourList = useRecoilValue(tourListData);
+  const [page, setPage] = useRecoilState(pageData);
+  const scrollRef = useRef();
+
+  const pagination = (e) => {
+    setPage(e.target.innerText);
+    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
-      <div>{testText}</div>
       <Flex
+        ref={scrollRef}
         justifycontent="center"
         alignitems="alignitems"
         style={{
-          padding: '13px',
+          marginTop: '-22px',
           flexDirection: 'column',
         }}>
         <Flex
           justifycontent="start"
           style={{
             flexWrap: 'wrap',
+            paddingLeft: '22px',
           }}>
           {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)}
         </Flex>
 
-        <Flex justifycontent="space-around" style={{ marginBottom: '80px' }}>
+        <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
-          <St.PaginationBtn>1</St.PaginationBtn>
-          <St.PaginationBtn>2</St.PaginationBtn>
-          <St.PaginationBtn>3</St.PaginationBtn>
-          <St.PaginationBtn>4</St.PaginationBtn>
-          <St.PaginationBtn>5</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>1</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>2</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>3</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>4</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>5</St.PaginationBtn>
           <Icon type="arrow_right_blue" />
         </Flex>
       </Flex>
-      <St.HorizonLine />
     </>
   );
 }
@@ -50,14 +55,17 @@ export default TourListItemSection;
 
 const St = {
   PaginationBtn: styled.button`
-    padding-right: 40px;
+    padding-left: 0px;
+    position: relative;
+    width: 60px;
+    height: 60px;
     all: unset;
+    cursor: pointer;
+    text-align: center;
     ${({ theme }) => theme.Text.body_medium_14};
+
+    background-color: ${({ theme }) => theme.Color.white};
     color: ${({ theme }) => theme.Color.blue2};
-    &:active {
-      background-color: ${({ theme }) => theme.Color.blue2};
-      color: ${({ theme }) => theme.Color.white};
-    }
   `,
   HorizonLine: styled.div`
     margin: 18px 0px;

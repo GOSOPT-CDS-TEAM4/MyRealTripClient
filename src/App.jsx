@@ -1,4 +1,4 @@
-import { atom, RecoilRoot, selector, useRecoilState, useRecoilValue } from 'recoil';
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
 
 import Router from './components/common/Router';

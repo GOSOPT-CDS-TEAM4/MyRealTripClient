@@ -1,7 +1,7 @@
-import { styled } from 'styled-components';
-import Icon from '../../layout/atom/Icon';
-
 import { useState, useEffect } from 'react';
+import { styled } from 'styled-components';
+
+import Icon from '../../layout/atom/Icon';
 import axiosInstance from '../../../api/axios';
 import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import EllipsisText from '../../layout/atom/EllipsisText';
