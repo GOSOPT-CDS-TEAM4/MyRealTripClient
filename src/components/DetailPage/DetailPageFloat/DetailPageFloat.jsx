@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom/';
-import useDetailTour from '../../../utils/useDetailTour';
 
 import { styled } from 'styled-components';
 
 import axiosInstance from '../../../api/axios';
+import useDetailTour from '../../../utils/useDetailTour';
 import Icon from '../../layout/atom/Icon';
 
 function DetailPageFloat() {

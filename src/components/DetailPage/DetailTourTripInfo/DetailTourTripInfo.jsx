@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom';
 
 import { styled } from 'styled-components';
 
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import useDetailTour from '../../../utils/useDetailTour';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
-
-import addCommasInNumbers from '../../../utils/addCommasInNumber';
 
 function DetailTourTripInfo() {
   const { tourId } = useParams();

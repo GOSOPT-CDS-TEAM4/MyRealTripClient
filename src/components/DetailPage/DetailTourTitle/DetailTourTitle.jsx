@@ -2,12 +2,11 @@ import { useParams } from 'react-router-dom/';
 
 import styled from 'styled-components';
 
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import useDetailTour from '../../../utils/useDetailTour';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
-
-import addCommasInNumbers from '../../../utils/addCommasInNumber';
 
 //이미지 하단 투어에 관한 제목, 별점, 가격
 function DetailTourTitle() {
