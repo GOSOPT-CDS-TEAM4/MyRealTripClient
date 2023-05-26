@@ -4,6 +4,8 @@ import 'react-calendar/dist/Calendar.css';
 import { styled } from 'styled-components';
 
 import Flex from '../../layout/atom/Flex';
+import Icon from '../../layout/atom/Icon';
+import Text from '../../layout/atom/Text';
 function BsCalendar() {
   const week = ['일', '월', '화', '수', '목', '금', '토'];
   const weekDays = () =>
@@ -18,61 +20,71 @@ function BsCalendar() {
   const toCalendarType = (weekStartDay) => (weekStartDay === 0 ? 'US' : 'ISO 8601');
   const tileDisabled = ({ date, view }) => {
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // 날짜를 하루의 시작으로 설정합니다.
-
-    // 오늘 이전의 날짜를 비활성화합니다. (오늘은 선택 가능하게 유지)
+    today.setHours(0, 0, 0, 0);
     if (view === 'month' && date < today) {
       return true;
     }
     return false;
   };
   return (
-    <Flex
-      column="true"
-      style={{
-        width: '100%',
-        alignItems: 'center',
-        height: '80vh',
-        overflowY: 'auto',
-      }}>
-      <ST.CalendarWrapper>
-        <ST.HorizonLine />
-        <ST.weekWrapper>{weekDays()}</ST.weekWrapper>
-        <ST.HorizonLine />
-        <Calendar
-          calendarType={toCalendarType(0)}
-          formatDay={(locale, date) => date.toLocaleString('en', { day: 'numeric' })}
-          selectRange={true}
-          nextLabel={null}
-          prevLabel={null}
-          next2Label={null}
-          prev2Label={null}
-          showNeighboringMonth={false}
-          minDetail={'month'}
-          tileDisabled={tileDisabled}
-          formatShortWeekday={formatShortWeekday}
-        />{' '}
-        <Calendar
-          calendarType={toCalendarType(0)}
-          defaultActiveStartDate={new Date(2023, 5, 1)}
-          formatDay={(locale, date) => date.toLocaleString('en', { day: 'numeric' })}
-          selectRange={true}
-          nextLabel={null}
-          prevLabel={null}
-          next2Label={null}
-          prev2Label={null}
-          showNeighboringMonth={false}
-          minDetail={'month'}
-          formatShortWeekday={formatShortWeekday}
-        />
-      </ST.CalendarWrapper>
-    </Flex>
+    <>
+      <Flex
+        column="true"
+        style={{
+          width: '100%',
+          alignItems: 'center',
+          height: '80vh',
+          overflowY: 'auto',
+        }}>
+        <St.CalendarWrapper>
+          <St.HorizonLine />
+          <St.weekWrapper>{weekDays()}</St.weekWrapper>
+          <St.HorizonLine />
+          <Calendar
+            calendarType={toCalendarType(0)}
+            formatDay={(locale, date) => date.toLocaleString('en', { day: 'numeric' })}
+            selectRange={true}
+            nextLabel={null}
+            prevLabel={null}
+            next2Label={null}
+            prev2Label={null}
+            showNeighboringMonth={false}
+            minDetail={'month'}
+            tileDisabled={tileDisabled}
+            formatShortWeekday={formatShortWeekday}
+          />{' '}
+          <Calendar
+            calendarType={toCalendarType(0)}
+            defaultActiveStartDate={new Date(2023, 5, 1)}
+            formatDay={(locale, date) => date.toLocaleString('en', { day: 'numeric' })}
+            selectRange={true}
+            nextLabel={null}
+            prevLabel={null}
+            next2Label={null}
+            prev2Label={null}
+            showNeighboringMonth={false}
+            minDetail={'month'}
+            formatShortWeekday={formatShortWeekday}
+          />
+        </St.CalendarWrapper>
+      </Flex>
+
+      <St.BottomSheetFooter>
+        <button className="refresh">
+          <Icon type="ic_reset" style={{ marginLeft: '5px' }} />
+          <Text type="body_bold_14" innerText="초기화" />
+        </button>
+        <button className="submit">
+          <Text type="body_bold_14" innerText="적용하기" />
+        </button>
+      </St.BottomSheetFooter>
+    </>
   );
 }
 
 export default BsCalendar;
 
-const ST = {
+const St = {
   HorizonLine: styled.div`
     text-align: center;
     width: 100%;
@@ -117,6 +129,7 @@ const ST = {
     .react-calendar__month-view__days__day--weekend {
       background-color: ${({ theme }) => theme.Color.grey2};
     }
+
     .react-calendar__tile {
       height: 48px;
       width: 48px;
@@ -140,6 +153,30 @@ const ST = {
       background-color: ${({ theme }) => theme.Color.blue2};
       color: ${({ theme }) => theme.Color.white};
       border-radius: 50%;
+    }
+  `,
+  BottomSheetFooter: styled.div`
+    display: flex;
+    width: 380px;
+    gap: 6px;
+    color: ${({ theme }) => theme.Color.gray4};
+    margin: 10px 18px;
+    .refresh {
+      display: flex;
+      width: 87px;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: ${({ theme }) => theme.Color.gray8};
+      padding: 11px 14px 11px 14px;
+      border-radius: 4px;
+    }
+    .submit {
+      background-color: ${({ theme }) => theme.Color.blue2};
+      color: ${({ theme }) => theme.Color.white};
+      width: 80%;
+      padding: 11px 14px 11px 14px;
+      border-radius: 4px;
+      text-align: center;
     }
   `,
 };

@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Slider } from '@mui/material';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
-import { minimumPriceData, tourFullData, maximumPriceData, setModalData } from '../../../recoil/tourListRecoil';
+import {
+  minimumPriceData,
+  tourFullData,
+  maximumPriceData,
+  setModalData,
+  clickedPriceData,
+} from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
 import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import Flex from '../../layout/atom/Flex';
@@ -12,13 +18,14 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BsPrice() {
+  const [clickedPrice, setClickedPrice] = useRecoilState(clickedPriceData);
   const [modal, setModal] = useRecoilState(setModalData);
   const [minimumPrice, setMinimumPrice] = useRecoilState(minimumPriceData);
   const [maximumPrice, setMaximumPrice] = useRecoilState(maximumPriceData);
   const [value, setValue] = useState([2000, 390000]);
   const labeltext = (value) => `${addCommasInNumbers(value)}원`;
-  const [handleMinimum, setHandleMinimum] = useState();
-  const [handleMaximum, setHandleMaximum] = useState();
+  const [handleMinimum, setHandleMinimum] = useState(2000);
+  const [handleMaximum, setHandleMaximum] = useState(390000);
 
   const tourFull = useRecoilValue(tourFullData);
   const resetPrice = () => {
@@ -26,19 +33,25 @@ function BsPrice() {
     setMaximumPrice(390000);
     document.body.style.overflowY = 'auto';
     setModal(false);
+    setClickedPrice(false);
   };
 
   const handleChange = (event, newValue) => {
+    setValue(newValue);
     setHandleMinimum(value[0]);
     setHandleMaximum(value[1]);
-    setValue(newValue);
   };
   const PriceValue = () => {
     setMinimumPrice(handleMinimum);
     setMaximumPrice(handleMaximum);
     document.body.style.overflowY = 'auto';
     setModal(false);
+    setClickedPrice(true);
   };
+  useEffect(() => {
+    console.log(handleMaximum);
+    console.log(handleMinimum);
+  }, [handleMaximum, handleMinimum]);
 
   return (
     <>
@@ -57,7 +70,7 @@ function BsPrice() {
             getAriaLabel={() => 'Price range'}
             value={value}
             onChange={handleChange}
-            valueLabelDisplay="auto"
+            valueLabelDisplay="off"
             valueLabelFormat={labeltext}
             getAriaValueText={labeltext}
           />
@@ -65,11 +78,19 @@ function BsPrice() {
         <Flex justifycontent="space-between" style={{ marginTop: '0px' }}>
           <Flex column={true}>
             <Text type="detail_regular_12" innerText="최저 요금" style={{ color: theme.Color.gray3 }} />
-            <Text type="body_bold_16" innerText="2,000원" style={{ color: theme.Color.black }} />
+            <Text
+              type="body_bold_16"
+              innerText={`${addCommasInNumbers(handleMinimum)}원`}
+              style={{ color: theme.Color.black }}
+            />
           </Flex>
           <Flex column={true} style={{ textAlign: 'right' }}>
             <Text type="detail_regular_12" innerText="최고 요금" style={{ color: theme.Color.gray3 }} />
-            <Text type="body_bold_16" innerText="390,000원" style={{ color: theme.Color.black }} />
+            <Text
+              type="body_bold_16"
+              innerText={`${addCommasInNumbers(handleMaximum)}원`}
+              style={{ color: theme.Color.black }}
+            />
           </Flex>
         </Flex>
       </St.BsPriceContent>

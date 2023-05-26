@@ -32,16 +32,15 @@ const TourListAxios = () => {
   searchParams.set('maximumPrice', maximumPrice);
   searchParams.set('tourType', tourType);
   searchParams.set('page', page);
+
   const getRawTourList = async (searchParams) => {
     try {
       const response = await axios.get(`http://15.165.135.183:8080/api/tour/filter?${searchParams.toString()}`);
       setTourList(response.data.data.tourList);
       setTour(response.data.data);
-      console.log(response);
       return response.data.data;
     } catch (error) {
       console.error(error);
-      console.log(tourList, tour);
     }
   };
   useEffect(() => {

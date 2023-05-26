@@ -40,3 +40,16 @@ export const setModalData = atom({
   key: 'setModalData',
   default: false,
 });
+export const clickedDateData = atom({
+  key: 'clickedNavData',
+  default: false,
+});
+export const clickedPriceData = atom({
+  key: 'clickedPriceData',
+  default: false,
+});
+
+export const clickedTypeData = atom({
+  key: 'clickedTypeData',
+  default: false,
+});

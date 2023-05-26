@@ -13,12 +13,8 @@ function TourListItemSection() {
   const [page, setPage] = useRecoilState(pageData);
 
   const pagination = (e) => {
-    setPage(e.target.value);
+    setPage(e.target.innerText);
   };
-
-  useEffect(() => {
-    console.log(page);
-  });
 
   return (
     <>
@@ -26,7 +22,8 @@ function TourListItemSection() {
         justifycontent="center"
         alignitems="alignitems"
         style={{
-          padding: '13px',
+          paddingLeft: '22px',
+          marginTop: '-22px',
           flexDirection: 'column',
         }}>
         <Flex
@@ -39,7 +36,7 @@ function TourListItemSection() {
 
         <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
-          <St.PaginationBtn isActive onClick={(e) => pagination(e)}>
+          <St.PaginationBtn isActive onClick={pagination}>
             1
           </St.PaginationBtn>
           <St.PaginationBtn isActive={page === 2} onClick={(e) => pagination(e)}>
@@ -66,7 +63,6 @@ export default TourListItemSection;
 const St = {
   PaginationBtn: styled.button`
     position: relative;
-    padding-right: 40px;
     width: 40px;
     height: 40px;
     all: unset;

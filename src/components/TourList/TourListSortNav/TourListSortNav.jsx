@@ -36,6 +36,7 @@ const St = {
   SortSelect: styled.select`
     appearance: none;
     text-align: center;
+    width: 80px;
     border: 0px;
     ${({ theme }) => theme.Text.body_bold_16};
     background: url(/assets/icon/triangle.png) no-repeat 100% 50%;

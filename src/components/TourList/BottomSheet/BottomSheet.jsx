@@ -1,7 +1,7 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
-import { setModalData } from '../../../recoil/tourListRecoil';
+import { setModalData, tourListData } from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
@@ -9,6 +9,7 @@ import Text from '../../layout/atom/Text';
 
 function BottomSheet({ clickedModal, title }) {
   const [modal, setModal] = useRecoilState(setModalData);
+  const tourLi = useRecoilValue(tourListData);
   const CloseModal = () => {
     document.body.style.overflowY = 'auto';
     setModal(false);
@@ -25,20 +26,22 @@ function BottomSheet({ clickedModal, title }) {
           position: 'fixed',
           bottom: '0px',
           borderRadius: '15px 15px 0px 0px',
-          width: '420px',
-          zIndex: '10',
+          width: '430px',
+          zIndex: '1000',
         }}>
-        <Flex justifycontent="center">
+        <Flex
+          justifycontent="start"
+          alignitems="center"
+          style={{ width: '415px', marginLeft: '22px', marginTop: '22px' }}>
           <St.ButtonWrapper onClick={CloseModal}>
-            <Icon type="ic_cancel" style={{ flexShrink: '0', margin: '18px 24px', width: '18px', hover: 'cursor' }} />
+            <Icon type="ic_cancel" style={{ hover: 'cursor', width: '16px', height: '16px' }} />
           </St.ButtonWrapper>
           <Text
             type="body_bold_16"
             innerText={`${title}`}
             style={{
-              flexGrow: '1',
-              marginTop: '15px',
               color: `$theme.Color.gray1`,
+              flexGrow: '1',
               textAlign: 'center',
             }}
           />
@@ -60,11 +63,8 @@ const St = {
     height: 100%;
     background-color: ${({ theme }) => theme.Color.bg_modal};
     z-index: 1;
-    .exitBtn {
-      flex-shrink: 0;
-      margin: 18px 24px;
-      width: 18px;
-    }
   `,
-  ButtonWrapper: styled.button``,
+  ButtonWrapper: styled.button`
+    flex-shrink: 0;
+  `,
 };

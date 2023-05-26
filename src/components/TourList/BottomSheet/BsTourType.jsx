@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
-import { setModalData, tourTypeData } from '../../../recoil/tourListRecoil';
+import { clickedTypeData, setModalData, tourTypeData } from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
@@ -12,6 +12,7 @@ function BsTourType() {
   const [modal, setModal] = useRecoilState(setModalData);
   const [tourType, setTourType] = useRecoilState(tourTypeData);
   const [handleType, setHandleType] = useState('all');
+  const [clickedType, setClickedType] = useRecoilState(clickedTypeData);
 
   const handleTourType = (e) => {
     setHandleType(e.target.value);
@@ -19,12 +20,15 @@ function BsTourType() {
   const clickedTourType = () => {
     setTourType(handleType);
     setModal(false);
+    setClickedType(true);
+    document.body.style.overflowY = 'auto';
   };
 
   const resetTourType = () => {
     setTourType('all');
-    document.body.style.overflowY = 'auto';
     setModal(false);
+    document.body.style.overflowY = 'auto';
+    setClickedType(false);
   };
 
   return (
@@ -79,6 +83,7 @@ export default BsTourType;
 
 const St = {
   TourTypeWrapper: styled.section`
+    margin-top: 27px;
     display: flex;
     flex-direction: column;
     > label {
