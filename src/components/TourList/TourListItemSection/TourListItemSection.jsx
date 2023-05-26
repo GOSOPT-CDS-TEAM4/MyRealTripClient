@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
+
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { pageData, tourListData } from '../../../recoil/tourListRecoil';
 import Flex from '../../layout/atom/Flex';
@@ -13,6 +15,10 @@ function TourListItemSection() {
   const pagination = (e) => {
     setPage(e.target.value);
   };
+
+  useEffect(() => {
+    console.log(page);
+  });
 
   return (
     <>
@@ -31,20 +37,26 @@ function TourListItemSection() {
           {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)}
         </Flex>
 
-        <Flex justifycontent="space-around" style={{ marginBottom: '80px' }}>
+        <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
-          <St.PaginationBtn onClick={(e) => pagination(e)}>
-            1{/* <Icon className="pageEllipse" type="ellipse" /> */}
-            <img className="pageEllipse" src="/assets/icon/ellipse.png" alt="" />
+          <St.PaginationBtn isActive onClick={(e) => pagination(e)}>
+            1
           </St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>2</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>3</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>4</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>5</St.PaginationBtn>
+          <St.PaginationBtn isActive={page === 2} onClick={(e) => pagination(e)}>
+            2
+          </St.PaginationBtn>
+          <St.PaginationBtn isActive={page === 3} onClick={(e) => pagination(e)}>
+            3
+          </St.PaginationBtn>
+          <St.PaginationBtn isActive={page === 4} onClick={(e) => pagination(e)}>
+            4
+          </St.PaginationBtn>
+          <St.PaginationBtn isActive={page === 5} onClick={(e) => pagination(e)}>
+            5
+          </St.PaginationBtn>
           <Icon type="arrow_right_blue" />
         </Flex>
       </Flex>
-      <St.HorizonLine />
     </>
   );
 }
@@ -55,16 +67,15 @@ const St = {
   PaginationBtn: styled.button`
     position: relative;
     padding-right: 40px;
+    width: 40px;
+    height: 40px;
     all: unset;
+    cursor: pointer;
+    text-align: center;
+    background-color: ${({ isActive }) => (isActive ? `${({ theme }) => theme.Color.blue2};` : 'none')};
     ${({ theme }) => theme.Text.body_medium_14};
-    /* color: ${({ theme }) => theme.Color.blue2}; */
-    color: ${({ theme }) => theme.Color.white};
-    .pageEllipse {
-      position: absolute;
-      left: -12px;
-      top: -9px;
-      z-index: -9;
-    }
+    color: ${({ isActive }) =>
+      isActive ? `${({ theme }) => theme.Color.blue2};` : `${({ theme }) => theme.Color.white};`};
   `,
   HorizonLine: styled.div`
     margin: 18px 0px;

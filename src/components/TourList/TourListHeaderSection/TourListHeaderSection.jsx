@@ -10,6 +10,7 @@ import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 import BottomSheet from '../BottomSheet';
+import BsCalendar from '../BottomSheet/BsCalendar';
 import BsPrice from '../BottomSheet/BsPrice';
 import BsSelectCalendar from '../BottomSheet/BsSelectCalendar';
 import BsTourType from '../BottomSheet/BsTourType';
@@ -31,7 +32,7 @@ function TourListHeaderSection() {
 
     switch (clickedValue) {
       case 'date':
-        modalComponent = <BsSelectCalendar />;
+        modalComponent = <BsCalendar />;
         break;
       case 'price':
         modalComponent = <BsPrice />;

@@ -17,7 +17,6 @@ function BottomSheet({ clickedModal, title }) {
   return (
     <>
       <St.ModalBackground />
-
       <Flex
         justifycontent="space-between"
         column="true"
