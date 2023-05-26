@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import axios from 'axios';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
+import axiosInstance from '../api/axios';
 import {
   tourListData,
   tourFullData,
@@ -34,8 +34,9 @@ const TourListAxios = () => {
   searchParams.set('page', page);
 
   const getRawTourList = async (searchParams) => {
+    const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
     try {
-      const response = await axios.get(`http://15.165.135.183:8080/api/tour/filter?${searchParams.toString()}`);
+      const response = await axiosInstance.get(`${BASE_URL}filter?${searchParams.toString()}`);
       setTourList(response.data.data.tourList);
       setTour(response.data.data);
       return response.data.data;
