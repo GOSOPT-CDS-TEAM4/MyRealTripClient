@@ -64,7 +64,7 @@ function TourListHeaderSection() {
     let modalComponent;
 
     switch (clickedValue) {
-      case 'date':
+      case '일정':
         modalComponent = <BsCalendar />;
         break;
       case '가격':
