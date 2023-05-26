@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect, useState } from 'react';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -64,7 +64,7 @@ function TourListHeaderSection() {
     let modalComponent;
 
     switch (clickedValue) {
-      case '일정':
+      case 'date':
         modalComponent = <BsCalendar />;
         break;
       case '가격':

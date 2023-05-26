@@ -1,3 +1,5 @@
+import { useRef, useState } from 'react';
+
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
@@ -9,18 +11,20 @@ import TourListCardSquare from '../TourListCardSquare';
 function TourListItemSection() {
   const tourList = useRecoilValue(tourListData);
   const [page, setPage] = useRecoilState(pageData);
+  const scrollRef = useRef();
 
   const pagination = (e) => {
     setPage(e.target.innerText);
+    scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
       <Flex
+        ref={scrollRef}
         justifycontent="center"
         alignitems="alignitems"
         style={{
-          paddingLeft: '22px',
           marginTop: '-22px',
           flexDirection: 'column',
         }}>
@@ -28,6 +32,7 @@ function TourListItemSection() {
           justifycontent="start"
           style={{
             flexWrap: 'wrap',
+            paddingLeft: '22px',
           }}>
           {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)}
         </Flex>
@@ -35,10 +40,10 @@ function TourListItemSection() {
         <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
           <St.PaginationBtn onClick={pagination}>1</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>2</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>3</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>4</St.PaginationBtn>
-          <St.PaginationBtn onClick={(e) => pagination(e)}>5</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>2</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>3</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>4</St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>5</St.PaginationBtn>
           <Icon type="arrow_right_blue" />
         </Flex>
       </Flex>
@@ -50,16 +55,17 @@ export default TourListItemSection;
 
 const St = {
   PaginationBtn: styled.button`
+    padding-left: 0px;
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     all: unset;
     cursor: pointer;
     text-align: center;
-    background-color: ${({ isActive }) => (isActive ? `${({ theme }) => theme.Color.blue2};` : 'none')};
     ${({ theme }) => theme.Text.body_medium_14};
-    color: ${({ isActive }) =>
-      isActive ? `${({ theme }) => theme.Color.blue2};` : `${({ theme }) => theme.Color.white};`};
+
+    background-color: ${({ theme }) => theme.Color.white};
+    color: ${({ theme }) => theme.Color.blue2};
   `,
   HorizonLine: styled.div`
     margin: 18px 0px;

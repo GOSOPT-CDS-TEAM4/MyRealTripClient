@@ -136,6 +136,7 @@ const St = {
     display: flex;
     flex-direction: column;
     ${({ theme }) => theme.Text.body_bold_18};
+
     .react-calendar {
       border: none;
     }
