@@ -4,8 +4,18 @@ import { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { styled } from 'styled-components';
 
-import { clickedTypeData, setModalData, tourTypeData } from '../../../recoil/tourListRecoil';
+import {
+  clickedDateData,
+  clickedPriceData,
+  clickedTypeData,
+  maximumPriceData,
+  minimumPriceData,
+  selectedDateData,
+  setModalData,
+  tourTypeData,
+} from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
@@ -20,17 +30,23 @@ function TourListHeaderSection() {
   const [clickedModal, setClickedModal] = useState();
   const [title, setTitle] = useState('');
   const [koreanType, setKoreanType] = useState('');
-  const tourType = useRecoilValue(tourTypeData);
-  const clickedType = useRecoilValue(clickedTypeData);
+  const [tourType, setTourType] = useRecoilState(tourTypeData);
+  const [clickedType, setClickedType] = useRecoilState(clickedTypeData);
+  const clickedPrice = useRecoilValue(clickedPriceData);
+  const minimumPrice = useRecoilValue(minimumPriceData);
+  const maximumPrice = useRecoilValue(maximumPriceData);
+  const clickedDate = useRecoilValue(clickedDateData);
+  const selectedDate = useRecoilValue(selectedDateData);
 
   const showModal = (e) => {
     document.body.style.overflowY = 'hidden';
+    console.log(e.target.innerText);
     setModal(true);
-    setClickedValue(e.target.value);
+    setClickedValue(e.target.innerText);
     setTitle(e.target.innerText);
   };
 
-  useState(() => {
+  useEffect(() => {
     switch (tourType) {
       case 'group':
         setKoreanType('그룹');
@@ -42,20 +58,19 @@ function TourListHeaderSection() {
         setKoreanType('모든');
         break;
     }
-  });
+  }, [tourType, koreanType]);
 
   useEffect(() => {
-    console.log(clickedType);
     let modalComponent;
 
     switch (clickedValue) {
-      case 'date':
+      case '일정':
         modalComponent = <BsCalendar />;
         break;
-      case 'price':
+      case '가격':
         modalComponent = <BsPrice />;
         break;
-      case 'tourType':
+      case '투어 형태':
         modalComponent = <BsTourType />;
         break;
       default:
@@ -74,6 +89,8 @@ function TourListHeaderSection() {
           flexDirection: 'column',
           padding: '15px',
           marginTop: '65px',
+          flexWrap: 'nowrap',
+          overflowX: 'scroll',
         }}>
         <Text type="title_bold_24" innerText={`파리의 투어`} style={{ margin: '14px 17px' }} />
 
@@ -81,27 +98,52 @@ function TourListHeaderSection() {
           justifycontent="start"
           style={{
             margin: '0px 15px',
-            width: '100%',
+            width: 'auto',
+            overflowX: 'auto',
           }}>
-          <St.FilterBtn value="date" onClick={(e) => showModal(e)}>
-            <Text
-              value="date"
-              type="body_bold_14"
-              innerText="일정"
-              style={{ color: theme.Color.black }}
-              onClick={showModal}
-            />
-          </St.FilterBtn>
-          <St.FilterBtn value="price" onClick={(e) => showModal(e)}>
-            <Text
+          {!clickedDate ? (
+            <St.FilterBtn value="date" onClick={(e) => showModal(e)}>
+              <Text
+                value="date"
+                type="body_bold_14"
+                innerText="일정"
+                style={{ color: theme.Color.black }}
+                onClick={showModal}
+              />
+            </St.FilterBtn>
+          ) : (
+            <St.ClickedFilterBtn value="date" onClick={(e) => showModal(e)}>
+              <Text
+                value="date"
+                type="body_bold_14"
+                innerText={`${selectedDate[0].getMonth() + 1}월 ${selectedDate[0].getDate()}일 ~ ${
+                  selectedDate[1].getMonth() + 1
+                }월 ${selectedDate[1].getDate()}일`}
+                style={{ color: theme.Color.blue1 }}
+                onClick={showModal}
+              />
+            </St.ClickedFilterBtn>
+          )}
+          {!clickedPrice ? (
+            <St.FilterBtn
               value="price"
-              type="body_bold_14"
-              innerText="가격"
-              style={{ color: theme.Color.black }}
-              onClick={showModal}
-            />
-          </St.FilterBtn>
-          {clickedType ? (
+              onClick={(e) => {
+                showModal(e);
+              }}>
+              <Text value="price" type="body_bold_14" innerText="가격" style={{ color: theme.Color.black }} />
+            </St.FilterBtn>
+          ) : (
+            <St.ClickedFilterBtn value="price" onClick={(e) => showModal(e)}>
+              <Text
+                value="price"
+                type="body_bold_14"
+                innerText={`${addCommasInNumbers(minimumPrice)}원 이상 ${addCommasInNumbers(maximumPrice)}원 이하`}
+                style={{ color: theme.Color.blue1 }}
+                onClick={showModal}
+              />
+            </St.ClickedFilterBtn>
+          )}
+          {!clickedType ? (
             <St.FilterBtn value="tourType" onClick={(e) => showModal(e)}>
               <Text
                 value="tourType"
@@ -112,13 +154,12 @@ function TourListHeaderSection() {
               />
             </St.FilterBtn>
           ) : (
-            <St.ClickedFilterBtn value="tourType" onClick={(e) => showModal(e)}>
+            <St.ClickedFilterBtn value="tourType" onClick={showModal}>
               <Text
                 value="tourType"
                 type="body_bold_14"
                 innerText={`${koreanType} 투어`}
                 style={{ color: theme.Color.blue1 }}
-                onClick={showModal}
               />
             </St.ClickedFilterBtn>
           )}
@@ -150,8 +191,11 @@ const St = {
     background-color: ${({ theme }) => theme.Color.white};
     padding: 10px 18px;
     ${({ theme }) => theme.Text.body_bold_14};
+    white-space: nowrap;
   `,
-  ClickedFilterBtn: styled.button`
+  ClickedFilterBtn: styled.div`
+    /* width: fit-content; */
+    /* height: fit-content; */
     all: unset;
     margin-right: 6px;
     outline: 0px;
@@ -161,6 +205,7 @@ const St = {
     background-color: ${({ theme }) => theme.Color.white};
     padding: 10px 18px;
     ${({ theme }) => theme.Text.body_bold_14};
+    white-space: nowrap;
   `,
   HorizonLine: styled.div`
     width: 100%;

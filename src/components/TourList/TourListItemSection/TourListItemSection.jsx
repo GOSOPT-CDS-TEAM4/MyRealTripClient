@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { styled, css } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { pageData, tourListData } from '../../../recoil/tourListRecoil';
 import Flex from '../../layout/atom/Flex';
@@ -36,21 +34,11 @@ function TourListItemSection() {
 
         <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
           <Icon type="arrow_left_gray" />
-          <St.PaginationBtn isActive onClick={pagination}>
-            1
-          </St.PaginationBtn>
-          <St.PaginationBtn isActive={page === 2} onClick={(e) => pagination(e)}>
-            2
-          </St.PaginationBtn>
-          <St.PaginationBtn isActive={page === 3} onClick={(e) => pagination(e)}>
-            3
-          </St.PaginationBtn>
-          <St.PaginationBtn isActive={page === 4} onClick={(e) => pagination(e)}>
-            4
-          </St.PaginationBtn>
-          <St.PaginationBtn isActive={page === 5} onClick={(e) => pagination(e)}>
-            5
-          </St.PaginationBtn>
+          <St.PaginationBtn onClick={pagination}>1</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>2</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>3</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>4</St.PaginationBtn>
+          <St.PaginationBtn onClick={(e) => pagination(e)}>5</St.PaginationBtn>
           <Icon type="arrow_right_blue" />
         </Flex>
       </Flex>

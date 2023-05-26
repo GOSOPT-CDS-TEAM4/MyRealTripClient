@@ -35,6 +35,10 @@ export const maximumPriceData = atom({
   key: 'maximumPriceData',
   default: 390000,
 });
+export const selectedDateData = atom({
+  key: 'selectedDateData',
+  default: [],
+});
 
 export const setModalData = atom({
   key: 'setModalData',

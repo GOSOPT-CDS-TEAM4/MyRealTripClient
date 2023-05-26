@@ -1,7 +1,7 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
-import { setModalData, tourListData } from '../../../recoil/tourListRecoil';
+import { setModalData } from '../../../recoil/tourListRecoil';
 import { theme } from '../../../styles/theme';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
@@ -9,7 +9,6 @@ import Text from '../../layout/atom/Text';
 
 function BottomSheet({ clickedModal, title }) {
   const [modal, setModal] = useRecoilState(setModalData);
-  const tourLi = useRecoilValue(tourListData);
   const CloseModal = () => {
     document.body.style.overflowY = 'auto';
     setModal(false);
@@ -32,7 +31,7 @@ function BottomSheet({ clickedModal, title }) {
         <Flex
           justifycontent="start"
           alignitems="center"
-          style={{ width: '415px', marginLeft: '22px', marginTop: '22px' }}>
+          style={{ width: '400px', marginLeft: '22px', marginTop: '22px' }}>
           <St.ButtonWrapper onClick={CloseModal}>
             <Icon type="ic_cancel" style={{ hover: 'cursor', width: '16px', height: '16px' }} />
           </St.ButtonWrapper>

@@ -41,6 +41,7 @@ function BsPrice() {
     setHandleMinimum(value[0]);
     setHandleMaximum(value[1]);
   };
+
   const PriceValue = () => {
     setMinimumPrice(handleMinimum);
     setMaximumPrice(handleMaximum);
@@ -48,10 +49,8 @@ function BsPrice() {
     setModal(false);
     setClickedPrice(true);
   };
-  useEffect(() => {
-    console.log(handleMaximum);
-    console.log(handleMinimum);
-  }, [handleMaximum, handleMinimum]);
+
+  useEffect(() => {}, [handleMaximum, handleMinimum]);
 
   return (
     <>
