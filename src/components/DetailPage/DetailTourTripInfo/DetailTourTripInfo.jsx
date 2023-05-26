@@ -7,6 +7,8 @@ import useDetailTour from '../../../utils/useDetailTour';
 import DivideLine from '../../layout/atom/DivideLine';
 import Flex from '../../layout/atom/Flex';
 
+import addCommasInNumbers from '../../../utils/addCommasInNumber';
+
 function DetailTourTripInfo() {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
@@ -20,7 +22,7 @@ function DetailTourTripInfo() {
           <St.PeopleInfoDetail>1명~6명</St.PeopleInfoDetail>
         </St.PeopleDetailWrapper>
         <St.PriceDetailWrpper>
-          <St.PeoplePriceDetail>{detailTour?.price}원</St.PeoplePriceDetail>
+          <St.PeoplePriceDetail>{detailTour.price && `${addCommasInNumbers(detailTour.price)}`}원</St.PeoplePriceDetail>
         </St.PriceDetailWrpper>
       </Flex>
 
