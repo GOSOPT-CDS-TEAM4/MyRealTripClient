@@ -19,10 +19,10 @@
   <th> 권은빈 <a href="https://github.com/eunbeann"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white&link=[https://github.com/Yeonseo-Jo](https://github.com/eunbeann)"/></a>  </th>
 	<tr>
 	<td> 팀원 소개 </td>
-		<td> <img width="230" alt="image" src="https://github.com/Geun-Oh.png">
+		<td> <img width="300" alt="image" src="https://github.com/Geun-Oh.png">
  </td>
-		<td> <img width="230" alt="image" src="https://github.com/SopkathonTeam2/Client/assets/77691829/d3a87ab2-ad16-47e8-a316-6dbdd6981406"></td>  
-		<td><img width="230" height="270" alt="image" src="https://github.com/eunbeann.png"></td>
+		<td> <img width="300" alt="image" src="https://github.com/SopkathonTeam2/Client/assets/77691829/d3a87ab2-ad16-47e8-a316-6dbdd6981406"></td>  
+		<td><img width="300" alt="image" src="https://github.com/eunbeann.png"></td>
 	</tr>
 	<tr>
         <td> <b>View</b> </td>
