@@ -35,7 +35,7 @@ const TourListAxios = () => {
 
   const getRawTourList = async (searchParams) => {
     try {
-      const response = await axios.get(`http://15.165.135.183:8080/api/tour/filter?${searchParams.toString()}`);
+      const response = await axios.get(`https://15.165.135.183:8080/api/tour/filter?${searchParams.toString()}`);
       setTourList(response.data.data.tourList);
       setTour(response.data.data);
       return response.data.data;

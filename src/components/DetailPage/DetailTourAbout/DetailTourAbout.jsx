@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { styled } from 'styled-components';
@@ -11,11 +10,8 @@ import Icon from '../../layout/atom/Icon';
 //디테일 투어 title 밑의 무료취소~한국어 까지
 function DetailTourAbout() {
   const { tourId } = useParams();
-  const [time, setTime] = useState();
   const detailTour = useDetailTour(tourId);
-  useEffect(() => {
-    setTime(detailTour.requiredTime);
-  }, []);
+
   return (
     <Flex column justifycontent="center">
       <St.FreeCancelWrapper>
@@ -47,8 +43,8 @@ function DetailTourAbout() {
       <St.AboutWrapper>
         <Icon type="meta_time" />
         <St.AboutTour>
-          {time && time.slice(0, 2)}시간 <span />
-          {time && time.slice(3, 5)}분 소요
+          {detailTour.requiredTime && detailTour?.requiredTime?.slice(0, 2)}시간 <span />
+          {detailTour.requiredTime && detailTour?.requiredTime?.slice(3, 5)}분 소요
         </St.AboutTour>
       </St.AboutWrapper>
 
