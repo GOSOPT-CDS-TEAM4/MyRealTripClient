@@ -1,8 +1,9 @@
-import { styled } from 'styled-components';
-import Icon from '../../layout/atom/Icon';
-
 import { useState, useEffect } from 'react';
+
 import axios from 'axios';
+import { styled } from 'styled-components';
+
+import Icon from '../../layout/atom/Icon';
 
 function MoreTour({ similarTour }) {
   console.log('here');
