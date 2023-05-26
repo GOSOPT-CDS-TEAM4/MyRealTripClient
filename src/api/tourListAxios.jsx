@@ -36,9 +36,10 @@ const TourListAxios = () => {
   const getRawTourList = async (searchParams) => {
     const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
     try {
-      const response = await axiosInstance.get(`${BASE_URL}filter?${searchParams.toString()}`);
+      const response = await axiosInstance.get(`${BASE_URL}/filter?${searchParams.toString()}`);
       setTourList(response.data.data.tourList);
       setTour(response.data.data);
+      console.log(response.data.data);
       return response.data.data;
     } catch (error) {
       console.error(error);
