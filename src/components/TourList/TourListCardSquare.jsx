@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { styled } from 'styled-components';
 
@@ -8,9 +9,13 @@ import Icon from '../layout/atom/Icon';
 import Text from '../layout/atom/Text';
 
 function TourListCardSquare({ tourData }) {
+  const navigate = useNavigate();
+  const MoveToDetail = () => {
+    navigate(`/detailTour/${tourData.id}`);
+  };
   return (
     <>
-      <Flex column="column" style={{ margin: '36px 8px' }}>
+      <Flex onClick={MoveToDetail} column="column" style={{ margin: '36px 8px' }}>
         <St.ItemImgWrapper>
           {tourData.freeCancel && (
             <Text
