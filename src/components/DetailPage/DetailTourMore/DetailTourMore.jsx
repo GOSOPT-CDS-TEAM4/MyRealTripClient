@@ -79,10 +79,12 @@ const St = {
     } */
   `,
 
-  SimilarTitle: styled.h1`
+  SimilarTitle: styled.div`
     ${({ theme }) => theme.Text.title_bold_18};
     margin-top: 20px;
     margin-bottom: 15px;
+    width: 375px;
+    margin-left: 15px;
   `,
 
   SimilarTourGuide: styled.h2`

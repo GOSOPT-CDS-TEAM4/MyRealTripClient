@@ -57,7 +57,7 @@ const St = {
     ${({ theme }) => theme.Text.title_bold_24};
     margin-top: 16px;
     margin-bottom: 16px;
-    width: 420px;
+    width: 375px;
   `,
 
   Container: styled.section`
