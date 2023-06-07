@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Slider } from '@mui/material';
-import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import {
