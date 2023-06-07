@@ -10,9 +10,11 @@ import Text from '../layout/atom/Text';
 
 function TourListCardSquare({ tourData }) {
   const navigate = useNavigate();
+
   const MoveToDetail = () => {
     navigate(`/detailTour/${tourData.id}`);
   };
+
   return (
     <>
       <Flex onClick={MoveToDetail} column="column" style={{ margin: '36px 8px' }}>

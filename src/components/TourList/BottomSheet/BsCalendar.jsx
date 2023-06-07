@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Calendar from 'react-calendar';
 
 import 'react-calendar/dist/Calendar.css';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { clickedDateData, selectedDateData, setModalData } from '../../../recoil/tourListRecoil';
@@ -11,8 +11,9 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BsCalendar() {
-  const [modal, setModal] = useRecoilState(setModalData);
-  const [clickedDate, setClickedDate] = useRecoilState(clickedDateData);
+  const setModal = useSetRecoilState(setModalData);
+  const setClickedDate = useSetRecoilState(clickedDateData);
+  const [selectedDate, setSelectedDate] = useRecoilState(selectedDateData);
 
   const resetDate = () => {
     setSelectedDate(['2023-05-25T15:00:00.000Z', '2023-05-26T14:59:59.999Z']);
@@ -31,7 +32,6 @@ function BsCalendar() {
     setClickedDate(true);
   };
 
-  const [selectedDate, setSelectedDate] = useRecoilState(selectedDateData);
   // 요일 텍스트
   const week = ['일', '월', '화', '수', '목', '금', '토'];
   const weekDays = () =>
@@ -40,6 +40,7 @@ function BsCalendar() {
         {day}
       </div>
     ));
+
   // 요일 텍스트를 숨기기
   const formatShortWeekday = (locale, date) => '';
   const toCalendarType = (weekStartDay) => (weekStartDay === 0 ? 'US' : 'ISO 8601');
@@ -52,9 +53,6 @@ function BsCalendar() {
     return false;
   };
 
-  useEffect(() => {
-    selectedDate && console.log(selectedDate);
-  }, [selectedDate]);
   return (
     <>
       <Flex

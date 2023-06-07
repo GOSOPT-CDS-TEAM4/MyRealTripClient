@@ -25,13 +25,14 @@ import BsPrice from '../BottomSheet/BsPrice';
 import BsTourType from '../BottomSheet/BsTourType';
 
 function TourListHeaderSection() {
-  const [modal, setModal] = useRecoilState(setModalData);
   const [clickedValue, setClickedValue] = useState('');
   const [clickedModal, setClickedModal] = useState();
   const [title, setTitle] = useState('');
   const [koreanType, setKoreanType] = useState('');
-  const [tourType, setTourType] = useRecoilState(tourTypeData);
-  const [clickedType, setClickedType] = useRecoilState(clickedTypeData);
+
+  const [modal, setModal] = useRecoilState(setModalData);
+  const tourType = useRecoilValue(tourTypeData);
+  const clickedType = useRecoilValue(clickedTypeData);
   const clickedPrice = useRecoilValue(clickedPriceData);
   const minimumPrice = useRecoilValue(minimumPriceData);
   const maximumPrice = useRecoilValue(maximumPriceData);
@@ -40,7 +41,6 @@ function TourListHeaderSection() {
 
   const showModal = (e) => {
     document.body.style.overflowY = 'hidden';
-    console.log(e.target.innerText);
     setModal(true);
     setClickedValue(e.target.innerText);
     setTitle(e.target.innerText);
