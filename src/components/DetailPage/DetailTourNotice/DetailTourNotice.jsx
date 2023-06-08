@@ -19,7 +19,7 @@ function DetailTourNotice() {
             {detailTour.noticeTitle}
           </St.NoticeTitle>
           <St.NoticeInnerWrapper>
-            <St.NoticeA>{detailTour.notice}</St.NoticeA>
+            {detailTour.notice && <St.NoticeA>{detailTour.notice}</St.NoticeA>}
           </St.NoticeInnerWrapper>
         </St.NoticeWrapper>
       </St.NoticeBox>

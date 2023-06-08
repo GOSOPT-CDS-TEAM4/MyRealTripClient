@@ -9,11 +9,7 @@ function DetailTourImg() {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
 
-  return (
-    <Flex>
-      <img src={detailTour?.image} width="420px" height="305px" />
-    </Flex>
-  );
+  return <Flex>{detailTour.image && <img src={detailTour.image} width="420px" height="305px" />}</Flex>;
 }
 
 export default DetailTourImg;
