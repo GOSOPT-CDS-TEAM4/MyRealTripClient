@@ -48,7 +48,6 @@ function TourListHeaderSection() {
   };
 
   useEffect(() => {
-    console.log(tourType);
     switch (tourType) {
       case 'group':
         setKoreanType('그룹');
