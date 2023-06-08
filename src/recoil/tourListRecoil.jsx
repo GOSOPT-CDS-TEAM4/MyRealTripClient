@@ -57,3 +57,7 @@ export const clickedTypeData = atom({
   key: 'clickedTypeData',
   default: false,
 });
+export const likeItData = atom({
+  key: 'likeItData',
+  default: false,
+});

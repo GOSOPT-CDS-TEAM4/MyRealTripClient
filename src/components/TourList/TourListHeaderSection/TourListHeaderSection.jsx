@@ -42,7 +42,7 @@ function TourListHeaderSection() {
   const showModal = (e) => {
     document.body.style.overflowY = 'hidden';
     setModal(true);
-    console.log(e.target);
+    // Title은 모달열렸을 때 모달 제목 . clickedValue는 모달 열기위한 값
     setClickedValue(e.target.value);
     setTitle(e.target.innerText);
   };
@@ -196,6 +196,7 @@ const St = {
     ${({ theme }) => theme.Text.body_bold_14};
     white-space: nowrap;
   `,
+
   ClickedFilterBtn: styled.button`
     all: unset;
     margin-right: 6px;
@@ -208,6 +209,7 @@ const St = {
     ${({ theme }) => theme.Text.body_bold_14};
     white-space: nowrap;
   `,
+
   HorizonLine: styled.div`
     width: 100%;
     border: 2px solid ${({ theme }) => theme.Color.gray9};

@@ -7,6 +7,7 @@ import { pageData, tourListData } from '../../../recoil/tourListRecoil';
 import Flex from '../../layout/atom/Flex';
 import Icon from '../../layout/atom/Icon';
 import TourListCardSquare from '../TourListCardSquare';
+import TourListCardSquareMock from '../TourListCardSquareMock';
 
 function TourListItemSection() {
   const tourList = useRecoilValue(tourListData);
@@ -34,7 +35,9 @@ function TourListItemSection() {
             flexWrap: 'wrap',
             paddingLeft: '22px',
           }}>
-          {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)}
+          {/* API 연결 */}
+          {/* {tourList && tourList.map((item, idx) => <TourListCardSquare key={idx} tourData={item} />)} */}
+          <TourListCardSquareMock />
         </Flex>
 
         <Flex justifycontent="space-around" alignitems="center" style={{ marginBottom: '80px' }}>
