@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { clickedTypeData, setModalData, tourTypeData } from '../../../recoil/tourListRecoil';
@@ -9,10 +9,11 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BsTourType() {
-  const [modal, setModal] = useRecoilState(setModalData);
-  const [tourType, setTourType] = useRecoilState(tourTypeData);
+  const setModal = useSetRecoilState(setModalData);
+  const setTourType = useSetRecoilState(tourTypeData);
+  const setClickedType = useSetRecoilState(clickedTypeData);
+
   const [handleType, setHandleType] = useState('all');
-  const [clickedType, setClickedType] = useRecoilState(clickedTypeData);
 
   const handleTourType = (e) => {
     setHandleType(e.target.value);

@@ -64,7 +64,7 @@ function BsPrice() {
           style={{ color: theme.Color.gray2 }}
         />
 
-        <div className="slider_box">
+        <St.SliderBox>
           <Slider
             step={1000}
             min={2000}
@@ -76,7 +76,7 @@ function BsPrice() {
             valueLabelFormat={labeltext}
             getAriaValueText={labeltext}
           />
-        </div>
+        </St.SliderBox>
         <Flex justifycontent="space-between" style={{ marginTop: '0px' }}>
           <Flex column={true}>
             <Text type="detail_regular_12" innerText="최저 요금" style={{ color: theme.Color.gray3 }} />
@@ -121,9 +121,6 @@ const St = {
     width: 370px;
 
     /* slider */
-    .slider_box {
-      margin: 16px;
-    }
     .MuiSlider-track {
       width: 5px;
       color: ${({ theme }) => theme.Color.blue1};
@@ -142,6 +139,11 @@ const St = {
       }
     }
   `,
+
+  SliderBox: styled.div`
+    margin: 16px;
+  `,
+
   BottomSheetFooter: styled.div`
     display: flex;
     width: 380px;
