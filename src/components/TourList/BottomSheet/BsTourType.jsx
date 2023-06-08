@@ -21,6 +21,8 @@ function BsTourType() {
 
   const clickedTourType = () => {
     setTourType(handleType);
+
+    // 모달 끄기
     setModal(false);
     setClickedType(true);
     document.body.style.overflowY = 'auto';

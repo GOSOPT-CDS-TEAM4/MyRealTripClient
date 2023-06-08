@@ -33,6 +33,7 @@ function BottomSheet({ clickedModal, title }) {
           justifycontent="start"
           alignitems="center"
           style={{ width: '400px', marginLeft: '22px', marginTop: '22px' }}>
+          {/* BottomSheet Header */}
           <St.ButtonWrapper onClick={CloseModal}>
             <Icon type="ic_cancel" style={{ hover: 'cursor', width: '16px', height: '16px' }} />
           </St.ButtonWrapper>

@@ -42,11 +42,13 @@ function TourListHeaderSection() {
   const showModal = (e) => {
     document.body.style.overflowY = 'hidden';
     setModal(true);
-    setClickedValue(e.target.innerText);
+    console.log(e.target);
+    setClickedValue(e.target.value);
     setTitle(e.target.innerText);
   };
 
   useEffect(() => {
+    console.log(tourType);
     switch (tourType) {
       case 'group':
         setKoreanType('그룹');
@@ -64,13 +66,13 @@ function TourListHeaderSection() {
     let modalComponent;
 
     switch (clickedValue) {
-      case '일정':
+      case 'date':
         modalComponent = <BsCalendar />;
         break;
-      case '가격':
+      case 'price':
         modalComponent = <BsPrice />;
         break;
-      case '투어 형태':
+      case 'tourType':
         modalComponent = <BsTourType />;
         break;
       default:
@@ -94,6 +96,7 @@ function TourListHeaderSection() {
         }}>
         <Text type="title_bold_24" innerText={`파리의 투어`} style={{ margin: '14px 17px' }} />
 
+        {/* 필터링 버튼 */}
         <Flex
           justifycontent="start"
           style={{
@@ -193,9 +196,7 @@ const St = {
     ${({ theme }) => theme.Text.body_bold_14};
     white-space: nowrap;
   `,
-  ClickedFilterBtn: styled.div`
-    /* width: fit-content; */
-    /* height: fit-content; */
+  ClickedFilterBtn: styled.button`
     all: unset;
     margin-right: 6px;
     outline: 0px;
