@@ -46,6 +46,8 @@ function BsPrice() {
   const PriceValue = () => {
     setMinimumPrice(handleMinimum);
     setMaximumPrice(handleMaximum);
+
+    // 모달 끄면서 할 동작들
     document.body.style.overflowY = 'auto';
     setModal(false);
     setClickedPrice(true);
