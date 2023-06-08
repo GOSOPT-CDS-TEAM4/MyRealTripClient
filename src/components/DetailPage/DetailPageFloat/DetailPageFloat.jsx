@@ -6,8 +6,9 @@ import { styled } from 'styled-components';
 import axiosInstance from '../../../api/axios';
 import useDetailTour from '../../../utils/useDetailTour';
 import Icon from '../../layout/atom/Icon';
+import Booking from '../Booking';
 
-function DetailPageFloat() {
+function DetailPageFloat({ bookingOpen }) {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
 
@@ -38,7 +39,7 @@ function DetailPageFloat() {
       <St.HeartBtn>
         <Icon type={heart} onClick={() => handleScrap(heart === 'heart_fill' ? 'DELETE' : 'POST', detailTour.id)} />
       </St.HeartBtn>
-      <St.ReservationBtn>예약하기</St.ReservationBtn>
+      <St.ReservationBtn onClick={bookingOpen}>예약하기</St.ReservationBtn>
     </St.FloatWrapper>
   );
 }
@@ -58,7 +59,7 @@ const St = {
     display: flex;
     z-index: 2;
     position: fixed;
-    bottom: 0;
+    bottom: -20px;
 
     background-color: white;
   `,

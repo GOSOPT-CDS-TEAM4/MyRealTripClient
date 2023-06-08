@@ -12,15 +12,16 @@ import Icon from '../../layout/atom/Icon';
 function DetailTourReview() {
   const { tourId } = useParams();
   const detailTour = useDetailTour(tourId);
+  const detailReview = detailTour.reviewResponseDto;
 
   return (
     <Flex column style={{ height: 'auto' }}>
       <St.ReviewTitle>이용 후기</St.ReviewTitle>
       <St.ScoreWrapper>
-        <St.Score>{detailTour?.reviewTotalResponseDto?.totalRating}</St.Score>
+        <St.Score>{detailReview?.totalRating}</St.Score>
         <St.ReviewCount>
           <Icon type="star_five_small" />
-          후기 {detailTour?.reviewTotalResponseDto?.totalNumber}
+          후기 {detailReview?.totalNumber}
         </St.ReviewCount>
       </St.ScoreWrapper>
       <St.ReviewScroll>
@@ -28,12 +29,11 @@ function DetailTourReview() {
           <St.Reviewer>
             <Icon type="star_five_black" />
             <span> </span>
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].nickname}
+            {detailReview?.reviewResponseDtoList[0].nickname}
           </St.Reviewer>
           <St.ReviewDescription>
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword1}•
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].keyword2}•
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].createdAt.slice(0, 10)}
+            {detailReview?.reviewResponseDtoList[0].keyword1}•{detailReview?.reviewResponseDtoList[0].keyword2}•
+            {detailReview?.reviewResponseDtoList[0].createdAt.slice(0, 10)}
           </St.ReviewDescription>
           <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[0].content}</St.Review>
         </St.ReviewWrapper>
@@ -42,14 +42,13 @@ function DetailTourReview() {
           <St.Reviewer>
             <Icon type="star_five_black" />
             <span> </span>
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].nickname}
+            {detailReview?.reviewResponseDtoList[1].nickname}
           </St.Reviewer>
           <St.ReviewDescription>
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword1}•
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].keyword2}•
-            {detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].createdAt.slice(0, 10)}
+            {detailReview?.reviewResponseDtoList[1].keyword1}•{detailReview?.reviewResponseDtoList[1].keyword2}•
+            {detailReview?.reviewResponseDtoList[1].createdAt.slice(0, 10)}
           </St.ReviewDescription>
-          <St.Review>{detailTour?.reviewTotalResponseDto?.reviewResponseDtoList[1].content}</St.Review>
+          <St.Review>{detailReview?.reviewResponseDtoList[1].content}</St.Review>
         </St.ReviewWrapper>
       </St.ReviewScroll>
       <Button>후기 {detailTour?.reviewTotalResponseDto?.totalNumber}개 전체보기</Button>

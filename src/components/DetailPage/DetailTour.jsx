@@ -12,23 +12,36 @@ import DetailTourNotice from './DetailTourNotice';
 import DetailTourReview from './DetailTourReview/DetailTourReview';
 import DetailTourTitle from './DetailTourTitle/DetailTourTitle';
 import DetailTourTripInfo from './DetailTourTripInfo';
+import Booking from './Booking';
+import { useState } from 'react';
 
 function DetailTour() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const bookingOpen = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
   return (
     <>
       <St.DetailPageWholeWrapper>
         <St.StDetailTourImg />
-        <St.DetailPageWrapper>
+        <St.DetailPageWrapper id="detail-page-wrapper">
           <DetailTourTitle />
           <DetailTourAbout />
           <DetailTourNotice />
+          {modalOpen && <Booking handleModalClose={handleModalClose} />}
           <DetailTourDescription />
           <DetailTourReview />
           <DetailTourTripInfo />
           <DetailTourCourse />
           <DetailTourGuide />
           <DetailTourMore />
-          <DetailPageFloat />
+          <DetailPageFloat bookingOpen={bookingOpen} />
         </St.DetailPageWrapper>
       </St.DetailPageWholeWrapper>
     </>
