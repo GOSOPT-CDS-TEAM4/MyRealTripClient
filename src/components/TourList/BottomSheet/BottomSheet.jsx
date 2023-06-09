@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { setModalData } from '../../../recoil/tourListRecoil';
@@ -8,7 +8,8 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BottomSheet({ clickedModal, title }) {
-  const [modal, setModal] = useRecoilState(setModalData);
+  const setModal = useSetRecoilState(setModalData);
+
   const CloseModal = () => {
     document.body.style.overflowY = 'auto';
     setModal(false);

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { pageData, tourListData } from '../../../recoil/tourListRecoil';
@@ -10,7 +10,7 @@ import TourListCardSquare from '../TourListCardSquare';
 
 function TourListItemSection() {
   const tourList = useRecoilValue(tourListData);
-  const [page, setPage] = useRecoilState(pageData);
+  const setPage = useSetRecoilState(pageData);
   const scrollRef = useRef();
 
   const pagination = (e) => {
