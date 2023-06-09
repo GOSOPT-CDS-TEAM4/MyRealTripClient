@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Slider } from '@mui/material';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import {
@@ -18,16 +18,17 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BsPrice() {
-  const [clickedPrice, setClickedPrice] = useRecoilState(clickedPriceData);
-  const [modal, setModal] = useRecoilState(setModalData);
-  const [minimumPrice, setMinimumPrice] = useRecoilState(minimumPriceData);
-  const [maximumPrice, setMaximumPrice] = useRecoilState(maximumPriceData);
+  const setClickedPrice = useSetRecoilState(clickedPriceData);
+  const setModal = useSetRecoilState(setModalData);
+  const setMinimumPrice = useSetRecoilState(minimumPriceData);
+  const setMaximumPrice = useSetRecoilState(maximumPriceData);
   const [value, setValue] = useState([2000, 390000]);
   const labeltext = (value) => `${addCommasInNumbers(value)}원`;
   const [handleMinimum, setHandleMinimum] = useState(2000);
   const [handleMaximum, setHandleMaximum] = useState(390000);
 
   const tourFull = useRecoilValue(tourFullData);
+
   const resetPrice = () => {
     setMinimumPrice(2000);
     setMaximumPrice(390000);
@@ -45,6 +46,8 @@ function BsPrice() {
   const PriceValue = () => {
     setMinimumPrice(handleMinimum);
     setMaximumPrice(handleMaximum);
+
+    // 모달 끄면서 할 동작들
     document.body.style.overflowY = 'auto';
     setModal(false);
     setClickedPrice(true);
@@ -61,7 +64,7 @@ function BsPrice() {
           style={{ color: theme.Color.gray2 }}
         />
 
-        <div className="slider_box">
+        <St.SliderBox>
           <Slider
             step={1000}
             min={2000}
@@ -73,7 +76,7 @@ function BsPrice() {
             valueLabelFormat={labeltext}
             getAriaValueText={labeltext}
           />
-        </div>
+        </St.SliderBox>
         <Flex justifycontent="space-between" style={{ marginTop: '0px' }}>
           <Flex column={true}>
             <Text type="detail_regular_12" innerText="최저 요금" style={{ color: theme.Color.gray3 }} />
@@ -118,9 +121,6 @@ const St = {
     width: 370px;
 
     /* slider */
-    .slider_box {
-      margin: 16px;
-    }
     .MuiSlider-track {
       width: 5px;
       color: ${({ theme }) => theme.Color.blue1};
@@ -139,6 +139,11 @@ const St = {
       }
     }
   `,
+
+  SliderBox: styled.div`
+    margin: 16px;
+  `,
+
   BottomSheetFooter: styled.div`
     display: flex;
     width: 380px;

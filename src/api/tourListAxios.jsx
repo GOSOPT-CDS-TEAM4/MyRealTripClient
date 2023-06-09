@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import axiosInstance from '../api/axios';
 import {
@@ -16,8 +16,8 @@ import {
 } from '../recoil/tourListRecoil';
 
 const TourListAxios = () => {
-  const [tourList, setTourList] = useRecoilState(tourListData);
-  const [tour, setTour] = useRecoilState(tourFullData);
+  const setTourList = useSetRecoilState(tourListData);
+  const setTour = useSetRecoilState(tourFullData);
   const cityName = useRecoilValue(cityNameData);
   const sort = useRecoilValue(sortData);
   const tourType = useRecoilValue(tourTypeData);
@@ -26,6 +26,7 @@ const TourListAxios = () => {
   const page = useRecoilValue(pageData);
 
   const [searchParams] = useSearchParams();
+
   searchParams.set('city', cityName);
   searchParams.set('order', sort);
   searchParams.set('minimumPrice', minimumPrice);
@@ -36,7 +37,7 @@ const TourListAxios = () => {
   const getRawTourList = async (searchParams) => {
     const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
     try {
-      const response = await axiosInstance.get(`${BASE_URL}filter?${searchParams.toString()}`);
+      const response = await axiosInstance.get(`${BASE_URL}/api/tour/filter?${searchParams.toString()}`);
       setTourList(response.data.data.tourList);
       setTour(response.data.data);
       return response.data.data;

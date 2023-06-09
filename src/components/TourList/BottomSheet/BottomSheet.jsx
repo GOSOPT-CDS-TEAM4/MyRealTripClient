@@ -1,4 +1,4 @@
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { setModalData } from '../../../recoil/tourListRecoil';
@@ -8,7 +8,8 @@ import Icon from '../../layout/atom/Icon';
 import Text from '../../layout/atom/Text';
 
 function BottomSheet({ clickedModal, title }) {
-  const [modal, setModal] = useRecoilState(setModalData);
+  const setModal = useSetRecoilState(setModalData);
+
   const CloseModal = () => {
     document.body.style.overflowY = 'auto';
     setModal(false);
@@ -32,6 +33,7 @@ function BottomSheet({ clickedModal, title }) {
           justifycontent="start"
           alignitems="center"
           style={{ width: '400px', marginLeft: '22px', marginTop: '22px' }}>
+          {/* BottomSheet Header */}
           <St.ButtonWrapper onClick={CloseModal}>
             <Icon type="ic_cancel" style={{ hover: 'cursor', width: '16px', height: '16px' }} />
           </St.ButtonWrapper>

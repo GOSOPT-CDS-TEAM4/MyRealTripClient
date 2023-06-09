@@ -25,13 +25,14 @@ import BsPrice from '../BottomSheet/BsPrice';
 import BsTourType from '../BottomSheet/BsTourType';
 
 function TourListHeaderSection() {
-  const [modal, setModal] = useRecoilState(setModalData);
   const [clickedValue, setClickedValue] = useState('');
   const [clickedModal, setClickedModal] = useState();
   const [title, setTitle] = useState('');
   const [koreanType, setKoreanType] = useState('');
-  const [tourType, setTourType] = useRecoilState(tourTypeData);
-  const [clickedType, setClickedType] = useRecoilState(clickedTypeData);
+
+  const [modal, setModal] = useRecoilState(setModalData);
+  const tourType = useRecoilValue(tourTypeData);
+  const clickedType = useRecoilValue(clickedTypeData);
   const clickedPrice = useRecoilValue(clickedPriceData);
   const minimumPrice = useRecoilValue(minimumPriceData);
   const maximumPrice = useRecoilValue(maximumPriceData);
@@ -40,9 +41,9 @@ function TourListHeaderSection() {
 
   const showModal = (e) => {
     document.body.style.overflowY = 'hidden';
-    console.log(e.target.innerText);
     setModal(true);
-    setClickedValue(e.target.innerText);
+    // Title은 모달열렸을 때 모달 제목 . clickedValue는 모달 열기위한 값
+    setClickedValue(e.target.value);
     setTitle(e.target.innerText);
   };
 
@@ -67,10 +68,10 @@ function TourListHeaderSection() {
       case 'date':
         modalComponent = <BsCalendar />;
         break;
-      case '가격':
+      case 'price':
         modalComponent = <BsPrice />;
         break;
-      case '투어 형태':
+      case 'tourType':
         modalComponent = <BsTourType />;
         break;
       default:
@@ -94,6 +95,7 @@ function TourListHeaderSection() {
         }}>
         <Text type="title_bold_24" innerText={`파리의 투어`} style={{ margin: '14px 17px' }} />
 
+        {/* 필터링 버튼 */}
         <Flex
           justifycontent="start"
           style={{
@@ -193,9 +195,8 @@ const St = {
     ${({ theme }) => theme.Text.body_bold_14};
     white-space: nowrap;
   `,
-  ClickedFilterBtn: styled.div`
-    /* width: fit-content; */
-    /* height: fit-content; */
+
+  ClickedFilterBtn: styled.button`
     all: unset;
     margin-right: 6px;
     outline: 0px;
@@ -207,6 +208,7 @@ const St = {
     ${({ theme }) => theme.Text.body_bold_14};
     white-space: nowrap;
   `,
+
   HorizonLine: styled.div`
     width: 100%;
     border: 2px solid ${({ theme }) => theme.Color.gray9};
